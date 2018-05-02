@@ -1,0 +1,262 @@
+<android.support.design.widget.CoordinatorLayout version="1.0"
+    encoding="utf-8"
+    android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.example.android.vcarechild.Login"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="@color/green"
+            android:layout_width="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_height="?android:attr/actionBarSize">
+
+
+            <com.example.android.vcare.model.Text_view_normal
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/white_new"
+                android:textSize="20dp" />
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:paddingBottom="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+
+
+                    <com.example.android.vcare.model.Button_bold
+                        android:drawableLeft="@mipmap/fb_icon"
+                        android:background="@drawable/fb_btoon_left"
+                        android:textColor="@color/white"
+                        android:padding="10dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false" />
+
+                    <View
+                        android:background="@color/primarydark"
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"></View>
+
+                    <com.example.android.vcare.model.Button_bold
+                        android:id="@+id/fb_login"
+                        android:singleLine="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/fb_button_bg"
+                        android:textColor="@color/white_new"
+                        android:padding="10dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:text="C O N T I N U E   W I T H   F A C E B O O K" />
+
+                    <com.facebook.login.widget.LoginButton
+                        android:id="@+id/fblogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Facebook"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+
+
+                    <com.example.android.vcare.model.Button_bold
+                        android:drawableLeft="@mipmap/gmail_icon"
+                        android:background="@drawable/gmail_bg_right"
+                        android:textColor="@color/white"
+                        android:padding="10dp"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false" />
+
+                    <View
+                        android:background="@color/primarydark"
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"></View>
+
+
+                    <com.example.android.vcare.model.Button_bold
+                        android:id="@+id/google_login"
+                        android:singleLine="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/gmail_button_bg"
+                        android:textColor="@color/white_new"
+                        android:padding="10dp"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:text="C O N T I N U E   W I T H   G M A I L" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/edit_text_linecolor"></View>
+
+
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.example.android.vcare.model.Text_view_normal
+                            android:padding="10dp"
+                            android:textColor="#8e9099"
+                            android:text="O R"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:background="@drawable/circle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:backgroundTint="@color/primarydark"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/input_layout_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null"
+                        android:id="@+id/phone_number"
+                        android:inputType="textEmailAddress"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:padding="10dp"
+                        android:hint="Email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:backgroundTint="@color/primarydark"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/input_layout_otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:id="@+id/otp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:hint="Password"
+                        android:password="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <com.example.android.vcare.model.Button_normal
+                    android:id="@+id/login_button"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_bg"
+                    android:textColor="@color/white_new"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:id="@+id/forgot_pasword"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#262b46"
+                    android:text="Forgot Password ?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:id="@+id/signup"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/green"
+                    android:text="Don't have an account? Sign Up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+            <com.example.android.vcare.model.Text_view_bold
+                android:id="@+id/txt_term"
+                android:layout_alignParentBottom="true"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

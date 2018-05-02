@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white_new"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Title Of message-->
+            <com.example.android.vcare.model.Text_view_bold
+                android:layout_weight="1"
+                android:id="@+id/mesaage_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:typeface="sans"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <!-- Date -->
+            <com.example.android.vcare.model.Text_view_bold
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/datee"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="" />
+
+
+            <com.example.android.vcare.model.Text_view_bold
+                android:gravity="end"
+                android:layout_weight="1"
+                android:id="@+id/timee"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="" />
+
+        </LinearLayout>
+
+            <com.example.android.vcare.model.Text_view_normal
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:padding="5dp"
+                android:text="" />
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"></View>
+
+
+</LinearLayout>

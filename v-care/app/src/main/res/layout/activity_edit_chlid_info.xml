@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.example.android.vcare.Add_device">
+
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Detail"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.android.vcare.model.Edit_text_normal
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null"
+                    android:editable="false"
+                    android:backgroundTint="@color/edit_text_linecolor"
+                    android:textColor="@color/primarydark"
+                    android:id="@+id/name"
+                    android:padding="10dp"
+                    android:hint="Member Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.android.vcare.model.Edit_text_normal
+                    android:singleLine="true"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/edit_text_linecolor"
+                    android:textColor="@color/primarydark"
+                    android:editable="false"
+                    android:id="@+id/email"
+                    android:padding="10dp"
+                    android:hint="Email Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.android.vcare.CustomPhoneInputLayout
+                    android:id="@+id/custom_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></com.example.android.vcare.CustomPhoneInputLayout>
+
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:maxLength="13"
+                        android:singleLine="true"
+                        android:id="@+id/mobile"
+                        android:textCursorDrawable="@null"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:editable="false"
+                        android:padding="10dp"
+                        android:hint="Member mobile number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:id="@+id/speed"
+                        android:maxLength="3"
+                        android:textCursorDrawable="@null"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:hint="max. speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:id="@+id/time"
+                        android:textCursorDrawable="@null"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:layout_marginTop="10dp"
+                        android:maxLength="2"
+                        android:hint="Trace Device in Minutes"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#000"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_radious"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:id="@+id/radious"
+                        android:textCursorDrawable="@null"
+                        android:backgroundTint="@color/edit_text_linecolor"
+                        android:textColor="@color/primarydark"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:maxLength="4"
+                        android:hint="Enter radius in meter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <com.example.android.vcare.model.Button_normal
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_bg"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/white_new" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

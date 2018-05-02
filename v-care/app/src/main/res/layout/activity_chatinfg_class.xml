@@ -1,0 +1,347 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.example.android.vcare.Dashboard">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:id="@+id/toolbar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:background="@color/primarydark"
+        android:padding="10dp"
+        android:id="@+id/sosly"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:id="@+id/info"
+            android:layout_weight="1"
+            android:text="G R O U P  I N F O R M A T I O N"
+            android:textColor="@color/white_new"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:id="@+id/attchment"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_green"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/ic_attach_file_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <com.example.android.vcare.TouchImageView
+        android:visibility="gone"
+        android:layout_below="@+id/sosly"
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <ListView
+        android:layout_below="@+id/sosly"
+        android:id="@+id/msgListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/message_layout"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingBottom="10dp"
+        android:descendantFocusability="blocksDescendants"  />
+
+
+    <LinearLayout
+        android:id="@+id/reveal_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_new"
+        android:orientation="vertical"
+        android:layout_below="@+id/sosly"
+        android:layout_toRightOf="@+id/img"
+        android:layout_toEndOf="@+id/img">
+
+        <LinearLayout
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:src="@drawable/ic_photo_camera_24"
+                    android:id="@+id/gallery"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circle1" />
+
+                <com.example.android.vcare.model.Text_view_normal
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/primarydark"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:src="@drawable/ic_handset_24"
+                    android:id="@+id/audio"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circle_pink" />
+
+                <com.example.android.vcare.model.Text_view_normal
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/primarydark"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Audio" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:src="@drawable/ic_videocam_24"
+                    android:id="@+id/video"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/circle_black" />
+
+                <com.example.android.vcare.model.Text_view_normal
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/primarydark"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Video" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/attachment_line"
+        android:visibility="gone"
+        android:layout_below="@+id/reveal_items"
+        android:background="@color/fb_buttob"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+
+
+    <LinearLayout
+        android:id="@+id/message_layout"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/text_message_layout"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:background="@drawable/sos_edit_bg"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.android.vcare.model.Edit_text_normal
+                    android:maxLines="3"
+                    android:id="@+id/textmessage"
+                    android:textColorHint="@color/white_new"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:background="@drawable/sos_edit_bg"
+                    android:textColor="@color/white_new"
+                    android:hint="Type a message.."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:visibility="gone"
+                    android:background="@color/white_new"
+                    android:layout_width="0.5dip"
+                    android:layout_height="match_parent"></View>
+
+                <LinearLayout
+                    android:id="@+id/image_camera"
+                    android:background="@color/primarydark"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:background="@drawable/ic_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <com.example.android.vcare.model.FrameLayoutFixed
+                android:background="@drawable/sos_edit_bg"
+                android:id="@+id/record_panel"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="2dp"
+                android:visibility="gone">
+
+
+                <LinearLayout
+                    android:id="@+id/slideText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/slidearrow" />
+
+                    <TextView
+                        android:id="@+id/slideToCancelTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        android:textColor="#999999"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/sos_edit_bg"
+                    android:orientation="horizontal"
+                    android:paddingLeft="13dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/rec" />
+
+                    <TextView
+                        android:id="@+id/recording_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        android:text="00:00"
+                        android:textColor="#4d4c4b"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+            </com.example.android.vcare.model.FrameLayoutFixed>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/voice"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_green"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/voice_btn"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_mic_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/send_btn"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_send_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

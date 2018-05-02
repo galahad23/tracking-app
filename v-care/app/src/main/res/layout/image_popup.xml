@@ -1,0 +1,75 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90000000"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/background_popup">
+
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+
+            <com.example.android.vcare.model.Button_bold
+                android:id="@+id/camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/camera"
+                android:padding="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edit_text_background"
+                android:textAllCaps="false"
+                android:text="Camera"/>
+
+
+
+
+            <com.example.android.vcare.model.Button_bold
+                android:id="@+id/gallery"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/gallery"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/edit_text_background"
+                android:textAllCaps="false"
+                android:text="Gallery"/>
+
+
+        </LinearLayout>
+
+
+        <com.example.android.vcare.model.Button_bold
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_bg_black"
+            android:padding="10dp"
+            android:textColor="@color/white_new"
+            android:layout_marginTop="20dp"
+            android:text="Cancel"
+            android:layout_below="@+id/main_layout"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

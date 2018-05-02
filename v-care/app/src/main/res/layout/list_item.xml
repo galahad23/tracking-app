@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dip"
+        android:background="@color/white_new"></View>
+
+    <com.example.android.vcare.model.Text_view_normal
+        android:layout_gravity="center_vertical"
+        android:id="@+id/lblListItem"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text=""
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:fontFamily="Serif"
+        android:textColor="@color/white_new"
+        android:layout_marginLeft="90dp"/>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+        android:background="@color/edit_text_linecolor"
+        android:layout_width="1dip"
+        android:layout_height="match_parent"></View>
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:id="@+id/serial_no"
+            android:padding="10dp"
+            android:text=""
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/edit_text_linecolor"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"></View>
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:id="@+id/address"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@color/edit_text_linecolor"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"></View>
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:id="@+id/date"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content" />
+
+
+        <View
+            android:background="@color/edit_text_linecolor"
+            android:layout_width="1dip"
+            android:layout_height="match_parent"></View>
+
+    </LinearLayout>
+    <View
+        android:background="@color/edit_text_linecolor"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"></View>
+
+</LinearLayout>

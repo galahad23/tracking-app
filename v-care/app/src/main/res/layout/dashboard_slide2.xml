@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:background="@drawable/risk_managment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.example.android.vcare.model.Text_view_bold
+        android:textColor="@color/white_new"
+        android:padding="6dp"
+        android:textSize="10sp"
+        android:layout_alignParentBottom="true"
+        android:text="Managing your risk with small investment in v2care, you life would be more meaningful and happy when you are on travel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

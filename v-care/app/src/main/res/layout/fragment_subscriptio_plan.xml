@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.example.android.vcare.Dashboard">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:background="@drawable/layout_bg"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TableRow
+                android:padding="10dp">
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:textStyle="bold"
+                    android:textColor="@color/primarydark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Plan : " />
+
+                <com.example.android.vcare.model.Text_view_normal
+                    android:id="@+id/planname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:padding="10dp">
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:textStyle="bold"
+                    android:textColor="@color/primarydark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price : " />
+                <com.example.android.vcare.model.Text_view_normal
+                    android:id="@+id/planprice"
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <View
+                android:background="@color/edit_text_linecolor"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"></View>
+
+           <LinearLayout
+               android:padding="10dp"
+               android:gravity="center"
+               android:layout_gravity="center"
+               android:orientation="vertical"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content">
+
+
+               <com.example.android.vcare.model.Text_view_bold
+                   android:id="@+id/expry_plan"
+                   android:textColor="@color/primarydark"
+                   android:textStyle="bold"
+                   android:text=""
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+              <!-- <com.example.android.vcareparent.model.Text_view_bold
+                   android:text="2017-01-22, 12:55 am"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />-->
+
+               </LinearLayout>
+
+
+        </TableLayout>
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+        <com.example.android.vcare.model.Button_bold
+            android:id="@+id/select_plan"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_bg"
+            android:textColor="@color/white_new"
+            android:text="Upgrade Plan"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>
+

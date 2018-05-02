@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.pkmmte.view.CircularImageView
+            android:padding="8dp"
+            android:id="@+id/userimage"
+            android:background="@drawable/header_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:id="@+id/username"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:text="username"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:id="@+id/nextButton"
+                    android:background="@drawable/ic_next_arrow"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+
+            <View
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:background="@color/edit_text_linecolor"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"></View>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

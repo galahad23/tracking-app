@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.vcare.Memberss">
+
+
+    <LinearLayout
+        android:visibility="visible"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:id="@+id/add_kids_layout"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:textSize="15dp"
+            android:text="You have not added any Member /"
+            android:textColor="@color/white_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:textSize="15dp"
+            android:text=" Add Now"
+            android:textColor="@color/green_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:layout_below="@+id/add_kids_layout"
+        android:layout_above="@+id/add_kids"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+    <com.example.android.vcare.model.Button_normal
+        android:visibility="visible"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/add_kids"
+        android:background="@drawable/button_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:text="Add Members"
+        android:textColor="@color/white_new"/>
+
+</RelativeLayout>

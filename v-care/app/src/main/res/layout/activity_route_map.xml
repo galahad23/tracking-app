@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.vcare.Route_map">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complete Route"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></WebView>
+
+
+</RelativeLayout>

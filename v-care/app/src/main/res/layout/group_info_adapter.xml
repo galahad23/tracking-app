@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:padding="10dp"
+        android:background="@color/edit_text_linecolor"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:clickable="false"
+            android:checked="true"
+            android:layout_weight="1"
+            android:id="@+id/checkbox"
+            android:padding="10dp"
+            android:buttonTint="@color/fb_buttob"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:padding="10dp"
+            android:id="@+id/request_type"
+            android:visibility="gone"
+            android:background="@drawable/button_transparent"
+            android:textColor="@color/green_new"
+            android:text="Pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:visibility="gone"
+            android:padding="10dp"
+            android:id="@+id/admin"
+            android:textColor="@color/green_new"
+            android:background="@drawable/button_transparent"
+            android:text="Group Admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:id="@+id/view1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:background="@drawable/circle_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@drawable/ic_visibility_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/admin_layout"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/view"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:background="@drawable/circle_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@drawable/ic_visibility_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/delete"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:background="@drawable/circle_pink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@drawable/ic_clear_24_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

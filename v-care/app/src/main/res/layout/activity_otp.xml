@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <com.example.android.vcare.model.Text_view_bold
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="@string/otp_message"/>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/primarydark"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/input_layout_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Edit_text_normal
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:id="@+id/otp"
+            android:backgroundTint="@color/edit_text_linecolor"
+            android:textColor="@color/primarydark"
+            android:padding="10dp"
+            android:hint="OTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <com.example.android.vcare.model.Button_normal
+        android:id="@+id/login"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white_new"
+        android:text="Confirm OTP"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <com.example.android.vcare.model.Button_normal
+        android:visibility="visible"
+        android:id="@+id/resend"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white_new"
+        android:text="Resend OTP"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

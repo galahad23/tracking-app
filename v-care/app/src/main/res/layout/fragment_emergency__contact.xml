@@ -1,0 +1,206 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.example.android.vcare.Emergency_Contact">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_green">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="1"
+                        android:textColor="@color/background"
+                        android:textSize="17sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyPersonFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency_person"
+                        android:inputType="textCapWords"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyNumberFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_green">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="2"
+                        android:textColor="@color/background"
+                        android:textSize="17sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyPersonSecond"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency_person"
+                        android:inputType="textCapWords"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyNumberSecond"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_green">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="3"
+                        android:textColor="@color/background"
+                        android:textSize="17sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyPersonThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency_person"
+                        android:inputType="textCapWords"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+
+                    <com.example.android.vcare.model.Edit_text_normal
+                        android:id="@+id/emergencyNumberThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="@string/emergency"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:textColor="#000"
+                        android:textColorHint="#000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submitEmergencyNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_bg"
+                android:text="S u b m i t"
+                android:textColor="@color/background" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

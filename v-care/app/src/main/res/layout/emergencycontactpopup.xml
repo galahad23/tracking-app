@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_new"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fb_buttob"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.example.android.vcare.model.Text_view_bold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Emergency Contact"
+                    android:textColor="@color/white_new"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_clear_24" />
+
+            </LinearLayout>
+
+
+            <com.example.android.vcare.model.Text_view_bold
+                android:id="@+id/callText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Choose below number to call in case of any emergency."
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/layoutFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginLeft="30dp"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/personNameFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/personNumberFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_call"
+                    android:drawablePadding="5dp"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginLeft="30dp"
+                android:padding="5dp">
+
+
+                <TextView
+                    android:id="@+id/personNameSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/personNumberSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_call"
+                    android:drawablePadding="5dp"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/layoutThird"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+                <TextView
+                    android:id="@+id/personNameThird"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/personNumberThird"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:drawableLeft="@drawable/ic_call"
+                    android:drawablePadding="5dp"
+                    android:text="Person"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <com.example.android.vcare.model.Text_view_bold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="30dp"
+                android:visibility="gone"
+                android:text="Don't want to call, Click below to text."
+                android:textColor="@color/white" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:buttonTint="@color/Red"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/paypal"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:textSize="10dp"
+                    android:textColor="@color/white_new"
+                    android:background="@color/fb_buttob"
+                    android:textAllCaps="true"
+                    android:text="SOS TO Members"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <RadioButton
+                    android:gravity="center"
+                    android:buttonTint="@color/Red"
+                    android:layout_weight="1"
+                    android:id="@+id/smoovpay"
+                    android:padding="10dp"
+                    android:layout_margin="10dp"
+                    android:textSize="10dp"
+                    android:textColor="@color/white_new"
+                    android:background="@color/fb_buttob"
+                    android:text="SOS TO PARENT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </RadioGroup>
+
+
+            <com.example.android.vcare.model.Button_bold
+                android:id="@+id/select_plan"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_bg"
+                android:textColor="@color/white_new"
+                android:text="O K"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+            <com.example.android.vcare.model.Button_bold
+                android:id="@+id/clickHere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:background="@drawable/button_bg"
+                android:text="Click here"
+                android:textAllCaps="false"
+                android:textColor="@color/white_new" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

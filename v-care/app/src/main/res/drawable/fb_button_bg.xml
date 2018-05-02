@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/fb_buttob" />
+    <stroke android:width="1dip" android:color="@color/fb_buttob" />
+    <corners
+        android:bottomRightRadius="25dp"
+        android:bottomLeftRadius="0dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="25dp"/>
+
+</shape>

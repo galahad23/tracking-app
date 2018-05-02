@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "703617623400",
+    "firebase_url": "https://vcare-1590c.firebaseio.com",
+    "project_id": "vcare-1590c",
+    "storage_bucket": "vcare-1590c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703617623400:android:e6ffc448cd4c76a6",
+        "android_client_info": {
+          "package_name": "com.example.android.vcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703617623400-4p7ht9r6n2c40un1n1qb0prfo7qp13cj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.vcare",
+            "certificate_hash": "5d8f6d8a8e3131733c43ee516ca94c0e6d7e1534"
+          }
+        },
+        {
+          "client_id": "703617623400-jngn3jebmoo91ti0c6g2iquu0t8cfadd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.vcare",
+            "certificate_hash": "771a304986de2a5dee927ae9a5c7a8fb2d1fc80c"
+          }
+        },
+        {
+          "client_id": "703617623400-ife6ofqh1pjtcef0ulk4mu1gtc09l5cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB9RhjEsMDkAw1f7OtYZlEv45K0adTiyE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703617623400-ife6ofqh1pjtcef0ulk4mu1gtc09l5cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

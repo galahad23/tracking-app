@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">v2care</string>
+
+
+    <string name="pref_name">My pref</string>
+
+
+
+
+
+    // fb login
+
+    <!--<string name="facebook_app_id">123929844738010</string>-->
+    <string name="facebook_app_id">888678837928814</string>
+    <string name="google_key">AIzaSyAx5nKYxOa2ducZ7jLhuBjZxmQ4MyN9MXY</string>
+    <!--<string name="google_key">AIzaSyDB9RhjEsMDkAw1f7OtYZlEv45K0adTiyE</string>-->
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    // gcm messaging
+    <string name="gcm_unregistered">GCM: device successfully unregistered!</string>
+    <string name="gcm_error">GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">GCM: server deleted %1$d pending messages!</string>
+
+
+    <string name="com_lamudi_phonefield_edittext">phone_edit_text</string>
+    <string name="com_lamudi_phonefield_flag_spinner">flag_spinner</string>
+    <string name="com_lamudi_phonefield_til_phone">til_phone</string>
+
+    <string name="running">Route in process…</string>
+    <string name="notification">Max Speed : %1$s, Distance : %2$s.</string>
+
+    <string name="noti_id" translatable="false">Speedmeterisanid</string>
+    <string name="otp_message">OTP code is valid for 3 minutes only</string>
+    <string name="groupText">Please take photo or upload image for your group before entering group name and click on Next button</string>
+    <string name="share_contant"><![CDATA[I would like to invite you to download this v2care Apps, a traceability system and risk management for your love one. It also provides a closer communication link among your friends, family in the case of emergency. Download : http://go4drupal.com/gps_tracker/v2care.apk]]></string>
+    <string name="emergency">Emergency Contact number</string>
+    <string name="emergency_person">Emergency Contact Person Name</string>
+</resources>

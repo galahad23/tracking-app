@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.vcare.Edit_single_zone">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Zone"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+
+
+
+
+<LinearLayout
+    android:layout_below="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Text_view_bold
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text="Start Date And Time:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <com.example.android.vcare.model.Edit_text_normal
+            android:focusable="false"
+            android:id="@+id/startdate"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Text_view_bold
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text="End Date And Time:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <com.example.android.vcare.model.Edit_text_normal
+            android:focusable="false"
+            android:id="@+id/enddate"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Text_view_bold
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text="Zone:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <AutoCompleteTextView
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:id="@+id/zone"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <com.example.android.vcare.model.Button_bold
+       android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_bg_corner"
+        android:layout_weight="1"
+        android:text="UPDATE"
+        android:textColor="@color/white_new"
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pkmmte.view.CircularImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/user_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        app:border ="true"
+        app:border_width="1dp"
+        app:shadow="true"
+        android:src="@drawable/header_icon"/>
+
+    <com.example.android.vcare.model.Text_view_normal
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:id="@+id/nav_header_name"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white_new"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context="com.example.android.vcare.Maps">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Member View"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_new"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/marker" />
+
+-->
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/memberly"
+        android:gravity="center"
+        android:background="#90000000"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:id="@+id/membername"
+            android:text=""
+            android:textColor="@color/white_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <com.google.android.gms.maps.MapView
+        android:layout_below="@+id/memberly"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        map:uiCompass="true"
+        android:background="#00000000" />
+
+
+</RelativeLayout>

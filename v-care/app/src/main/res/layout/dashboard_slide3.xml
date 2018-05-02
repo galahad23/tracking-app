@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:background="@drawable/kids_safe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.example.android.vcare.model.Text_view_bold
+        android:textColor="@color/white_new"
+        android:padding="6dp"
+        android:textSize="10sp"
+        android:layout_alignParentBottom="true"
+        android:text="You love your kid, and you wanted to protect them wherever their go, v2care assist you to manage your expectation and bring awareness of your kids location."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

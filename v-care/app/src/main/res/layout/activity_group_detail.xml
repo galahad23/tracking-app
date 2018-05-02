@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.example.android.vcare.Select_member">
+
+    <android.support.v7.widget.Toolbar
+        android:visibility="visible"
+        android:id="@+id/toolbar"
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.example.android.vcare.model.Text_view_bold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/mainlayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+<LinearLayout
+    android:visibility="visible"
+    android:id="@+id/hader_layout"
+    android:background="@color/fb_buttob"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <com.pkmmte.view.CircularImageView
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"
+            android:id="@+id/user_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            app:border ="true"
+            app:border_width="1dp"
+            app:shadow="true"
+            android:src="@drawable/blankprofile"/>
+
+
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.example.android.vcare.model.Text_view_normal
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:id="@+id/groupname"
+            android:textSize="20sp"
+            android:textColor="@color/white_new"
+            android:text="Android Group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:id="@+id/edit_groupname"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/white_circle"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@mipmap/edit_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/edit_layout"
+        android:background="@color/fb_buttob"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/imagly"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            >
+
+            <com.pkmmte.view.CircularImageView
+                android:scaleType="fitCenter"
+                android:layout_marginTop="10dp"
+                android:id="@+id/user_image_edit"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                app:border ="true"
+                app:border_width="1dp"
+                app:shadow="true"
+                android:src="@drawable/group_icon"/>
+
+
+            <LinearLayout
+                android:id="@+id/add_picture"
+                android:background="@drawable/white_circle"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp">
+
+                <ImageView
+                    android:background="@drawable/ic_add_green_24"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.example.android.vcare.model.Edit_text_normal
+                android:singleLine="true"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:id="@+id/groupname_edit"
+                android:textSize="20sp"
+                android:textColor="@color/white_new"
+                android:text="Android Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.example.android.vcare.model.Button_bold
+                android:id="@+id/update_group"
+                android:layout_gravity="center"
+                android:textColor="@color/white_new"
+                android:background="@color/white"
+                android:text="Update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_below="@+id/mainlayout"
+        android:id="@+id/map_ly"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.android.vcare.model.Text_view_bold
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_weight="1"
+            android:padding="10dp"
+           android:text="Click here to see all members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_gravity="center"
+            android:background="@drawable/ic_place_black_24dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+       android:layout_marginBottom="10dp"
+        android:layout_below="@+id/map_ly"
+        android:layout_above="@+id/view"
+        android:id="@+id/recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_above="@+id/buttonly"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"></View>
+
+    <LinearLayout
+        android:id="@+id/buttonly"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/add_member"
+            android:padding="10dp"
+            android:background="@color/green"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/white_circle"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_add_green_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <com.example.android.vcare.model.Text_view_normal
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Add Member"
+                android:textColor="@color/white_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/white"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"></View>
+
+        <LinearLayout
+            android:id="@+id/delete_group"
+            android:padding="10dp"
+            android:background="@color/white_new"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_green"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_clear_24_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <com.example.android.vcare.model.Text_view_normal
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Delete Group"
+                android:textColor="@color/fb_buttob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,14 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:activatedBackgroundIndicator">@drawable/muliple_selected_item</item>
+        <!--<item name="android:activatedBackgroundIndicator">@drawable/muliple_selected_item</item>-->
+    </style>
+
+    <style name="AppTheme.SplashScreen">
+        <item name="android:windowBackground">@color/splash_screen_color</item>
+    </style>
+
+    <style name="AppTheme.White">
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="animationName" parent="android:Animation">

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context="com.example.android.vcare.Zoom_image">
+    tools:context="com.example.android.vcare.pending.Zoom_image">
 
 
-    <com.example.android.vcare.TouchImageView
+    <com.example.android.vcare.pending.TouchImageView
         android:layout_centerInParent="true"
         android:id="@+id/zoom_image"
         android:layout_width="match_parent"

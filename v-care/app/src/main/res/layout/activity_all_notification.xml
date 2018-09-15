@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.vcare.All_notification">
+    tools:context="com.example.android.vcare.pending.All_notification">
 
 
     <android.support.v7.widget.Toolbar
@@ -13,7 +13,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:padding="10dp"
             android:textSize="15dp"
             android:text="You have not any Notification Yet"

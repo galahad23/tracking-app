@@ -5,17 +5,17 @@
 
     <ImageView
         android:layout_centerInParent="true"
-        android:background="@drawable/risk_managment"
+        android:background="@drawable/welcome_banner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 
-    <com.example.android.vcare.model.Text_view_bold
+    <com.example.android.vcare.model2.Text_view_bold
         android:textColor="@color/white_new"
         android:padding="6dp"
         android:textSize="10sp"
         android:layout_alignParentBottom="true"
-        android:text="Managing your risk with small investment in v2care, you life would be more meaningful and happy when you are on travel"
+        android:text="@string/welcome_banner_desc2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

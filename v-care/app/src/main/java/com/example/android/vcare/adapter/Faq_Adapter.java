@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.android.vcare.model.Faq_Details;
+import com.example.android.vcare.model2.Faq_Details;
 import com.example.android.vcare.R;
 import java.util.List;
 

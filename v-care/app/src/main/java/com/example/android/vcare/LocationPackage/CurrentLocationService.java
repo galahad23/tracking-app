@@ -16,7 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.text.SpannableString;
 import android.util.Log;
 
-import com.example.android.vcare.Constant;
+import com.example.android.vcare.pending.Constant;
 import com.example.android.vcare.R;
 
 import java.math.BigDecimal;

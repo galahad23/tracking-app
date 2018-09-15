@@ -11,7 +11,7 @@
         android:layout_height="?android:attr/actionBarSize">
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OTP"
@@ -22,7 +22,7 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <com.example.android.vcare.model.Text_view_bold
+    <com.example.android.vcare.model2.Text_view_bold
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -34,19 +34,19 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/primarydark"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:id="@+id/input_layout_otp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Edit_text_normal
+        <com.example.android.vcare.model2.Edit_text_normal
             android:singleLine="true"
             android:textCursorDrawable="@null"
             android:id="@+id/otp"
             android:backgroundTint="@color/edit_text_linecolor"
-            android:textColor="@color/primarydark"
+            android:textColor="@color/colorPrimaryDark"
             android:padding="10dp"
             android:hint="OTP"
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <com.example.android.vcare.model.Button_normal
+    <com.example.android.vcare.model2.Button_normal
         android:id="@+id/login"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -68,7 +68,7 @@
 
 
 
-    <com.example.android.vcare.model.Button_normal
+    <com.example.android.vcare.model2.Button_normal
         android:visibility="visible"
         android:id="@+id/resend"
         android:layout_marginLeft="20dp"

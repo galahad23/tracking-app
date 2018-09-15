@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.vcare.Paypal_integration">
+    tools:context="com.example.android.vcare.pending.Paypal_integration">
 
 
 
@@ -14,7 +14,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -37,7 +37,7 @@
         android:layout_centerVertical="true">
 
         <TextView
-            android:textColor="@color/primarydark"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enter Amount"
@@ -52,7 +52,7 @@
 
         <Button
             android:textColor="@color/white_new"
-            android:background="@color/fb_buttob"
+            android:background="@color/blue"
             android:id="@+id/buttonPay"
             android:text="Pay Now"
             android:layout_width="match_parent"

@@ -17,7 +17,7 @@
         android:layout_width="1dip"
         android:layout_height="match_parent"></View>
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/serial_no"
             android:padding="10dp"
             android:text=""
@@ -30,7 +30,7 @@
             android:layout_width="1dip"
             android:layout_height="match_parent"></View>
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/address"
             android:layout_weight="1"
             android:padding="10dp"
@@ -44,7 +44,7 @@
             android:layout_height="match_parent"></View>
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/date"
             android:padding="10dp"
             android:text=""

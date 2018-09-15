@@ -31,7 +31,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-          <com.example.android.vcare.model.Text_view_bold
+          <com.example.android.vcare.model2.Text_view_bold
               android:id="@+id/username"
               android:ellipsize="end"
               android:singleLine="true"
@@ -44,7 +44,7 @@
 
      <CheckBox
        android:id="@+id/checkbox"
-       android:buttonTint="@color/fb_buttob"
+       android:buttonTint="@color/blue"
        android:textColor="@color/white"
        android:text=""
        android:layout_width="wrap_content"

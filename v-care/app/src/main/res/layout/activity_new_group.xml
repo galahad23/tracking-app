@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.New_group">
+    tools:context="com.example.android.vcare.pending.New_group">
 
 
     <android.support.v7.widget.Toolbar
@@ -15,7 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Group"
@@ -68,7 +68,7 @@
     </RelativeLayout>
 
 
-    <com.example.android.vcare.model.Text_view_normal
+    <com.example.android.vcare.model2.Text_view_normal
         android:id="@+id/grpname"
         android:textSize="15sp"
         android:layout_marginTop="30dp"
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content" />
 
 
-<com.example.android.vcare.model.Edit_text_normal
+<com.example.android.vcare.model2.Edit_text_normal
     android:padding="10dp"
     android:hint="Group name"
     android:textColorHint="@color/white_new"
@@ -98,7 +98,7 @@
     android:layout_height="50dp" />
 
 
-    <com.example.android.vcare.model.Button_normal
+    <com.example.android.vcare.model2.Button_normal
         android:layout_below="@+id/groupname"
         android:id="@+id/add_group"
         android:layout_margin="10dp"

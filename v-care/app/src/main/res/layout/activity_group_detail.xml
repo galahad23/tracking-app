@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.android.vcare.Select_member">
+    tools:context="com.example.android.vcare.pending.Select_member">
 
     <android.support.v7.widget.Toolbar
         android:visibility="visible"
@@ -16,7 +16,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -39,7 +39,7 @@
 <LinearLayout
     android:visibility="visible"
     android:id="@+id/hader_layout"
-    android:background="@color/fb_buttob"
+    android:background="@color/blue"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content">
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:singleLine="true"
             android:layout_weight="1"
             android:padding="10dp"
@@ -105,7 +105,7 @@
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/edit_layout"
-        android:background="@color/fb_buttob"
+        android:background="@color/blue"
         android:layout_below="@+id/toolbar"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -158,7 +158,7 @@
             android:layout_height="wrap_content">
 
 
-            <com.example.android.vcare.model.Edit_text_normal
+            <com.example.android.vcare.model2.Edit_text_normal
                 android:singleLine="true"
                 android:layout_weight="1"
                 android:padding="10dp"
@@ -169,7 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <com.example.android.vcare.model.Button_bold
+            <com.example.android.vcare.model2.Button_bold
                 android:id="@+id/update_group"
                 android:layout_gravity="center"
                 android:textColor="@color/white_new"
@@ -196,7 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:singleLine="true"
             android:ellipsize="end"
             android:layout_weight="1"
@@ -269,7 +269,7 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:padding="10dp"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -310,12 +310,12 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:padding="10dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Delete Group"
-                android:textColor="@color/fb_buttob"
+                android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

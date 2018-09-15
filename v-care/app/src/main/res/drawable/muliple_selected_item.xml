@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="@android:integer/config_shortAnimTime">
-    <item android:drawable="@color/pf_grey_light" android:state_activated="true" android:state_pressed="true"></item>
-    <item android:drawable="@color/pf_grey_light" android:state_activated="true"></item>
-
-    <item android:drawable="@color/background"></item>
-    <item android:drawable="@color/background" android:state_enabled="true"></item>
+    <item android:drawable="@color/pf_grey_light" android:state_activated="true" android:state_pressed="true" />
+    <item android:drawable="@color/pf_grey_light" android:state_activated="true" />
+    <item android:drawable="@color/background" />
+    <item android:drawable="@color/background" android:state_enabled="true" />
 </selector>

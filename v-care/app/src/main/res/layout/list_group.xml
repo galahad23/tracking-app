@@ -26,7 +26,7 @@
             />
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/lblListHeader"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

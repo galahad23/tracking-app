@@ -5,16 +5,16 @@
 
     <ImageView
         android:layout_centerInParent="true"
-        android:background="@drawable/parent_safty"
+        android:background="@drawable/welcome_banner5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 
-    <com.example.android.vcare.model.Text_view_bold
+    <com.example.android.vcare.model2.Text_view_bold
         android:textColor="@color/white_new"
         android:padding="6dp"
         android:textSize="10sp"
-        android:text="Aging population and ageing parent is your main concern.  Your aged parent with v2care product, you would be less worry if the lost their way."
+        android:text="@string/welcome_banner_desc5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

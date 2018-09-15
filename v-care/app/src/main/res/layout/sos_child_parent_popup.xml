@@ -25,11 +25,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:background="@color/fb_buttob"
+                android:background="@color/blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:textColor="@color/white_new"
@@ -51,7 +51,7 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:textColor="@color/white"
                 android:padding="10dp"
                 android:text="Please Select One To You Want Send A SOS "
@@ -75,7 +75,7 @@
                     android:layout_margin="10dp"
                     android:textSize="10dp"
                     android:textColor="@color/white_new"
-                    android:background="@color/fb_buttob"
+                    android:background="@color/blue"
                     android:textAllCaps="true"
                     android:text="SOS TO Members"
                     android:layout_width="match_parent"
@@ -91,7 +91,7 @@
                     android:layout_margin="10dp"
                     android:textSize="10dp"
                     android:textColor="@color/white_new"
-                    android:background="@color/fb_buttob"
+                    android:background="@color/blue"
                     android:text="SOS TO PARENT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -99,7 +99,7 @@
             </RadioGroup>
 
 
-            <com.example.android.vcare.model.Button_bold
+            <com.example.android.vcare.model2.Button_bold
                 android:id="@+id/select_plan"
                android:layout_margin="10dp"
                 android:background="@drawable/button_bg"

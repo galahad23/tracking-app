@@ -66,7 +66,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/member_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/member_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Dashboard">
+    >
 
 
     <android.support.v4.widget.NestedScrollView
@@ -30,9 +30,10 @@
                 android:background="@color/colorPrimary"
                 android:orientation="horizontal"
                 android:padding="5dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/notification_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,7 +52,7 @@
             </LinearLayout>
 
 
-            ///////////////// child ststus //////////////////
+            <!--///////////////// child ststus //////////////////-->
 
 
             <LinearLayout
@@ -74,7 +75,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <com.example.android.vcare.model.Text_view_bold
+                    <com.example.android.vcare.model2.Text_view_bold
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Location Tracking:"
@@ -82,7 +83,7 @@
                         android:textSize="15sp" />
 
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/tracker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -101,7 +102,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <com.example.android.vcare.model.Text_view_bold
+                    <com.example.android.vcare.model2.Text_view_bold
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Battery:"
@@ -109,7 +110,7 @@
                         android:textSize="15sp" />
 
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/battry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -128,7 +129,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <com.example.android.vcare.model.Text_view_bold
+                    <com.example.android.vcare.model2.Text_view_bold
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Speed:"
@@ -136,7 +137,7 @@
                         android:textSize="15sp" />
 
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/speed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -153,7 +154,7 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <com.example.android.vcare.model.Text_view_bold
+                    <com.example.android.vcare.model2.Text_view_bold
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:text="Current Location:"
@@ -161,7 +162,7 @@
                         android:textSize="15sp" />
 
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,7 +173,7 @@
             </LinearLayout>
 
 
-            //............ Add Layout..........................
+            <!--//............ Add Layout..........................-->
 
             <LinearLayout
                 android:id="@+id/add_layout"
@@ -182,6 +183,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal"
+                tools:visibility="visible"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -194,7 +196,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -236,7 +238,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -263,7 +265,7 @@
 
             </LinearLayout>
 
-            ///////////////////// Parent layout//////////////
+            <!--///////////////////// Parent layout//////////////-->
 
 
             <LinearLayout
@@ -273,6 +275,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                tools:visibility="visible"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -285,7 +288,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -310,7 +313,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@mipmap/on_device" />
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:id="@+id/active_parent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -333,7 +336,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@mipmap/off_device" />
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:id="@+id/inactive_parent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -358,7 +361,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -367,7 +370,7 @@
                         android:textAllCaps="true"
                         android:textColor="#000000" />
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/total_parent_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -381,7 +384,7 @@
             </LinearLayout>
 
 
-            /////////////// Main Layout child........................
+            <!--/////////////// Main Layout child........................-->
 
             <LinearLayout
                 android:id="@+id/main_layout"
@@ -396,6 +399,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    tools:visibility="visible"
                     android:visibility="gone">
 
 
@@ -418,7 +422,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -443,7 +447,7 @@
                                         android:layout_height="wrap_content"
                                         android:background="@mipmap/on_device" />
 
-                                    <com.example.android.vcare.model.Text_view_normal
+                                    <com.example.android.vcare.model2.Text_view_normal
                                         android:id="@+id/active_child"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -466,7 +470,7 @@
                                         android:layout_height="wrap_content"
                                         android:background="@mipmap/off_device" />
 
-                                    <com.example.android.vcare.model.Text_view_normal
+                                    <com.example.android.vcare.model2.Text_view_normal
                                         android:id="@+id/inactive_child"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -491,7 +495,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -528,7 +532,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -537,7 +541,7 @@
                                 android:textAllCaps="true"
                                 android:textColor="#000000" />
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:id="@+id/total_group"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -559,7 +563,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <com.example.android.vcare.model.Text_view_normal
+                            <com.example.android.vcare.model2.Text_view_normal
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -590,10 +594,11 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
+                tools:visibility="visible"
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -604,7 +609,7 @@
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
-                <com.example.android.vcare.model.Button_bold
+                <com.example.android.vcare.model2.Button_bold
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="right"
@@ -637,9 +642,10 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
+                tools:visibility="visible"
                 android:visibility="gone">
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/titleDevice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -650,7 +656,7 @@
                     android:textColor="@color/button"
                     android:textSize="15sp" />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -661,7 +667,7 @@ management purpose by your member"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
-                <com.example.android.vcare.model.Button_bold
+                <com.example.android.vcare.model2.Button_bold
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="right"
@@ -680,11 +686,8 @@ management purpose by your member"
                     android:layout_below="@+id/view"
                     android:paddingBottom="20dp" />
 
-
             </LinearLayout>
-
-
-            /////////////add For Slider.................
+            <!--/////////////add For Slider.................-->
 
             <LinearLayout
                 android:id="@+id/slider_ly"
@@ -693,18 +696,18 @@ management purpose by your member"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                tools:visibility="visible"
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <com.example.android.vcare.model.AutoScrollViewPager
+                <com.example.android.vcare.model2.AutoScrollViewPager
                     android:id="@+id/mypager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/toolbar"
                     android:background="#000" />
 
-
-                <com.example.android.vcare.model.CirclePageIndicator
+                <com.example.android.vcare.model2.CirclePageIndicator
                     android:id="@+id/indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

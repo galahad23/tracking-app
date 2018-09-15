@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.android.vcare.Emergency_Contact">
+    tools:context="com.example.android.vcare.pending.Emergency_Contact">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:orientation="vertical">
 
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyPersonFirst"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -60,7 +60,7 @@
                         android:textColor="#000"
                         android:textColorHint="#000" />
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyNumberFirst"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -106,7 +106,7 @@
                     android:layout_marginLeft="5dp"
                     android:orientation="vertical">
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyPersonSecond"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -118,7 +118,7 @@
                         android:textColor="#000"
                         android:textColorHint="#000" />
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyNumberSecond"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -164,7 +164,7 @@
                     android:orientation="vertical">
 
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyPersonThird"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -176,7 +176,7 @@
                         android:textColor="#000"
                         android:textColorHint="#000" />
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:id="@+id/emergencyNumberThird"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"

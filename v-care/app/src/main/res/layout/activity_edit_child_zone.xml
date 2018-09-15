@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Multiple_Zone">
+    tools:context="com.example.android.vcare.pending.Multiple_Zone">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="@color/green"
@@ -12,7 +12,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit Zone"
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Button_bold
+        <com.example.android.vcare.model2.Button_bold
             android:visibility="gone"
             android:layout_marginRight="5dp"
             android:background="@drawable/button_bg_corner"
@@ -57,7 +57,7 @@
 
 
 
-        <com.example.android.vcare.model.Button_bold
+        <com.example.android.vcare.model2.Button_bold
             android:layout_marginLeft="0dp"
             android:background="@drawable/button_bg_corner"
             android:layout_weight="1"

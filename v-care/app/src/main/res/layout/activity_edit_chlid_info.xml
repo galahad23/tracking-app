@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Add_device">
+    tools:context="com.example.android.vcare.pending.Add_device">
 
 
 
@@ -17,7 +17,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit Detail"
@@ -48,12 +48,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:singleLine="true"
                     android:textCursorDrawable="@null"
                     android:editable="false"
                     android:backgroundTint="@color/edit_text_linecolor"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:id="@+id/name"
                     android:padding="10dp"
                     android:hint="Member Name"
@@ -71,11 +71,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:singleLine="true"
                     android:textCursorDrawable="@null"
                     android:backgroundTint="@color/edit_text_linecolor"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:editable="false"
                     android:id="@+id/email"
                     android:padding="10dp"
@@ -92,10 +92,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.CustomPhoneInputLayout
+                <com.example.android.vcare.pending.CustomPhoneInputLayout
                     android:id="@+id/custom_phone"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.example.android.vcare.CustomPhoneInputLayout>
+                    android:layout_height="wrap_content"></com.example.android.vcare.pending.CustomPhoneInputLayout>
 
 
 
@@ -105,13 +105,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:maxLength="13"
                         android:singleLine="true"
                         android:id="@+id/mobile"
                         android:textCursorDrawable="@null"
                         android:backgroundTint="@color/edit_text_linecolor"
-                        android:textColor="@color/primarydark"
+                        android:textColor="@color/colorPrimaryDark"
                         android:editable="false"
                         android:padding="10dp"
                         android:hint="Member mobile number"
@@ -135,14 +135,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:singleLine="true"
                         android:inputType="number"
                         android:id="@+id/speed"
                         android:maxLength="3"
                         android:textCursorDrawable="@null"
                         android:backgroundTint="@color/edit_text_linecolor"
-                        android:textColor="@color/primarydark"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_marginTop="10dp"
                         android:padding="10dp"
                         android:hint="max. speed"
@@ -172,7 +172,7 @@
                         android:id="@+id/time"
                         android:textCursorDrawable="@null"
                         android:backgroundTint="@color/edit_text_linecolor"
-                        android:textColor="@color/primarydark"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_marginTop="10dp"
                         android:maxLength="2"
                         android:hint="Trace Device in Minutes"
@@ -206,13 +206,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.example.android.vcare.model.Edit_text_normal
+                    <com.example.android.vcare.model2.Edit_text_normal
                         android:inputType="number"
                         android:singleLine="true"
                         android:id="@+id/radious"
                         android:textCursorDrawable="@null"
                         android:backgroundTint="@color/edit_text_linecolor"
-                        android:textColor="@color/primarydark"
+                        android:textColor="@color/colorPrimaryDark"
                         android:layout_marginTop="10dp"
                         android:padding="10dp"
                         android:maxLength="4"
@@ -223,7 +223,7 @@
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
-            <com.example.android.vcare.model.Button_normal
+            <com.example.android.vcare.model2.Button_normal
                 android:id="@+id/update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

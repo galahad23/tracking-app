@@ -20,7 +20,7 @@
 
 
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_weight="1"
             android:id="@+id/groupname"
             android:padding="10dp"

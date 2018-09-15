@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:id="@+id/username"
                     android:ellipsize="end"
                     android:singleLine="true"

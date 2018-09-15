@@ -1,23 +1,26 @@
 <resources>
     <string name="app_name">v2care</string>
 
-
     <string name="pref_name">My pref</string>
 
+    <string name="something_went_wrong">Something went wrong. Please contact the administrator</string>
+    <string name="server_busy">Server is busy. Please try again later</string>
+    <string name="check_connection">Please check your connection and try again.</string>
+    <string name="field_cannot_empty">Field cannot empty.</string>
+    <string name="invalid_email_format">Invalid Email Format</string>
 
+    <string name="term_conditions">Term And Conditions</string>
+    <string name="term_conditions_title">By continuing, you are indicating that you have read the that you have read the</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="loading">Loading</string>
 
+    <string name="fb_login_fail">Login failed, please try again later.</string>
 
-    // fb login
-
-    <!--<string name="facebook_app_id">123929844738010</string>-->
-    <string name="facebook_app_id">888678837928814</string>
+    <!--<string name="facebook_app_id">888678837928814</string>-->
     <string name="google_key">AIzaSyAx5nKYxOa2ducZ7jLhuBjZxmQ4MyN9MXY</string>
-    <!--<string name="google_key">AIzaSyDB9RhjEsMDkAw1f7OtYZlEv45K0adTiyE</string>-->
 
-    <!-- TODO: Remove or change this placeholder text -->
-
-    // gcm messaging
     <string name="gcm_unregistered">GCM: device successfully unregistered!</string>
     <string name="gcm_error">GCM: error (%1$s).</string>
     <string name="gcm_recoverable_error">GCM: recoverable error (%1$s).</string>
@@ -37,4 +40,32 @@
     <string name="share_contant"><![CDATA[I would like to invite you to download this v2care Apps, a traceability system and risk management for your love one. It also provides a closer communication link among your friends, family in the case of emergency. Download : http://go4drupal.com/gps_tracker/v2care.apk]]></string>
     <string name="emergency">Emergency Contact number</string>
     <string name="emergency_person">Emergency Contact Person Name</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or">or</string>
+    <string name="login">Login</string>
+    <string name="forgot_password_">Forgot Password?</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="please_enter_your_email_address">Please enter your email address</string>
+    <string name="please_enter_your_password">Please enter your password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="welcome_banner_desc1"><![CDATA[v2care is providing a traceability system and risk management for your love one.  It also provides a closer communication link among your friends, family in the case of emergency.]]></string>
+    <string name="welcome_banner_desc2">Managing your risk with small investment in v2care, you life would be more meaningful and happy when you are on travel</string>
+    <string name="welcome_banner_desc3">You love your kid, and you wanted to protect them wherever their go, v2care assist you to manage your expectation and bring awareness of your kids location.</string>
+    <string name="welcome_banner_desc4">Accident do happen in this world, v2care could assist you in the case of emergency and when you needed help from your love one.</string>
+    <string name="welcome_banner_desc5"><![CDATA[Aging population and ageing parent is your main concern.  Your aged parent with v2care product, you would be less worry if the lost their way.]]></string>
+
+    <string name="back_again_to_exit">Click Back again to exit</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone">Phone</string>
+    <string name="confirm_password_is_not_same_as_password">Confirm password is not same as password</string>
+    <string name="information">Information</string>
+    <string name="sign_up_successful">Signed Up Successful</string>
+    <string name="submit">Submit</string>
 </resources>

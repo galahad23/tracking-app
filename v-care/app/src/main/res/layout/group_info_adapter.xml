@@ -20,13 +20,13 @@
 
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:clickable="false"
             android:checked="true"
             android:layout_weight="1"
             android:id="@+id/checkbox"
             android:padding="10dp"
-            android:buttonTint="@color/fb_buttob"
+            android:buttonTint="@color/blue"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
             android:text=""
@@ -35,11 +35,11 @@
 
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:padding="10dp"
             android:id="@+id/request_type"
             android:visibility="gone"
-            android:background="@drawable/button_transparent"
+            android:background="@drawable/btn_transparent_white_line_curve"
             android:textColor="@color/green_new"
             android:text="Pending"
             android:layout_width="wrap_content"
@@ -47,12 +47,12 @@
 
 
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:visibility="gone"
             android:padding="10dp"
             android:id="@+id/admin"
             android:textColor="@color/green_new"
-            android:background="@drawable/button_transparent"
+            android:background="@drawable/btn_transparent_white_line_curve"
             android:text="Group Admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

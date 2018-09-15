@@ -25,11 +25,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:background="@color/fb_buttob"
+                android:background="@color/blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:textColor="@color/white_new"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Kids Name:"
@@ -65,7 +65,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/name"
                     android:layout_weight="1"
                     android:textSize="15dp"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Address:"
@@ -92,7 +92,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/address"
                     android:layout_weight="1"
                     android:textSize="15dp"
@@ -108,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Location Tracker:"
@@ -118,7 +118,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/location"
                     android:layout_weight="1"
                     android:textSize="15dp"
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Speed:"
@@ -144,7 +144,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/speed"
                     android:layout_weight="1"
                     android:textSize="15dp"
@@ -159,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Battery:"
@@ -169,7 +169,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/battery"
                     android:layout_weight="1"
                     android:textSize="15dp"
@@ -185,7 +185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textSize="15dp"
                     android:padding="10dp"
                     android:text="Wi-Fi:"
@@ -195,7 +195,7 @@
 
 
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/wifi"
                     android:layout_weight="1"
                     android:textSize="15dp"

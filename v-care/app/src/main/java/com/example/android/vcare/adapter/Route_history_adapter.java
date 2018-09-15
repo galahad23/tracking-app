@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.vcare.R;
-import com.example.android.vcare.model.Group_detail_list;
+import com.example.android.vcare.model2.Group_detail_list;
 
 import java.util.List;
 

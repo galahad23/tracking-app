@@ -1,6 +1,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true"
         android:drawable="@color/white_new" />
-    <item android:drawable="@color/primarydark" />
+    <item android:drawable="@color/colorPrimaryDark" />
 
 </selector>

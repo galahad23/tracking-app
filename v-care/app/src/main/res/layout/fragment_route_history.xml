@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Dashboard">
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:text="Select Member"
@@ -54,7 +54,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:text="Filter"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content">
 
 
-        <com.example.android.vcare.model.Edit_text_normal
+        <com.example.android.vcare.model2.Edit_text_normal
             android:id="@+id/date_time"
             android:layout_weight="1"
             android:padding="10dp"
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:padding="10dp"
                 android:text="Sr."
                 android:textColor="@color/white_new"
@@ -117,7 +117,7 @@
         android:layout_width="0.5dip"
         android:layout_height="match_parent"></View>
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="Address"
@@ -130,7 +130,7 @@
                 android:layout_height="match_parent"></View>
 
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:padding="10dp"
                 android:text="Date"
                 android:textColor="@color/white_new"

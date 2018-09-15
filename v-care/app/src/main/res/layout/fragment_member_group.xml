@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Dashboard">
+    >
 
 
     <LinearLayout
@@ -18,14 +18,14 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You have not added any group/"
             android:textColor="@color/white_new"
             android:textSize="15dp" />
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Add Now"
@@ -44,7 +44,7 @@
         android:layout_below="@+id/add_group_layout"></android.support.v7.widget.RecyclerView>
 
 
-    <com.example.android.vcare.model.Button_normal
+    <com.example.android.vcare.model2.Button_normal
         android:id="@+id/add_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

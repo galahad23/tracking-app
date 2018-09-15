@@ -6,7 +6,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.android.vcare.Select_member">
+    tools:context="com.example.android.vcare.pending.Select_member">
 
 
     <android.support.v7.widget.Toolbar
@@ -16,7 +16,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:padding="10dp"
             android:gravity="center"
             android:textSize="15dp"
@@ -113,7 +113,7 @@
 
     </LinearLayout>
 
-    <com.example.android.vcare.model.Edit_text_normal
+    <com.example.android.vcare.model2.Edit_text_normal
         android:hint="Search member"
         android:text=""
         android:layout_margin="10dp"
@@ -132,7 +132,7 @@
         android:layout_height="match_parent">
     </ListView>
 
-    <com.example.android.vcare.model.Button_bold
+    <com.example.android.vcare.model2.Button_bold
         android:layout_alignParentBottom="true"
         android:id="@+id/create"
         android:layout_margin="10dp"

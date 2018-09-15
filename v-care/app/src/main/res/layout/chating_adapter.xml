@@ -29,13 +29,13 @@
             android:background="@drawable/new_bubble1"
             android:orientation="vertical">
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxEms="12"
                 android:padding="5dp"
-                android:textColor="@color/g_login" />
+                android:textColor="@color/google_login" />
 
             <LinearLayout
 
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/message_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:layout_marginLeft="5dp"
                     android:gravity="end">
 
-                    <com.example.android.vcare.model.Text_view_normal
+                    <com.example.android.vcare.model2.Text_view_normal
                         android:id="@+id/time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

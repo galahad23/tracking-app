@@ -10,7 +10,7 @@
     local:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
 
-    <com.example.android.vcare.model.Text_view_normal
+    <com.example.android.vcare.model2.Text_view_normal
         android:id="@+id/action_bar_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

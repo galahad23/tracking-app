@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.android.vcare.Select_member">
+    tools:context="com.example.android.vcare.pending.Select_member">
 
 
     <android.support.v7.widget.Toolbar
@@ -15,7 +15,7 @@
         android:background="@color/green"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -39,7 +39,7 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -51,7 +51,7 @@
     </LinearLayout>
 
 
-    <com.example.android.vcare.model.Edit_text_normal
+    <com.example.android.vcare.model2.Edit_text_normal
         android:id="@+id/edit_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

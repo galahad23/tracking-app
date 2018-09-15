@@ -24,11 +24,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/fb_buttob"
+                android:background="@color/blue"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -50,7 +50,7 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:id="@+id/callText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -180,7 +180,7 @@
                     android:layout_margin="10dp"
                     android:textSize="10dp"
                     android:textColor="@color/white_new"
-                    android:background="@color/fb_buttob"
+                    android:background="@color/blue"
                     android:textAllCaps="true"
                     android:text="SOS TO Members"
                     android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                     android:layout_margin="10dp"
                     android:textSize="10dp"
                     android:textColor="@color/white_new"
-                    android:background="@color/fb_buttob"
+                    android:background="@color/blue"
                     android:text="SOS TO PARENT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -204,7 +204,7 @@
             </RadioGroup>
 
 
-            <com.example.android.vcare.model.Button_bold
+            <com.example.android.vcare.model2.Button_bold
                 android:id="@+id/select_plan"
                 android:layout_margin="10dp"
                 android:background="@drawable/button_bg"
@@ -216,7 +216,7 @@
 
 
 
-            <com.example.android.vcare.model.Button_bold
+            <com.example.android.vcare.model2.Button_bold
                 android:id="@+id/clickHere"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

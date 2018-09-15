@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.vcare.Memberss">
+    tools:context="com.example.android.vcare.pending.Memberss">
 
 
     <LinearLayout
@@ -17,14 +17,14 @@
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:textSize="15dp"
             android:text="You have not added any Member /"
             android:textColor="@color/white_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:textSize="15dp"
             android:text=" Add Now"
             android:textColor="@color/green_new"
@@ -48,7 +48,7 @@
 
 
 
-    <com.example.android.vcare.model.Button_normal
+    <com.example.android.vcare.model2.Button_normal
         android:visibility="visible"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

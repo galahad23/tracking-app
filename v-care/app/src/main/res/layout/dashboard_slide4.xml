@@ -5,17 +5,17 @@
 
     <ImageView
         android:layout_centerInParent="true"
-        android:background="@drawable/emergency"
+        android:background="@drawable/welcome_banner4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 
-    <com.example.android.vcare.model.Text_view_bold
+    <com.example.android.vcare.model2.Text_view_bold
         android:textColor="@color/white_new"
         android:padding="6dp"
         android:textSize="10sp"
         android:layout_alignParentBottom="true"
-        android:text="Accident do happen in this world, v2care could assist you in the case of emergency and when you needed help from your love one."
+        android:text="@string/welcome_banner_desc4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

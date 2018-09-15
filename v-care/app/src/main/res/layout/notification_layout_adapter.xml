@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <!-- Title Of message-->
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:layout_weight="1"
                 android:id="@+id/mesaage_title"
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:textStyle="bold"/>
 
             <!-- Date -->
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/datee"
@@ -47,7 +47,7 @@
                 android:text="" />
 
 
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:gravity="end"
                 android:layout_weight="1"
                 android:id="@+id/timee"
@@ -59,7 +59,7 @@
 
         </LinearLayout>
 
-            <com.example.android.vcare.model.Text_view_normal
+            <com.example.android.vcare.model2.Text_view_normal
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

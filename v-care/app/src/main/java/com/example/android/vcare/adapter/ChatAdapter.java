@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.vcare.Zoom_image;
-import com.example.android.vcare.model.ChatMessage;
+import com.example.android.vcare.pending.Zoom_image;
+import com.example.android.vcare.model2.ChatMessage;
 import com.example.android.vcare.R;
 import com.squareup.picasso.Picasso;
 

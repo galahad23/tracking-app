@@ -32,14 +32,14 @@ android {
         jni.srcDirs = [] //disable automatic ndk-build call
 //        jni.srcDir 'src/main/jni'
     }
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'org.aspectj:aspectjrt:1.8.5'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'org.aspectj:aspectjrt:1.8.5'
 }
 
 

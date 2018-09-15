@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.vcare.R;
-import com.example.android.vcare.model.Child_detail;
+import com.example.android.vcare.model2.Child_detail;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -17,7 +17,7 @@
         app:shadow="true"
         android:src="@drawable/header_icon"/>
 
-    <com.example.android.vcare.model.Text_view_normal
+    <com.example.android.vcare.model2.Text_view_normal
         android:layout_marginBottom="10dp"
         android:padding="10dp"
         android:id="@+id/nav_header_name"

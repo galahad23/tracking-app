@@ -4,6 +4,6 @@
     android:viewportHeight="32.0"
     android:viewportWidth="32.0">
     <path
-        android:fillColor="@color/fb_buttob"
+        android:fillColor="@color/blue"
         android:pathData="M5.39,5.39a15,15 0,1 0,21.21 0A15,15 0,0 0,5.39 5.39ZM20.95,13.88L18.83,16l2.12,2.12a2,2 0,0 1,-2.83 2.83L16,18.83l-2.12,2.12a2,2 0,0 1,-2.83 -2.83L13.17,16l-2.12,-2.12a2,2 0,1 1,2.83 -2.83L16,13.17l2.12,-2.12a2,2 0,0 1,2.83 2.83Z" />
 </vector>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.example.android.vcare.Dashboard">
+    >
 
     <LinearLayout
         android:layout_centerInParent="true"
@@ -29,14 +29,14 @@
             <TableRow
                 android:padding="10dp">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textStyle="bold"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Current Plan : " />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/planname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -45,13 +45,13 @@
             <TableRow
                 android:padding="10dp">
 
-                <com.example.android.vcare.model.Text_view_bold
+                <com.example.android.vcare.model2.Text_view_bold
                     android:textStyle="bold"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price : " />
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:id="@+id/planprice"
                     android:layout_width="wrap_content"
                     android:textStyle="bold"
@@ -72,9 +72,9 @@
                android:layout_width="wrap_content">
 
 
-               <com.example.android.vcare.model.Text_view_bold
+               <com.example.android.vcare.model2.Text_view_bold
                    android:id="@+id/expry_plan"
-                   android:textColor="@color/primarydark"
+                   android:textColor="@color/colorPrimaryDark"
                    android:textStyle="bold"
                    android:text=""
                    android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
 
 
 
-        <com.example.android.vcare.model.Button_bold
+        <com.example.android.vcare.model2.Button_bold
             android:id="@+id/select_plan"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

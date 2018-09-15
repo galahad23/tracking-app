@@ -71,13 +71,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:singleLine="true"
                     android:textCursorDrawable="@null"
                     android:inputType="textCapWords"
                     android:id="@+id/name"
                     android:backgroundTint="@color/edit_text_linecolor"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:padding="10dp"
                     android:hint="Full Name"
                     android:layout_width="match_parent"
@@ -94,13 +94,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:singleLine="true"
                     android:textCursorDrawable="@null"
                     android:inputType="textEmailAddress"
                     android:id="@+id/email"
                     android:backgroundTint="@color/edit_text_linecolor"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:padding="10dp"
                     android:hint="Email address"
                     android:layout_width="match_parent"
@@ -115,10 +115,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.android.vcare.CustomPhoneInputLayout
+            <com.example.android.vcare.pending.CustomPhoneInputLayout
                 android:id="@+id/custom_phone"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></com.example.android.vcare.CustomPhoneInputLayout>
+                android:layout_height="wrap_content"></com.example.android.vcare.pending.CustomPhoneInputLayout>
 
 
             <android.support.design.widget.TextInputLayout
@@ -126,12 +126,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:singleLine="true"
                     android:textCursorDrawable="@null"
                     android:id="@+id/mobile"
                     android:backgroundTint="@color/edit_text_linecolor"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="phone"
                     android:padding="10dp"
                     android:hint="Mobile number"
@@ -142,7 +142,7 @@
 </LinearLayout>
 
 
-            <com.example.android.vcare.model.Button_normal
+            <com.example.android.vcare.model2.Button_normal
                 android:id="@+id/update"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"

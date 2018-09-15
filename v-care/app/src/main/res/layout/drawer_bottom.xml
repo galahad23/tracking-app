@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.android.vcare.model.Text_view_bold
+    <com.example.android.vcare.model2.Text_view_bold
         android:id="@+id/app_version"
         android:layout_marginLeft="10dp"
         android:padding="10dp"

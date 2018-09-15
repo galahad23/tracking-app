@@ -1,9 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context="com.example.android.vcare.Dashboard">
+    android:background="@color/background">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -12,7 +10,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/toolbar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +24,7 @@
 
     <LinearLayout
         android:layout_below="@+id/toolbar"
-        android:background="@color/primarydark"
+        android:background="@color/colorPrimaryDark"
         android:padding="10dp"
         android:id="@+id/sosly"
         android:gravity="center"
@@ -34,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Text_view_normal
+        <com.example.android.vcare.model2.Text_view_normal
             android:id="@+id/info"
             android:layout_weight="1"
             android:text="G R O U P  I N F O R M A T I O N"
@@ -64,7 +62,7 @@
     </LinearLayout>
 
 
-    <com.example.android.vcare.TouchImageView
+    <com.example.android.vcare.pending.TouchImageView
         android:visibility="gone"
         android:layout_below="@+id/sosly"
         android:id="@+id/img"
@@ -117,9 +115,9 @@
                     android:layout_height="50dp"
                     android:background="@drawable/circle1" />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:layout_width="wrap_content"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Image" />
@@ -140,9 +138,9 @@
                     android:layout_height="50dp"
                     android:background="@drawable/circle_pink" />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:layout_width="wrap_content"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Audio" />
@@ -163,9 +161,9 @@
                     android:layout_height="50dp"
                     android:background="@drawable/circle_black" />
 
-                <com.example.android.vcare.model.Text_view_normal
+                <com.example.android.vcare.model2.Text_view_normal
                     android:layout_width="wrap_content"
-                    android:textColor="@color/primarydark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Video" />
@@ -179,7 +177,7 @@
         android:id="@+id/attachment_line"
         android:visibility="gone"
         android:layout_below="@+id/reveal_items"
-        android:background="@color/fb_buttob"
+        android:background="@color/blue"
         android:layout_width="match_parent"
         android:layout_height="1dp"></View>
 
@@ -211,7 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.android.vcare.model.Edit_text_normal
+                <com.example.android.vcare.model2.Edit_text_normal
                     android:maxLines="3"
                     android:id="@+id/textmessage"
                     android:textColorHint="@color/white_new"
@@ -232,7 +230,7 @@
 
                 <LinearLayout
                     android:id="@+id/image_camera"
-                    android:background="@color/primarydark"
+                    android:background="@color/colorPrimaryDark"
                     android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -245,7 +243,7 @@
             </LinearLayout>
 
 
-            <com.example.android.vcare.model.FrameLayoutFixed
+            <com.example.android.vcare.model2.FrameLayoutFixed
                 android:background="@drawable/sos_edit_bg"
                 android:id="@+id/record_panel"
                 android:layout_width="fill_parent"
@@ -307,7 +305,7 @@
                         android:textSize="16dp" />
                 </LinearLayout>
 
-            </com.example.android.vcare.model.FrameLayoutFixed>
+            </com.example.android.vcare.model2.FrameLayoutFixed>
 
 
         </LinearLayout>

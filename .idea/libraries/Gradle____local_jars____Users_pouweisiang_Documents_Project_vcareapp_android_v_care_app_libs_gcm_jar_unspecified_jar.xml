@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_jars__:/Users/pouweisiang/Documents/Project/vcareapp-android/v-care/app/libs/gcm.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/v-care/app/libs/gcm.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

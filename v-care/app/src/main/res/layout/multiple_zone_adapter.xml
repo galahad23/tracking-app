@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:background="@drawable/round_shape">
 
-            <com.example.android.vcare.model.Text_view_bold
+            <com.example.android.vcare.model2.Text_view_bold
                 android:id="@+id/indexing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
 
         </RelativeLayout>
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_weight="1"
             android:textSize="15sp"
             android:padding="10dp"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content" />
 
 
-        <com.example.android.vcare.model.Edit_text_normal
+        <com.example.android.vcare.model2.Edit_text_normal
             android:focusable="false"
             android:id="@+id/startdate"
             android:layout_weight="1"
@@ -79,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_weight="1"
             android:textSize="15sp"
             android:padding="10dp"
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content" />
 
 
-        <com.example.android.vcare.model.Edit_text_normal
+        <com.example.android.vcare.model2.Edit_text_normal
             android:focusable="false"
             android:id="@+id/enddate"
             android:layout_weight="1"
@@ -107,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.android.vcare.model.Text_view_bold
+        <com.example.android.vcare.model2.Text_view_bold
             android:layout_weight="1"
             android:textSize="15sp"
             android:padding="10dp"

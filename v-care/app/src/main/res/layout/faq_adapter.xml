@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text=""
-                    android:textColor="@color/fb_buttob"
+                    android:textColor="@color/blue"
 
                     android:textSize="15sp" />
 
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:background="@color/fb_buttob" />
+                android:background="@color/blue" />
 
             <LinearLayout
                 android:layout_width="30dp"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="35dp"
             android:gravity="left"
             android:text=""
-            android:textColor="@color/fb_buttob"
+            android:textColor="@color/blue"
             android:textSize="12sp"
             android:visibility="gone" />
 
@@ -99,7 +99,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
-            android:background="@color/fb_buttob" />
+            android:background="@color/blue" />
 
     </LinearLayout>
 

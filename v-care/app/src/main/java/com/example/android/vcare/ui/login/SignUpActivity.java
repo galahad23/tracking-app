@@ -148,9 +148,13 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initSocialSignUp() {
+        user = new User();
         String userJson = getIntent().getStringExtra(USER);
         if (!TextUtils.isEmpty(userJson)) {
             user = User.deserialize(userJson);
+            binding.name.setText(user.getName());
+            binding.email.setText(user.getEmail());
+
             binding.email.setEnabled(false);
             binding.fbLogin.setVisibility(View.GONE);
             binding.googleLogin.setVisibility(View.GONE);
@@ -180,13 +184,12 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
                 String name = binding.name.getText().toString();
                 String email = binding.email.getText().toString();
-                String phone = binding.phone.getText().toString();
+                String phone = binding.phoneCode.getSelectedCountryCodeWithPlus() + binding.phone.getText().toString();
                 String password = binding.password.getText().toString();
-                String countryCode = binding.phoneCode.getSelectedCountryCodeWithPlus();
+                String countryCode = binding.phoneCode.getSelectedCountryCode();
                 String countryName = binding.phoneCode.getSelectedCountryName();
 
-                user = new User()
-                        .setName(name)
+                user.setName(name)
                         .setEmail(email)
                         .setPhoneNo(phone)
                         .setPassword(password)

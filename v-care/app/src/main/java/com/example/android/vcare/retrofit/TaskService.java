@@ -29,21 +29,20 @@ public interface TaskService {
                                    @Field("full_name") String name,
                                    @Field("email_address") String email,
                                    @Field("password") String password,
-                                   @Field("phone_number") String phoneNo,
+                                   @Field("mobile_number") String phoneNo,
                                    @Field("country_code") String countryCode,
                                    @Field("country_name") String countryName,
                                    @Field("gcm_token") String gcmToken,
                                    @Field("device_id") String deviceId,
                                    @Field("is_login") int isLogin);
-
     @FormUrlEncoded
     @Headers({"Accept: application/json"})
     @POST("parent/parentgmailsingup")
     Call<APIResult> googleSignUp(@Field("gmail_id") String facebookId,
                                    @Field("full_name") String name,
                                    @Field("email_address") String email,
-                                   @Field("password") String password,
-                                   @Field("phone_number") String phoneNo,
+                                 @Field("password") String password,
+                                   @Field("mobile_number") String phoneNo,
                                    @Field("country_code") String countryCode,
                                    @Field("country_name") String countryName,
                                    @Field("gcm_token") String gcmToken,

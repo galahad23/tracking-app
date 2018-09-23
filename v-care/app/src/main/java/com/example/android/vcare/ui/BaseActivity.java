@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.android.vcare.R;
+import com.example.android.vcare.util.ToastUtil;
 import com.example.android.vcare.widget.LoadingDialogFragment;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private Toolbar actionbarToolbar;
     private LoadingDialogFragment loadingDialogFragment;
+    private boolean hasBackAlert = false;
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -44,6 +46,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void setDisplayHomeAsUpEnabled() {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    protected void setHomeButtonEnabled() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setHomeButtonEnabled(true);
         }
     }
 
@@ -87,6 +95,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void dismissLoadingDialog() {
         if (loadingDialogFragment != null && loadingDialogFragment.isAdded()) {
             loadingDialogFragment.dismiss();
+        }
+    }
+
+    public void setHasBackAlert() {
+        this.hasBackAlert = true;
+    }
+
+    private static final int TIME_INTERVAL = 2000;
+    private long backPressed;
+
+    @Override
+    public void onBackPressed() {
+        if (hasBackAlert) {
+            if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+                finishAffinity();
+                return;
+            } else {
+                ToastUtil.show(this, getString(R.string.back_again_to_exit));
+            }
+            backPressed = System.currentTimeMillis();
+        } else {
+            finishAffinity();
         }
     }
 }

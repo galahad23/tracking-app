@@ -87,15 +87,15 @@ public class ChatAdapter extends BaseAdapter {
 
         if (userimage.isEmpty()){
             Picasso.with(context)
-                    .load(R.drawable.header_icon)
-                    .error(R.drawable.header_icon)
-                    .placeholder(R.drawable.header_icon)
+                    .load(R.drawable.user_placeholder)
+                    .error(R.drawable.user_placeholder)
+                    .placeholder(R.drawable.user_placeholder)
                     .into(userimage_chat);
 
             Picasso.with(context)
-                    .load(R.drawable.header_icon)
-                    .error(R.drawable.header_icon)
-                    .placeholder(R.drawable.header_icon)
+                    .load(R.drawable.user_placeholder)
+                    .error(R.drawable.user_placeholder)
+                    .placeholder(R.drawable.user_placeholder)
                     .into(userimage_chat_right);
 
         }else {

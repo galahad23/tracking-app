@@ -6,6 +6,7 @@
     <color name="colorPrimaryDark2">#161828</color>
     <color name="colorAccent">#262b46</color>
 
+    <color name="blue_light">#4a6fbc</color>
     <color name="blue">#3b5998</color>
     <color name="blue_dark">#2c4373</color>
     <color name="google_login">#d34836</color>

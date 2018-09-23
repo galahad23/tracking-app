@@ -78,4 +78,15 @@ public interface TaskService {
     @Headers({"Accept: application/json"})
     @POST("parent/forgotpassword")
     Call<APIResult> forgotPassword(@Field("email_id") String email_id);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/parentprofile")
+    Call<APIResult> getProfile(@Field("parent_id") String parentId,
+                               @Field("mobile_token") String mobileToken);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/logout")
+    Call<Void> logout(@Field("parent_id") String parentId);
 }

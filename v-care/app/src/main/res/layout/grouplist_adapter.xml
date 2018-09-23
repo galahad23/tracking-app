@@ -32,7 +32,7 @@
             app:border ="true"
             app:border_width="1dp"
             app:shadow="true"
-            android:src="@drawable/header_icon"/>
+            android:src="@drawable/user_placeholder"/>
 
 
 

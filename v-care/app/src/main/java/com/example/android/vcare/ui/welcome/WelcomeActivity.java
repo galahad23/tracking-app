@@ -28,6 +28,12 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
         context.startActivity(starter);
     }
 
+    public static void restart(Context context) {
+        Intent starter = new Intent(context, LoginActivity.class);
+        starter.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(starter);
+    }
+
     private ActivityWelcomeBinding binding;
     //    private ViewPager viewPager;
     private WelcomeBannerAdapter bannerAdapter;
@@ -36,6 +42,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
+        setHasBackAlert();
 
 //        prefManager = new PrefManager(this);
 //        if (!prefManager.isFirstTimeLaunch()) {

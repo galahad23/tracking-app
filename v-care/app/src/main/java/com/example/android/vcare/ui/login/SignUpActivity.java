@@ -22,6 +22,7 @@ import com.example.android.vcare.job.SignUpJob;
 import com.example.android.vcare.model.User;
 import com.example.android.vcare.pending.TermsConditionActivity;
 import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.main.MainActivity;
 import com.example.android.vcare.util.EventBusUtil;
 import com.example.android.vcare.util.ToastUtil;
 import com.example.android.vcare.util.Util;
@@ -191,7 +192,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
                 user.setName(name)
                         .setEmail(email)
-                        .setPhoneNo(phone)
+                        .setPhoneNumber(phone)
                         .setPassword(password)
                         .setCountryCode(countryCode)
                         .setCountryName(countryName);
@@ -1692,7 +1693,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 //                            int success = objJson.getInt("success");
 //                            if (success == 1) {
 //
-//                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
 //                                startActivity(intent);
 //                                finishAffinity();
 //
@@ -1797,17 +1798,18 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 //
 //    }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onHandle(AccountEvent.OnFacebookLogin event) {
-        if (hashCode == event.getHashCode()) {
-            ToastUtil.show(this, "Facebook Login");
-        }
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onHandle(AccountEvent.OnFacebookLogin event) {
+//        if (hashCode == event.getHashCode()) {
+//            ToastUtil.show(this, "Facebook Login");
+//        }
+//    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onHandle(AccountEvent.OnGoogleLogin event) {
+    public void onHandle(AccountEvent.OnSocialLogin event) {
         if (hashCode == event.getHashCode()) {
-            ToastUtil.show(this, "Google Login");
+            MainActivity.start(this);
+            finish();
         }
     }
 
@@ -1828,6 +1830,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            LoginActivity.start(SignUpActivity.this);
                             finish();
                         }
                     });

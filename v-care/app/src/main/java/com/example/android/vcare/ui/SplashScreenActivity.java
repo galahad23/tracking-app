@@ -5,7 +5,9 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 
 import com.example.android.vcare.R;
+import com.example.android.vcare.ui.main.MainActivity;
 import com.example.android.vcare.ui.welcome.WelcomeActivity;
+import com.example.android.vcare.util.UserHandler;
 
 public class SplashScreenActivity extends BaseActivity {
 
@@ -17,7 +19,11 @@ public class SplashScreenActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                WelcomeActivity.start(SplashScreenActivity.this);
+                if (UserHandler.isLogin(SplashScreenActivity.this)) {
+                    MainActivity.start(SplashScreenActivity.this);
+                } else {
+                    WelcomeActivity.start(SplashScreenActivity.this);
+                }
                 finish();
             }
         }, 3000);

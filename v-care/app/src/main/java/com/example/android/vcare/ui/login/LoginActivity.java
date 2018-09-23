@@ -23,6 +23,7 @@ import com.example.android.vcare.job.LoginJob;
 import com.example.android.vcare.model.User;
 import com.example.android.vcare.pending.TermsConditionActivity;
 import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.main.MainActivity;
 import com.example.android.vcare.util.EventBusUtil;
 import com.example.android.vcare.util.ToastUtil;
 import com.example.android.vcare.util.Util;
@@ -96,6 +97,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void onClick(View view) {
         if (view == binding.login) {
             if (isValid()) {
+                showLoadingDialog();
                 MyApplication.addJobInBackground(new LoginJob(
                         binding.email.getText().toString(),
                         binding.password.getText().toString(),
@@ -113,6 +115,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             fragment.show(getFragmentManager(), "");
         } else if (view == binding.signUp) {
             SignUpActivity.start(this);
+            finish();
         }
     }
 
@@ -227,6 +230,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         binding.fbLogin.setOnClickListener(this);
         binding.termsCondition.setOnClickListener(this);
         binding.forgotPassword.setOnClickListener(this);
+        binding.signUp.setOnClickListener(this);
 
         if (BuildConfig.DEBUG) {
             binding.email.setText("mrinkika@gmail.com");
@@ -740,7 +744,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 //                            if (success == 1) {
 //                                // for start service
 //                                startService(new Intent(getApplicationContext(), CurrentLocationService.class));
-//                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
 //                                startActivity(intent);
 //                                finishAffinity();
 //                            } else if (success == 0) {
@@ -1184,21 +1188,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(AccountEvent.OnLogin event) {
         if (hashCode == event.getHashCode()) {
-            ToastUtil.show(this, "Login");
+            dismissLoadingDialog();
+            MainActivity.start(this);
+            finish();
         }
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onHandle(AccountEvent.OnFacebookLogin event) {
-        if (hashCode == event.getHashCode()) {
-            ToastUtil.show(this, "Facebook Login");
-        }
-    }
+//    @Subscribe(threadMode = ThreadMode.MAIN)
+//    public void onHandle(AccountEvent.OnFacebookLogin event) {
+//        if (hashCode == event.getHashCode()) {
+//            ToastUtil.show(this, "Facebook Login");
+//        }
+//    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onHandle(AccountEvent.OnGoogleLogin event) {
+    public void onHandle(AccountEvent.OnSocialLogin event) {
         if (hashCode == event.getHashCode()) {
-            ToastUtil.show(this, "Google Login");
+            MainActivity.start(this);
+            dismissLoadingDialog();
+            finish();
         }
     }
 

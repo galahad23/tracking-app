@@ -4,6 +4,7 @@ package com.example.android.vcare.job;
 import android.content.Context;
 
 import com.birbit.android.jobqueue.Params;
+import com.example.android.vcare.MyApplication;
 import com.example.android.vcare.common.Constants;
 import com.example.android.vcare.event.AccountEvent;
 import com.example.android.vcare.event.ExceptionEvent;
@@ -59,6 +60,8 @@ public class LoginJob extends BaseJob {
             if (result.getSuccess().equalsIgnoreCase(Constants.APIStatus.SUCCESS)) {
                 UserHandler.setToken(context, result.getMobileToken());
                 UserHandler.setUser(context, result.getUser());
+                MyApplication.addJobInBackground(new GetProfileJob(hashCode));
+
                 EventBusUtil.post(new AccountEvent.OnLogin(hashCode));
             } else {
                 EventBusUtil.post(new ExceptionEvent(result.getMessage(), hashCode));

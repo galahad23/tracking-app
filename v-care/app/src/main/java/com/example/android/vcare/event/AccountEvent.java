@@ -16,17 +16,17 @@ public class AccountEvent {
         }
     }
 
-    public static class OnFacebookLogin {
-        private int hashCode;
-
-        public OnFacebookLogin(int hashCode) {
-            this.hashCode = hashCode;
-        }
-
-        public int getHashCode() {
-            return hashCode;
-        }
-    }
+//    public static class OnFacebookLogin {
+//        private int hashCode;
+//
+//        public OnFacebookLogin(int hashCode) {
+//            this.hashCode = hashCode;
+//        }
+//
+//        public int getHashCode() {
+//            return hashCode;
+//        }
+//    }
 
 //    public static class OnFacebookLoginFailed {
 //        private User user;
@@ -64,10 +64,22 @@ public class AccountEvent {
         }
     }
 
-    public static class OnGoogleLogin {
+//    public static class OnGoogleLogin {
+//        private int hashCode;
+//
+//        public OnGoogleLogin(int hashCode) {
+//            this.hashCode = hashCode;
+//        }
+//
+//        public int getHashCode() {
+//            return hashCode;
+//        }
+//    }
+
+    public static class OnSocialLogin {
         private int hashCode;
 
-        public OnGoogleLogin(int hashCode) {
+        public OnSocialLogin(int hashCode) {
             this.hashCode = hashCode;
         }
 
@@ -117,6 +129,24 @@ public class AccountEvent {
 
         public OnSignUp(int hashCode) {
             this.hashCode = hashCode;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
+
+    public static class OnGetProfile{
+        private User user;
+        private int hashCode;
+
+        public OnGetProfile(User user, int hashCode) {
+            this.user = user;
+            this.hashCode = hashCode;
+        }
+
+        public User getUser() {
+            return user;
         }
 
         public int getHashCode() {

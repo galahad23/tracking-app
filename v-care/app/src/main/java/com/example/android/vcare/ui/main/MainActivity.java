@@ -1,107 +1,32 @@
-//package com.example.android.vcare.pending;
-//
-//import android.Manifest;
-//import android.app.Activity;
-//import android.app.AlertDialog;
-//import android.app.ProgressDialog;
-//import android.content.BroadcastReceiver;
-//import android.content.Context;
-//import android.content.DialogInterface;
-//import android.content.Intent;
-//import android.content.IntentFilter;
-//import android.content.IntentSender;
-//import android.content.pm.PackageInfo;
-//import android.content.pm.PackageManager;
-//import android.content.res.Configuration;
-//import android.database.Cursor;
-//import android.graphics.Color;
-//import android.location.Address;
-//import android.location.Geocoder;
-//import android.location.GpsSatellite;
-//import android.location.GpsStatus;
-//import android.location.Location;
-//import android.location.LocationListener;
-//import android.location.LocationManager;
-//import android.net.ConnectivityManager;
-//import android.net.NetworkInfo;
-//import android.net.Uri;
-//import android.os.BatteryManager;
-//import android.os.Build;
-//import android.os.Bundle;
-//import android.os.Handler;
-//import android.os.PowerManager;
-//import android.os.StrictMode;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentManager;
-//import android.support.v4.app.FragmentTransaction;
-//import android.support.v4.widget.DrawerLayout;
-//import android.support.v7.app.ActionBarDrawerToggle;
-//import android.support.v7.app.AppCompatActivity;
-//import android.support.v7.widget.Toolbar;
-//import android.text.SpannableString;
-//import android.text.style.RelativeSizeSpan;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.Menu;
-//import android.view.MenuItem;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.view.WindowManager;
-//import android.widget.BaseExpandableListAdapter;
-//import android.widget.ExpandableListView;
-//import android.widget.FrameLayout;
-//import android.widget.ImageView;
-//import android.widget.RelativeLayout;
-//import android.widget.TextView;
-//import android.widget.Toast;
-//
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.LocationPackage.CurrentLocationService;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
-//import com.example.android.vcare.ui.login.LoginActivity;
-//import com.google.android.gms.common.ConnectionResult;
-//import com.google.android.gms.common.GooglePlayServicesUtil;
-//import com.google.android.gms.common.api.GoogleApiClient;
-//import com.google.android.gms.common.api.PendingResult;
-//import com.google.android.gms.common.api.ResultCallback;
-//import com.google.android.gms.common.api.Status;
-//import com.google.android.gms.location.LocationRequest;
-//import com.google.android.gms.location.LocationServices;
-//import com.google.android.gms.location.LocationSettingsRequest;
-//import com.google.android.gms.location.LocationSettingsResult;
-//import com.google.android.gms.location.LocationSettingsStatusCodes;
-//import com.google.android.gms.maps.model.LatLng;
-//
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.text.SimpleDateFormat;
-//import java.util.ArrayList;
-//import java.util.Calendar;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Locale;
-//import java.util.Map;
-//import java.util.Timer;
-//import java.util.TimerTask;
-//
-//import static com.example.android.vcare.LocationPackage.CurrentLocationService.current_speed_service;
-//
-//
-//public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-//        GoogleApiClient.OnConnectionFailedListener, LocationListener, GpsStatus.Listener {
-//    protected static final int REQUEST_CHECK_SETTINGS = 0x1;
+package com.example.android.vcare.ui.main;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ExpandableListView;
+
+import com.example.android.vcare.R;
+import com.example.android.vcare.common.Constants;
+import com.example.android.vcare.databinding.ActivityMainBinding;
+import com.example.android.vcare.ui.BaseActivity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
+public class MainActivity extends BaseActivity {
+    //    protected static final int REQUEST_CHECK_SETTINGS = 0x1;
 //    static final Double EARTH_RADIUS = 6371.00;
-//    private static final String TAG = MainActivity.class.getSimpleName();
+//    private static final String TAG = MainActivity2.class.getSimpleName();
 //    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
 //    public static TextView title, username;
 //    public static ImageView userimage;
@@ -119,8 +44,8 @@
 //    DatabaseHandler databaseHandler;
 //    ExpandableListView expListView;
 //    HashMap<String, List<String>> listDataChild;
-//    ExpandableListAdapter listAdapter;
-//    List<String> listDataHeader;
+    private MenuExpandableListAdapter listAdapter;
+    //    List<String> listDataHeader;
 //    Fragment fragment = null;
 //    RelativeLayout rel;
 //    FrameLayout lframe;
@@ -140,7 +65,7 @@
 //    private Timer timer1 = new Timer();
 //    private List<User_Detail> feeditem;
 //    private DrawerLayout mDrawerLayout;
-//    private ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle drawerToggle;
 //    private Data.onGpsServiceUpdate onGpsServiceUpdate;
 //    private LocationManager mLocationManager;
 //    private boolean firstfix;
@@ -157,37 +82,23 @@
 //            level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 //        }
 //    };
-//    private DrawerLayout.DrawerListener mDrawerListener = new DrawerLayout.DrawerListener() {
-//
-//        @Override
-//        public void onDrawerStateChanged(int status) {
-//
-//        }
-//
-//        @Override
-//        public void onDrawerSlide(View view, float slideArg) {
-//
-//        }
-//
-//        @Override
-//        public void onDrawerOpened(View view) {
-//        }
-//
-//        @Override
-//        public void onDrawerClosed(View view) {
-//        }
-//    };
-//
-//
-//    public static Data getData() {
-//        return data;
-//    }
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        setContentView(R.layout.activity_main);
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, MainActivity.class);
+        context.startActivity(starter);
+    }
+
+    private ActivityMainBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setToolbarTitle(R.string.dashboard);
+        setDisplayHomeAsUpEnabled();
+        setHomeButtonEnabled();
+        setHasBackAlert();
+        initDrawer();
 //        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //        StrictMode.setThreadPolicy(policy);
 //        data = new Data(onGpsServiceUpdate);
@@ -199,7 +110,7 @@
 //
 //
 //        // for battery status
-//        MainActivity.this.registerReceiver(this.mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+//        MainActivity2.this.registerReceiver(this.mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 //
 //        ConnectivityManager connManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 //        mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -211,13 +122,13 @@
 //        }
 //
 //        // for start service
-//        startService(new Intent(MainActivity.this, CurrentLocationService.class));
+//        startService(new Intent(MainActivity2.this, CurrentLocationService.class));
 //
-//        gps = new GPSTracker(MainActivity.this);
+//        gps = new GPSTracker(MainActivity2.this);
 //
 //
 //        user_handler = new UserHandler();
-//        databaseHandler = new DatabaseHandler(MainActivity.this);
+//        databaseHandler = new DatabaseHandler(MainActivity2.this);
 //        feeditem = new ArrayList<User_Detail>();
 //        Cursor cursor = databaseHandler.get_rider_detail();
 //        if (cursor != null) {
@@ -274,7 +185,7 @@
 //        }
 //
 //        // for nevigation drawer
-//        setUpDrawer();
+//        initDrawer();
 //
 //        callAsynchronousTask();
 //        final Handler handler = new Handler();
@@ -331,7 +242,7 @@
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                      /*  try {*/
+//                        /*  try {*/
 //                        // update latlong api
 //
 //                        if (CurrentLocationService.strlat == 0.0) {
@@ -346,7 +257,7 @@
 //
 //                        } else {
 //                            // for start service
-//                            startService(new Intent(MainActivity.this, CurrentLocationService.class));
+//                            startService(new Intent(MainActivity2.this, CurrentLocationService.class));
 //                        }
 //
 //                        /*} catch (Exception e) {
@@ -360,7 +271,7 @@
 //            timer1.schedule(timerTask, 0, 900000);  //Intervel for 15 minute
 //        }
 //    }
-//
+
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
@@ -381,7 +292,6 @@
 //            }
 //        }
 //        super.onResume();
-//
 //
 //
 //        if (data == null) {
@@ -435,7 +345,7 @@
 //        String strAdd = "";
 //        try {
 //
-//            Geocoder geocoder = new Geocoder(MainActivity.this);
+//            Geocoder geocoder = new Geocoder(MainActivity2.this);
 //            Log.d("Geocoder value", geocoder.toString());
 //
 //            List<Address> addresses = geocoder.getFromLocation(lat, lon, 1);
@@ -502,7 +412,7 @@
 //                        try {
 //                            // Show the dialog by calling startResolutionForResult(), and check the result
 //                            // in onActivityResult().
-//                            status.startResolutionForResult(MainActivity.this, REQUEST_CHECK_SETTINGS);
+//                            status.startResolutionForResult(MainActivity2.this, REQUEST_CHECK_SETTINGS);
 //                        } catch (IntentSender.SendIntentException e) {
 //                            Log.i(TAG, "PendingIntent unable to execute request.");
 //                        }
@@ -679,7 +589,7 @@
 //            case GpsStatus.GPS_EVENT_STOPPED:
 //                if (!mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 //
-//                    if (!((Activity) MainActivity.this).isFinishing()) {
+//                    if (!((Activity) MainActivity2.this).isFinishing()) {
 //                        gps.showSettingsAlert();
 //                    }
 //
@@ -689,208 +599,174 @@
 //                break;
 //        }
 //    }
-//
-//    private void setUpDrawer() {
-//
-//        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        mDrawerLayout.setScrimColor(Color.parseColor("#40ffffff"));
-//        mDrawerLayout.setDrawerListener(mDrawerListener);
-//
-//        expListView = (ExpandableListView) findViewById(R.id.navexp);
-//        expListView.setDividerHeight(0);
-//        prepareListData();
-//        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-//        // setting list adapter
-//
-//        LayoutInflater inflater1 = (LayoutInflater) getApplicationContext()
-//                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View view1 = inflater1.inflate(R.layout.drawer_bottom, null, true);
-//
-//        TextView app_version = (TextView) view1.findViewById(R.id.app_version);
-//
-//        PackageManager manager = MainActivity.this.getPackageManager();
-//        PackageInfo info = null;
-//        try {
-//            info = manager.getPackageInfo(
-//                    MainActivity.this.getPackageName(), 0);
-//            String version = info.versionName;
-//            Calendar c = Calendar.getInstance();
-//            System.out.println("Current time => " + c.getTime());
-//
-//            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-//            String formattedDate = df.format(c.getTime());
-//            app_version.setVisibility(View.INVISIBLE);
-//            app_version.setText("App Version" + version + "\n" + formattedDate);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        LayoutInflater inflater = (LayoutInflater) getApplicationContext()
-//                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View view = inflater.inflate(R.layout.drawer_header, null, true);
-//
-//        userimage = (ImageView) view.findViewById(R.id.user_image);
-//        username = (TextView) view.findViewById(R.id.nav_header_name);
-//        username.setText(strusername);
-//
-//
-//        expListView.addHeaderView(view);
-//        expListView.addFooterView(view1);
-//        expListView.setAdapter(listAdapter);
-//
-//        if (position_class == null) {
-//            fragment = new Dashboard();
-//            title.setText("Dashboard");
-//        } else if (position_class.equals("3")) {
-//
-//            fragment = new Track_member_device();
-//            title.setText("Track Members Device");
-//        } else if (position_class.equals("6")) {
-//            fragment = new Member_group();
-//            title.setText("Groups");
-//        } else if (position_class.equals("7")) {
-//            fragment = new Faq();
-//            title.setText("Faq");
-//        } else {
-//            fragment = new Member_group();
-//            title.setText("Groups");
-//        }
-//
-//
-//        if (fragment != null) {
-//            FragmentManager fragmentManager = getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.container_body, fragment);
-//            fragmentTransaction.commit();
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//            getSupportActionBar().setHomeButtonEnabled(true);
-//            mDrawerLayout.closeDrawer(rel);
-//            mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-//                    // nav menu toggle icon
-//                    toolbar,
-//                    R.string.app_name, // nav drawer open - description for
-//                    // accessibility
-//                    R.string.app_name // nav drawer close - description for
-//                    // accessibility
-//            ) {
-//
-//                public void onDrawerClosed(View view) {
-//                    // getSupportActionBar().setTitle("");
-//
-//                    // calling onPrepareOptionsMenu() to show action bar icons
-//                    lframe.setBackgroundColor(Color.parseColor("#10ffffff"));
-//                    invalidateOptionsMenu();
-//                }
-//
-//
-//                public void onDrawerOpened(View drawerView) {
-//                    // getSupportActionBar().setTitle("");
-//                    // calling onPrepareOptionsMenu() to hide action bar icons
-//                    invalidateOptionsMenu();
-//                    //  lframe.setBackgroundColor(Color.parseColor("#40000000"));
-//                }
-//            };
-//
-//            mDrawerLayout.setDrawerListener(mDrawerToggle);
-//            expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-//                int previousItem = -1;
-//
-//                @Override
-//                public void onGroupExpand(int groupPosition) {
-//                    if (groupPosition != previousItem)
-//                        expListView.collapseGroup(previousItem);
-//                    previousItem = groupPosition;
-//                }
-//            });
-//            expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//                @Override
-//                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                    switch (groupPosition) {
-//                        case 1:
-//                            switch (childPosition) {
-//                                case 0:
-//                                    fragment = new Edit_profile();
-//                                    title.setText("Profile");
-//                                    break;
-//
-//                                case 1:
-//                                    fragment = new Change_password();
-//                                    title.setText("Change Password");
-//                                    break;
-//
-//                                default:
-//                                    break;
-//                            }
-//                            break;
-//
-//
-//                        default:
-//                            break;
-//                    }
-//                    if (fragment != null) {
-//                        FragmentManager fragmentManager = getSupportFragmentManager();
-//                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                        fragmentTransaction.replace(R.id.container_body, fragment);
-//                        fragmentTransaction.commit();
-//                    }
-//                    mDrawerLayout.closeDrawer(rel);
-//                    return false;
-//                }
-//            });
-//        }
-//    }
-//
-//    private void prepareListData() {
-//
-//        listDataHeader = new ArrayList<String>();
-//        listDataChild = new HashMap<String, List<String>>();
-//
-//
-//        // Adding Header data
-//        listDataHeader.add("D A S H B O A R D");
-//        listDataHeader.add("M Y  P R O F I L E");
-//        listDataHeader.add("S U B S C R I P T I O N   P L A N");
-//        listDataHeader.add("T R A C K   M E M B E R   D E V I C E");
-//        listDataHeader.add("S O S");
-//        listDataHeader.add("R O U T E   H I S T O R Y");
-//        listDataHeader.add("M E M B E R   G R O U P");
-//        listDataHeader.add("F A Q");
-//        listDataHeader.add("E M E R G E N C Y  C O N T A C T S");
-//        listDataHeader.add("T E R M S  &  C O N D I T I O N S");
-//        listDataHeader.add("L O G  O U T");
-//
-//        List<String> dashboard = new ArrayList<String>();
-//
-//        List<String> account = new ArrayList<String>();
-//        account.add("Edit Profile");
-//        account.add("Change Password");
-//
-//        List<String> subscription = new ArrayList<String>();
-//        List<String> track = new ArrayList<String>();
-//        List<String> sos = new ArrayList<String>();
-//        List<String> route = new ArrayList<String>();
-//        List<String> member = new ArrayList<String>();
-//        List<String> faq = new ArrayList<String>();
-//        List<String> emegency = new ArrayList<String>();
-//        List<String> TermsConditions = new ArrayList<String>();
-//        List<String> logout = new ArrayList<String>();
-//
-//
-//        listDataChild.put(listDataHeader.get(0), dashboard);
-//        listDataChild.put(listDataHeader.get(1), account);
-//        listDataChild.put(listDataHeader.get(2), subscription); // Header, Child data
-//        listDataChild.put(listDataHeader.get(3), track);
-//        listDataChild.put(listDataHeader.get(4), sos);
-//        listDataChild.put(listDataHeader.get(5), route);
-//        listDataChild.put(listDataHeader.get(6), member);
-//        listDataChild.put(listDataHeader.get(7), faq);
-//        listDataChild.put(listDataHeader.get(8), emegency);
-//        listDataChild.put(listDataHeader.get(9), TermsConditions);
-//        listDataChild.put(listDataHeader.get(10), logout);
-//
-//
-//    }
+    }
+
+    private DrawerHeaderView headerView;
+    private DrawerFooterView footerView;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        switch (item.getItemId()) {
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void initDrawer() {
+
+        headerView = new DrawerHeaderView(this);
+        footerView = new DrawerFooterView(this);
+
+        List<Integer> parentList = getParentList();
+        final HashMap<Integer, List<Integer>> childList = getChildList(parentList);
+        listAdapter = new MenuExpandableListAdapter(this, parentList, childList);
+        binding.exListView.setDividerHeight(0);
+        binding.exListView.addHeaderView(headerView);
+        binding.exListView.addFooterView(footerView);
+        binding.exListView.setAdapter(listAdapter);
+
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, new Fragment());
+        fragmentTransaction.commit();
+
+        drawerToggle = new ActionBarDrawerToggle(this,
+                binding.drawerLayout,
+                R.string.app_name,
+                R.string.app_name) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+
+        binding.drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+
+        binding.exListView.setOnGroupExpandListener(onGroupExpandListener);
+        binding.exListView.setOnChildClickListener(onChildClickListener);
+        binding.exListView.setOnGroupClickListener(onGroupClickListener);
+    }
+
+    private ExpandableListView.OnGroupExpandListener onGroupExpandListener = new ExpandableListView.OnGroupExpandListener() {
+        int previousItem = -1;
+
+        @Override
+        public void onGroupExpand(int groupPosition) {
+            if (groupPosition != previousItem) {
+                binding.exListView.collapseGroup(previousItem);
+            }
+            previousItem = groupPosition;
+        }
+    };
+
+    private ExpandableListView.OnChildClickListener onChildClickListener = new ExpandableListView.OnChildClickListener() {
+        @Override
+        public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+            performItemClickAction(listAdapter.getChildMenuId(groupPosition, childPosition));
+            parent.collapseGroup(groupPosition);
+            binding.drawerLayout.closeDrawers();
+            return false;
+        }
+    };
+
+    private ExpandableListView.OnGroupClickListener onGroupClickListener = new ExpandableListView.OnGroupClickListener() {
+        @Override
+        public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+            if (listAdapter.getChildrenCount(i) == 0) {
+                performItemClickAction(listAdapter.getGroupMenuId(i));
+                binding.drawerLayout.closeDrawers();
+                return true;
+            }
+            return false;
+        }
+    };
+
+    @SuppressLint("SwitchIntDef")
+    private void performItemClickAction(@Constants.MenuId int menuId) {
+        switch (menuId) {
+            case Constants.MenuId.DASHBOARD:
+                break;
+            case Constants.MenuId.MY_PROFILE:
+                break;
+            case Constants.MenuId.SUBSCRIPTION_PLAN:
+                break;
+            case Constants.MenuId.TRACK_MEMBER_DEVICE:
+                break;
+            case Constants.MenuId.SOS:
+                break;
+            case Constants.MenuId.ROUTE_HISTORY:
+                break;
+            case Constants.MenuId.MEMBER_GROUP:
+                break;
+            case Constants.MenuId.FAQ:
+                break;
+            case Constants.MenuId.EMERGENCY_CONTACTS:
+                break;
+            case Constants.MenuId.TERMS_CONDITION:
+                break;
+            case Constants.MenuId.LOGOUT:
+                MenuActionUtil.logout(this);
+                break;
+            //Sub Menu
+            case Constants.MenuId.EDIT_PROFILE:
+                break;
+            case Constants.MenuId.CHANGE_PASSWORD:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private HashMap<Integer, List<Integer>> getChildList(List<Integer> parentList) {
+        HashMap<Integer, List<Integer>> childList = new HashMap<>();
+
+        List<Integer> account = new ArrayList<>();
+        account.add(Constants.MenuId.EDIT_PROFILE);
+        account.add(Constants.MenuId.CHANGE_PASSWORD);
+
+        childList.put(parentList.get(0), new ArrayList<Integer>());
+        childList.put(parentList.get(1), account);
+        childList.put(parentList.get(2), new ArrayList<Integer>());
+        childList.put(parentList.get(3), new ArrayList<Integer>());
+        childList.put(parentList.get(4), new ArrayList<Integer>());
+        childList.put(parentList.get(5), new ArrayList<Integer>());
+        childList.put(parentList.get(6), new ArrayList<Integer>());
+        childList.put(parentList.get(7), new ArrayList<Integer>());
+        childList.put(parentList.get(8), new ArrayList<Integer>());
+        childList.put(parentList.get(9), new ArrayList<Integer>());
+        childList.put(parentList.get(10), new ArrayList<Integer>());
+
+        return childList;
+    }
+
+    private List<Integer> getParentList() {
+
+        List<Integer> parentList = new ArrayList<>();
+
+        parentList.add(Constants.MenuId.DASHBOARD);
+        parentList.add(Constants.MenuId.MY_PROFILE);
+        parentList.add(Constants.MenuId.SUBSCRIPTION_PLAN);
+        parentList.add(Constants.MenuId.TRACK_MEMBER_DEVICE);
+        parentList.add(Constants.MenuId.SOS);
+        parentList.add(Constants.MenuId.ROUTE_HISTORY);
+        parentList.add(Constants.MenuId.MEMBER_GROUP);
+        parentList.add(Constants.MenuId.FAQ);
+        parentList.add(Constants.MenuId.EMERGENCY_CONTACTS);
+        parentList.add(Constants.MenuId.TERMS_CONDITION);
+        parentList.add(Constants.MenuId.LOGOUT);
+
+        return parentList;
+    }
 //
 //    @Override
 //    public boolean onPrepareOptionsMenu(Menu menu) {
@@ -905,14 +781,14 @@
 //    protected void onPostCreate(Bundle savedInstanceState) {
 //        super.onPostCreate(savedInstanceState);
 //        // Sync the toggle state after onRestoreInstanceState has occurred.
-//        mDrawerToggle.syncState();
+//        drawerToggle.syncState();
 //    }
 //
 //    @Override
 //    public void onConfigurationChanged(Configuration newConfig) {
 //        super.onConfigurationChanged(newConfig);
 //        // Pass any configuration change to the drawer toggls
-//        mDrawerToggle.syncState();
+//        drawerToggle.syncState();
 //    }
 //
 //    private void Alert() {
@@ -956,7 +832,7 @@
 //                            } else if (success == 0) {
 //                                String msg = objJson.getString("text");
 //                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//                                startActivity(new Intent(MainActivity2.this, LoginActivity.class));
 //                                finish();
 //                            }
 //
@@ -1083,7 +959,7 @@
 //
 //    private void Logout_user() {
 //        // TODO Auto-generated method stub
-//        pDialog = new ProgressDialog(MainActivity.this);
+//        pDialog = new ProgressDialog(MainActivity2.this);
 //        pDialog.setMessage("Please Wait...");
 //        pDialog.setCancelable(false);
 //        pDialog.show();
@@ -1263,7 +1139,7 @@
 //            e.printStackTrace();
 //        }
 //
-//        stopService(new Intent(MainActivity.this, CurrentLocationService.class));
+//        stopService(new Intent(MainActivity2.this, CurrentLocationService.class));
 //        super.onDestroy();
 //    }
 //
@@ -1282,7 +1158,7 @@
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//        stopService(new Intent(MainActivity.this, CurrentLocationService.class));
+//        stopService(new Intent(MainActivity2.this, CurrentLocationService.class));
 //        super.onBackPressed();
 //    }
 //
@@ -1531,7 +1407,7 @@
 //                                mDrawerLayout.closeDrawer(rel);
 //                            } else {
 //
-//                                Toast.makeText(MainActivity.this, "Your subscribed plan is not allowed to view the route history, please upgrade your plan", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(MainActivity2.this, "Your subscribed plan is not allowed to view the route history, please upgrade your plan", Toast.LENGTH_LONG).show();
 //
 //                                Intent intent = new Intent(getApplicationContext(), Select_plan.class);
 //                                startActivity(intent);
@@ -1630,8 +1506,8 @@
 //            return true;
 //        }
 //    }
-//
-//}
-//
-//
-//
+
+}
+
+
+

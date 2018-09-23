@@ -18,12 +18,122 @@ public class User {
     @SerializedName("otp_status")
     @Expose
     private String otpStatus;
-    private String password;
-    private String phoneNo;
-    private String countryCode;
-    private String countryName;
+
+    @SerializedName("id")
+    @Expose
+    private int id;
+    @SerializedName("is_parent")
+    @Expose
+    private String isParent;
+    @SerializedName("plan_id")
+    @Expose
+    private int planId;
+    @SerializedName("reference_id")
+    @Expose
+    private int referenceId;
+    @SerializedName("facebook_id")
+    @Expose
     private String facebookId;
+    @SerializedName("gmail_id")
+    @Expose
     private String googleId;
+    @SerializedName("gcm_token")
+    @Expose
+    private String gcmToken;
+    @SerializedName("oauth_token")
+    @Expose
+    private String oauthToken;
+    @SerializedName("device_id")
+    @Expose
+    private String deviceId;
+    @SerializedName("otp")
+    @Expose
+    private String otp;
+    @SerializedName("otp_time")
+    @Expose
+    private String otpTime;
+    @SerializedName("password")
+    @Expose
+    private String password;
+    @SerializedName("phone_number")
+    @Expose
+    private String phoneNumber;
+    @SerializedName("country_code")
+    @Expose
+    private String countryCode;
+    @SerializedName("country_name")
+    @Expose
+    private String countryName;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("city")
+    @Expose
+    private String city;
+    @SerializedName("postcode")
+    @Expose
+    private int postcode;
+    @SerializedName("profile_image")
+    @Expose
+    private String profileImage;
+    @SerializedName("latitude")
+    @Expose
+    private String latitude;
+    @SerializedName("longitude")
+    @Expose
+    private String longitude;
+    @SerializedName("child_device_no")
+    @Expose
+    private String childDeviceNo;
+    @SerializedName("battery")
+    @Expose
+    private int battery;
+    @SerializedName("wifi_status")
+    @Expose
+    private String wifiStatus;
+    @SerializedName("gps_status")
+    @Expose
+    private String gpsStatus;
+    @SerializedName("child_max_speed")
+    @Expose
+    private int childMaxSpeed;
+    @SerializedName("parent_child_max_speed")
+    @Expose
+    private int parentChildMaxSpeed;
+    @SerializedName("zone")
+    @Expose
+    private String zone;
+    @SerializedName("radius")
+    @Expose
+    private int radius;
+    @SerializedName("time_of_interval")
+    @Expose
+    private int timeOfInterval;
+    @SerializedName("decide_km")
+    @Expose
+    private String decideKm;
+    @SerializedName("is_active")
+    @Expose
+    private String isActive;
+    @SerializedName("is_login")
+    @Expose
+    private String isLogin;
+    @SerializedName("is_online")
+    @Expose
+    private String isOnline;
+    @SerializedName("created_date")
+    @Expose
+    private String createdDate;
+    @SerializedName("modification_date")
+    @Expose
+    private String modificationDate;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
+
 
     public String toJson() {
         return new Gson().toJson(this);
@@ -78,12 +188,12 @@ public class User {
         return this;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public User setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public User setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
         return this;
     }
 
@@ -121,5 +231,261 @@ public class User {
     public User setGoogleId(String googleId) {
         this.googleId = googleId;
         return this;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getIsParent() {
+        return isParent;
+    }
+
+    public void setIsParent(String isParent) {
+        this.isParent = isParent;
+    }
+
+    public int getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
+
+    public int getReferenceId() {
+        return referenceId;
+    }
+
+    public void setReferenceId(int referenceId) {
+        this.referenceId = referenceId;
+    }
+
+    public String getGcmToken() {
+        return gcmToken;
+    }
+
+    public void setGcmToken(String gcmToken) {
+        this.gcmToken = gcmToken;
+    }
+
+    public String getOauthToken() {
+        return oauthToken;
+    }
+
+    public void setOauthToken(String oauthToken) {
+        this.oauthToken = oauthToken;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public String getOtpTime() {
+        return otpTime;
+    }
+
+    public void setOtpTime(String otpTime) {
+        this.otpTime = otpTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(int postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getChildDeviceNo() {
+        return childDeviceNo;
+    }
+
+    public void setChildDeviceNo(String childDeviceNo) {
+        this.childDeviceNo = childDeviceNo;
+    }
+
+    public int getBattery() {
+        return battery;
+    }
+
+    public void setBattery(int battery) {
+        this.battery = battery;
+    }
+
+    public String getWifiStatus() {
+        return wifiStatus;
+    }
+
+    public void setWifiStatus(String wifiStatus) {
+        this.wifiStatus = wifiStatus;
+    }
+
+    public String getGpsStatus() {
+        return gpsStatus;
+    }
+
+    public void setGpsStatus(String gpsStatus) {
+        this.gpsStatus = gpsStatus;
+    }
+
+    public int getChildMaxSpeed() {
+        return childMaxSpeed;
+    }
+
+    public void setChildMaxSpeed(int childMaxSpeed) {
+        this.childMaxSpeed = childMaxSpeed;
+    }
+
+    public int getParentChildMaxSpeed() {
+        return parentChildMaxSpeed;
+    }
+
+    public void setParentChildMaxSpeed(int parentChildMaxSpeed) {
+        this.parentChildMaxSpeed = parentChildMaxSpeed;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    public int getTimeOfInterval() {
+        return timeOfInterval;
+    }
+
+    public void setTimeOfInterval(int timeOfInterval) {
+        this.timeOfInterval = timeOfInterval;
+    }
+
+    public String getDecideKm() {
+        return decideKm;
+    }
+
+    public void setDecideKm(String decideKm) {
+        this.decideKm = decideKm;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
+    }
+
+    public String getIsLogin() {
+        return isLogin;
+    }
+
+    public void setIsLogin(String isLogin) {
+        this.isLogin = isLogin;
+    }
+
+    public String getIsOnline() {
+        return isOnline;
+    }
+
+    public void setIsOnline(String isOnline) {
+        this.isOnline = isOnline;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getModificationDate() {
+        return modificationDate;
+    }
+
+    public void setModificationDate(String modificationDate) {
+        this.modificationDate = modificationDate;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

@@ -1,4 +1,4 @@
-//package com.example.android.vcare.pending;
+//package com.example.android.vcare.ui.profile;
 //
 //import android.app.Activity;
 //import android.app.AlertDialog;
@@ -8,6 +8,7 @@
 //import android.content.DialogInterface;
 //import android.content.Intent;
 //import android.database.Cursor;
+//import android.databinding.DataBindingUtil;
 //import android.graphics.Bitmap;
 //import android.graphics.BitmapFactory;
 //import android.graphics.drawable.BitmapDrawable;
@@ -42,12 +43,13 @@
 //import com.android.volley.toolbox.StringRequest;
 //import com.example.android.vcare.AppController;
 //import com.example.android.vcare.R;
+//import com.example.android.vcare.databinding.ActivityEditProfileBinding;
 //import com.example.android.vcare.model.C_Base64;
 //import com.example.android.vcare.model.DatabaseHandler;
 //import com.example.android.vcare.model.ExifUtils;
 //import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
 //import com.example.android.vcare.phonefield.PhoneField;
+//import com.example.android.vcare.ui.BaseActivity;
 //import com.example.android.vcare.ui.login.LoginActivity;
 //import com.nobrain.android.permissions.AndroidPermissions;
 //import com.nobrain.android.permissions.Checker;
@@ -66,17 +68,17 @@
 //import java.util.Map;
 //
 //
-//public class Edit_profile extends Fragment {
+//public class EditProfileActivity extends BaseActivity {
 //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
 //    ProgressDialog pDialog;
-//    EditText name,email,phone;
+//    EditText name, email, phone;
 //    Button update;
 //    ImageView userimage;
 //    LinearLayout add_picture;
-//    private TextInputLayout inputLayoutname,inputLayoutemail,inputLayoutmobile;
-//    String strname="",stremail="",strmobile="",parent_id="",mobile_token="",base_64="",cuntery_code="",cuntery_name="";
+//    private TextInputLayout inputLayoutname, inputLayoutemail, inputLayoutmobile;
+//    String strname = "", stremail = "", strmobile = "", parent_id = "", mobile_token = "", base_64 = "", cuntery_code = "", cuntery_name = "";
 //    public static String status;
 //
 //    private Bitmap bitmap, bitmapp, bitmap1;
@@ -87,17 +89,18 @@
 //    Uri imageUri;
 //    private static final int PICK_Camera_IMAGE = 2;
 //    private static final int PICK_IMAGE = 1;
-//    CustomPhoneInputLayout  customphone;
+//    CustomPhoneInputLayout customphone;
 //    int cunterycode;
-//    public Edit_profile() {
-//        // Required empty public constructor
-//    }
 //
-//
+//    private ActivityEditProfileBinding binding;
 //
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
+//        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
+//        setTintBackButtonIcon(R.color.white, R.drawable.ic_back_black_24dp);
+//        setDisplayHomeAsUpEnabled();
+//        setBackNavigation();
 //    }
 //
 //    @Override
@@ -109,9 +112,9 @@
 //        databaseHandler = new DatabaseHandler(getActivity());
 //        feeditem = new ArrayList<User_Detail>();
 //        Cursor cursor = databaseHandler.get_rider_detail();
-//        if (cursor != null){
+//        if (cursor != null) {
 //            cursor.moveToFirst();
-//            for (int i =0 ; i< cursor.getCount(); i++){
+//            for (int i = 0; i < cursor.getCount(); i++) {
 //                User_Detail detail = new User_Detail();
 //                detail.setId(cursor.getString(5));
 //                feeditem.add(detail);
@@ -120,14 +123,14 @@
 //            cursor.close();
 //        }
 //
-//        for (User_Detail userDetail : feeditem){
-//            parent_id  = userDetail.getId();
+//        for (User_Detail userDetail : feeditem) {
+//            parent_id = userDetail.getId();
 //        }
 //
 //        Cursor cursor1 = databaseHandler.get_token_detail();
-//        if (cursor1 != null){
+//        if (cursor1 != null) {
 //            cursor1.moveToFirst();
-//            for (int j=0; j< cursor1.getCount(); j++){
+//            for (int j = 0; j < cursor1.getCount(); j++) {
 //                mobile_token = cursor1.getString(0);
 //                cursor1.moveToNext();
 //            }
@@ -135,24 +138,24 @@
 //            cursor1.close();
 //        }
 //
-//        Log.e("parent_id", "editprofile>>"+ parent_id);
-//        Log.e("mobiletoken", "editprofile>>"+ mobile_token);
+//        Log.e("parent_id", "editprofile>>" + parent_id);
+//        Log.e("mobiletoken", "editprofile>>" + mobile_token);
 //
 //
-//        inputLayoutname = (TextInputLayout)rootView.findViewById(R.id.input_layout_name);
-//        inputLayoutemail = (TextInputLayout)rootView.findViewById(R.id.input_layout_email);
-//        inputLayoutmobile = (TextInputLayout)rootView.findViewById(R.id.input_layout_mobile);
+//        inputLayoutname = (TextInputLayout) rootView.findViewById(R.id.input_layout_name);
+//        inputLayoutemail = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
+//        inputLayoutmobile = (TextInputLayout) rootView.findViewById(R.id.input_layout_mobile);
 //
-//        name  = (EditText)rootView.findViewById(R.id.name);
-//        email = (EditText)rootView.findViewById(R.id.email);
-//        phone = (EditText)rootView.findViewById(R.id.mobile);
-//        update = (Button)rootView.findViewById(R.id.update);
+//        name = (EditText) rootView.findViewById(R.id.name);
+//        email = (EditText) rootView.findViewById(R.id.email);
+//        phone = (EditText) rootView.findViewById(R.id.mobile);
+//        update = (Button) rootView.findViewById(R.id.update);
 //
-//        customphone = (CustomPhoneInputLayout)rootView.findViewById(R.id.custom_phone);
+//        customphone = (CustomPhoneInputLayout) rootView.findViewById(R.id.custom_phone);
 //        customphone.setDefaultCountry("MY");
 //
-//        add_picture = (LinearLayout)rootView.findViewById(R.id.add_picture);
-//        userimage   = (ImageView)rootView.findViewById(R.id.userimage);
+//        add_picture = (LinearLayout) rootView.findViewById(R.id.add_picture);
+//        userimage = (ImageView) rootView.findViewById(R.id.userimage);
 //
 //        name.addTextChangedListener(new MyTextWatcher(name));
 //        email.addTextChangedListener(new MyTextWatcher(email));
@@ -190,15 +193,13 @@
 //        });
 //
 //
-//
-//
 //        update.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                Cursor cursor1 = databaseHandler.get_token_detail();
-//                if (cursor1 != null){
+//                if (cursor1 != null) {
 //                    cursor1.moveToFirst();
-//                    for (int j=0; j< cursor1.getCount(); j++){
+//                    for (int j = 0; j < cursor1.getCount(); j++) {
 //                        mobile_token = cursor1.getString(0);
 //                        cursor1.moveToNext();
 //                    }
@@ -230,7 +231,7 @@
 //
 //        if (!validatmobile()) {
 //            return;
-//        }else {
+//        } else {
 //
 //            Edit_profile_api();
 //        }
@@ -238,7 +239,7 @@
 //    }
 //
 //    private boolean validateimage() {
-//        if (base_64.isEmpty()){
+//        if (base_64.isEmpty()) {
 //            Toast.makeText(getActivity(), "Please select image", Toast.LENGTH_SHORT).show();
 //            return false;
 //        } else {
@@ -251,7 +252,7 @@
 //
 //    private boolean validatename() {
 //        strname = name.getText().toString().trim();
-//        if (strname.length()==0) {
+//        if (strname.length() == 0) {
 //            inputLayoutname.setError("Please enter your Full name");
 //            requestFocus(name);
 //            return false;
@@ -263,7 +264,7 @@
 //    }
 //
 //    private boolean validateemail() {
-//         stremail = email.getText().toString().trim();
+//        stremail = email.getText().toString().trim();
 //
 //        if (stremail.isEmpty() || !isValidEmail(stremail)) {
 //            inputLayoutemail.setError("Enter valid email address");
@@ -280,11 +281,11 @@
 //    private boolean validatmobile() {
 //        strmobile = phone.getText().toString().trim();
 //
-//        cunterycode =  PhoneField.iso_code;
-//        cuntery_code = "+"+cunterycode;
+//        cunterycode = PhoneField.iso_code;
+//        cuntery_code = "+" + cunterycode;
 //        cuntery_name = PhoneField.code;
 //
-//        if (strmobile.length()==0) {
+//        if (strmobile.length() == 0) {
 //            inputLayoutmobile.setError("Please enter your mobile number");
 //            requestFocus(phone);
 //            return false;
@@ -294,13 +295,14 @@
 //
 //        return true;
 //    }
+//
 //    private static boolean isValidEmail(String email) {
 //        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
 //    }
 //
 //    private void requestFocus(View view) {
 //        if (view.requestFocus()) {
-//           getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//            getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 //        }
 //    }
 //
@@ -354,10 +356,11 @@
 //    }
 //
 //    PopupWindow popup;
+//
 //    private void popup() {
 //        // TODO Auto-generated method stub
 //        try {
-//            LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //            View layout = inflater.inflate(R.layout.image_popup, null);
 //            Button camera = (Button) layout.findViewById(R.id.camera);
 //            Button gallery = (Button) layout.findViewById(R.id.gallery);
@@ -494,7 +497,7 @@
 //            case REQUEST_CROP_PICTURE:
 //
 //
-//                if (resultCode == getActivity().RESULT_OK){
+//                if (resultCode == getActivity().RESULT_OK) {
 //                    String path = croppedImageFile.getAbsolutePath();
 //                    decodeFile(path);
 //
@@ -580,16 +583,14 @@
 //    }
 //
 //
-//
 //    private void Parent_detail_api() {
 //        // TODO Auto-generated method stub
 //        pDialog = new ProgressDialog(getActivity());
 //        pDialog.setMessage("Please Wait...");
 //        pDialog.setCancelable(false);
 //        pDialog.show();
-//        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL+"parentprofile",
-//                new Response.Listener<String>()
-//                {
+//        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL + "parentprofile",
+//                new Response.Listener<String>() {
 //                    @Override
 //                    public void onResponse(String response) {
 //                        pDialog.dismiss();
@@ -602,11 +603,11 @@
 //
 //                                JSONObject object = objJson.getJSONObject("profile");
 //
-//                                String namee      = object.getString("name");
-//                                String emaill     = object.getString("email");
-//                                String mobilee    = object.getString("phone_number");
-//                                String image      =  object.getString("profile_image");
-//                                String country_name  =  object.getString("country_name");
+//                                String namee = object.getString("name");
+//                                String emaill = object.getString("email");
+//                                String mobilee = object.getString("phone_number");
+//                                String image = object.getString("profile_image");
+//                                String country_name = object.getString("country_name");
 //
 //                                customphone.setDefaultCountry(country_name);
 //                                name.setText(namee);
@@ -624,9 +625,9 @@
 //                                }
 //*/
 //
-//                                if (image.isEmpty()){
+//                                if (image.isEmpty()) {
 //
-//                                }else {
+//                                } else {
 //                                    Picasso.with(getActivity())
 //                                            .load(image)
 //                                            .error(R.drawable.header_icon)
@@ -644,16 +645,15 @@
 //                                databaseHandler.add_token(mobiletoken);
 //
 //
-//                            } else if(success == 0) {
+//                            } else if (success == 0) {
 //                                user_handler.logoutUser(getActivity());
 //                                alert();
-//                            }
-//                            else if (success==2) {
+//                            } else if (success == 2) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
-//                            } else if (success==3) {
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+//                            } else if (success == 3) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 //                            }
 //
 //                        } catch (JSONException e) {
@@ -663,8 +663,7 @@
 //                        }
 //                    }
 //                },
-//                new Response.ErrorListener()
-//                {
+//                new Response.ErrorListener() {
 //                    @Override
 //                    public void onErrorResponse(VolleyError error) {
 //                        pDialog.dismiss();
@@ -675,11 +674,10 @@
 //                }
 //        ) {
 //            @Override
-//            protected Map<String, String> getParams()
-//            {
-//                Map<String, String>  params = new HashMap<String, String>();
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<String, String>();
 //                params.put("parent_id", parent_id);
-//                params.put("mobile_token",mobile_token);
+//                params.put("mobile_token", mobile_token);
 //                Log.e("Insertttt", params.toString());
 //                return params;
 //            }
@@ -692,17 +690,14 @@
 //    }
 //
 //
-//
-//
 //    private void Edit_profile_api() {
 //        // TODO Auto-generated method stub
 //        pDialog = new ProgressDialog(getActivity());
 //        pDialog.setMessage("Please Wait...");
 //        pDialog.setCancelable(false);
 //        pDialog.show();
-//        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL+"updateparentinfo",
-//                new Response.Listener<String>()
-//                {
+//        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL + "updateparentinfo",
+//                new Response.Listener<String>() {
 //                    @Override
 //                    public void onResponse(String response) {
 //                        pDialog.dismiss();
@@ -717,12 +712,12 @@
 //                                for (int i = 0; i < array.length(); i++) {
 //                                    JSONObject jsobj = array.getJSONObject(i);
 //                                    String parent_id = jsobj.getString("parent_id");
-//                                    String  namee = jsobj.getString("name");
-//                                    String   emaill = jsobj.getString("email");
+//                                    String namee = jsobj.getString("name");
+//                                    String emaill = jsobj.getString("email");
 //                                    String phone_number = jsobj.getString("phone_number");
-//                                    String otpstatus  =  jsobj.getString("otp_status");
+//                                    String otpstatus = jsobj.getString("otp_status");
 //
-//                                    status       = jsobj.getString("is_parent");
+//                                    status = jsobj.getString("is_parent");
 //
 //                                    String mobiletoken = objJson.getString("mobile_token");
 //
@@ -734,25 +729,24 @@
 //                                    databaseHandler.add_token(mobiletoken);
 //                                    String text = objJson.getString("text");
 //
-//                                    Toast.makeText(getActivity(),text, Toast.LENGTH_LONG).show();
-//                                    Intent intent = new Intent(getActivity(),MainActivity.class);
+//                                    Toast.makeText(getActivity(), text, Toast.LENGTH_LONG).show();
+//                                    Intent intent = new Intent(getActivity(), MainActivity.class);
 //                                    startActivity(intent);
 //                                    getActivity().onBackPressed();
 //                                }
 //
-//                            } else if(success == 0) {
+//                            } else if (success == 0) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
-//                            }
-//                            else if (success==2) {
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+//                            } else if (success == 2) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
-//                            } else if (success==3) {
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+//                            } else if (success == 3) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
-//                            } else if (success==4) {
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+//                            } else if (success == 4) {
 //                                String msg = objJson.getString("text");
-//                                Toast.makeText(getActivity(),msg, Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 //                            }
 //
 //                        } catch (JSONException e) {
@@ -762,8 +756,7 @@
 //                        }
 //                    }
 //                },
-//                new Response.ErrorListener()
-//                {
+//                new Response.ErrorListener() {
 //                    @Override
 //                    public void onErrorResponse(VolleyError error) {
 //                        pDialog.dismiss();
@@ -774,17 +767,16 @@
 //                }
 //        ) {
 //            @Override
-//            protected Map<String, String> getParams()
-//            {
-//                Map<String, String>  params = new HashMap<String, String>();
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<String, String>();
 //                params.put("parent_id", parent_id);
 //                params.put("mobile_token", mobile_token);
-//                params.put("full_name",strname );
-//                params.put("phone_number",strmobile );
-//                params.put("email",stremail);
-//                params.put("country_code",cuntery_code);
-//                params.put("country_name",cuntery_name);
-//                params.put("profile_image",base_64);
+//                params.put("full_name", strname);
+//                params.put("phone_number", strmobile);
+//                params.put("email", stremail);
+//                params.put("country_code", cuntery_code);
+//                params.put("country_name", cuntery_name);
+//                params.put("profile_image", base_64);
 //
 //                Log.e("Insertttt", params.toString());
 //                return params;
@@ -797,8 +789,6 @@
 //        AppController.getInstance().addToRequestQueue(req);
 //
 //    }
-//
-//
 //
 //
 //    // Alert dialouge

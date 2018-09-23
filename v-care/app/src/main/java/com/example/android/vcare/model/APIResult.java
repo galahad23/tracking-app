@@ -15,10 +15,14 @@ public class APIResult {
     private String mobileToken;
     @SerializedName("parentinfo")
     @Expose
-    private List<User> parentInfo = null;
+    private  List<User> parentInfo = null;
     @SerializedName("text")
     @Expose
     private String message = null;
+//    @SerializedName("profile")
+//    @Expose
+//    private  User profile = null;
+
 
     public String getSuccess() {
         return success;
@@ -54,4 +58,8 @@ public class APIResult {
     public String getMessage() {
         return message;
     }
+
+//    public User getProfile() {
+//        return profile;
+//    }
 }

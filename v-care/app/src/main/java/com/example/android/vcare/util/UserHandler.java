@@ -43,4 +43,12 @@ public class UserHandler {
                 .getDefaultSharedPreferences(context)
                 .getString(USER, ""));
     }
+
+    public static void clear(@NonNull Context context) {
+        PreferenceManager
+                .getDefaultSharedPreferences(context)
+                .edit()
+                .clear()
+                .apply();
+    }
 }

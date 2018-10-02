@@ -248,7 +248,7 @@
 //            holder.start = (TextView) convertView.findViewById(R.id.startdate);
 //            holder.end = (TextView) convertView.findViewById(R.id.enddate);
 //            holder.zonee = (TextView) convertView.findViewById(R.id.zone);
-//            holder.delete = (ImageButton) convertView.findViewById(R.id.delete);
+//            holder.ic_cross = (ImageButton) convertView.findViewById(R.id.ic_cross);
 //            holder.edit = (ImageButton) convertView.findViewById(R.id.edit);
 //
 //            final User_Detail item = galleryItems.get(position);

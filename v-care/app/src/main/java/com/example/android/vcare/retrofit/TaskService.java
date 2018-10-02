@@ -111,6 +111,9 @@ public interface TaskService {
                                    @Field("old_password") String oldPassword,
                                    @Field("new_password") String newPassword,
                                    @Field("confirm_password") String confirmPassword);
-//    @Field("mobile_token") String token
 
+
+    @Headers({"Accept: application/json"})
+    @POST("parent/Faq")
+    Call<APIResult> getFaq();
 }

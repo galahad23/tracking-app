@@ -22,6 +22,9 @@ public class APIResult {
     @SerializedName("profile")
     @Expose
     private  User profile = null;
+    @SerializedName("faq_list")
+    @Expose
+    private List<Faq> faqList = null;
 
 
     public String getSuccess() {
@@ -61,5 +64,9 @@ public class APIResult {
 
     public User getProfile() {
         return profile;
+    }
+
+    public List<Faq> getFaqList() {
+        return faqList;
     }
 }

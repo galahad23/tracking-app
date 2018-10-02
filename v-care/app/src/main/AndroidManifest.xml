@@ -254,6 +254,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.White"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.settings.FAQActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.White"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

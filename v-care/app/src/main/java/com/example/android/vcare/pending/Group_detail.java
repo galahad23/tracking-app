@@ -809,7 +809,7 @@
 //                super(view);
 //
 //                member = (TextView) view.findViewById(R.id.checkbox);
-//                delete = (LinearLayout) view.findViewById(R.id.delete);
+//                ic_cross = (LinearLayout) view.findViewById(R.id.ic_cross);
 //                view_layout = (LinearLayout) view.findViewById(R.id.view);
 //                request_type = (TextView) view.findViewById(R.id.request_type);
 //                admin = (TextView) view.findViewById(R.id.admin);

@@ -17,7 +17,7 @@ package com.example.android.vcare.model2;
  * and encoding using the URL-safe and Ordered dialects.</p>
  *
  * <p>Note, according to <a href="http://www.faqs.org/rfcs/rfc3548.html">RFC3548</a>,
- * Section 2.1, implementations should not add line feeds unless explicitly told
+ * Section 2.1, implementations should not ic_add line feeds unless explicitly told
  * to do so. I've got Base64 set to this behavior now, although earlier versions
  * broke lines by default.</p>
  *

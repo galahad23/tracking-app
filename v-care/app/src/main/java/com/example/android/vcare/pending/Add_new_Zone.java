@@ -662,7 +662,7 @@
 //            holder.start = (EditText) convertView.findViewById(R.id.startdate);
 //            holder.end = (EditText) convertView.findViewById(R.id.enddate);
 //            holder.zonee = (AutoCompleteTextView) convertView.findViewById(R.id.zone);
-//            holder.delete = (ImageButton) convertView.findViewById(R.id.delete);
+//            holder.ic_cross = (ImageButton) convertView.findViewById(R.id.ic_cross);
 //
 //
 //            final User_Detail item = galleryItems.get(position);

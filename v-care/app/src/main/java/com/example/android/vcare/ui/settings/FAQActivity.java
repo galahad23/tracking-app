@@ -1,45 +1,93 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.ProgressDialog;
-//import android.os.Bundle;
-//import android.support.v4.app.Fragment;
-//import android.support.v7.widget.DefaultItemAnimator;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.adapter.Faq_Adapter;
-//import com.example.android.vcare.model.Faq_Details;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-///**
-// * Created by mukeesh on 8/1/2017.
-// */
-//
-//public class Faq extends Fragment {
-//    private Faq_Adapter mAdapter;
+package com.example.android.vcare.ui.settings;
+
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
+import com.example.android.vcare.MyApplication;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityListViewBinding;
+import com.example.android.vcare.event.ExceptionEvent;
+import com.example.android.vcare.event.SettingEvent;
+import com.example.android.vcare.job.GetFaqJob;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.Util;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+
+public class FAQActivity extends BaseActivity {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, FAQActivity.class);
+        context.startActivity(starter);
+    }
+
+    private ActivityListViewBinding binding;
+    private final int hashCode = hashCode();
+    private FAQAdapter adapter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list_view);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+        setToolbarTitle(R.string.faq);
+
+        adapter = new FAQAdapter(this);
+        binding.listView.setEmptyView(binding.empty);
+        binding.listView.hasMorePages(false);
+        binding.listView.setAdapter(adapter);
+        binding.listView.setDividerHeight(Util.dpToPx(this, 12));
+
+        Util.setListShown(binding.container, binding.progressContainer, false, false);
+        MyApplication.addJobInBackground(new GetFaqJob(hashCode));
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(SettingEvent.OnGetFaq event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.setListShown(binding.container, binding.progressContainer, true, true);
+            if(adapter.getCount() > 0 ){
+                adapter.clear();
+            }
+            adapter.addAll(event.getFaqList());
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(ExceptionEvent event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.setListShown(binding.container, binding.progressContainer, true, true);
+            Util.showOkOnlyDisableCancelAlertDialog(this, null, event.getErrorMessage());
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBusUtil.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBusUtil.unregister(this);
+    }
+
+    //    private FAQAdapter mAdapter;
 //    private RecyclerView recyclerView;
 //    private List<Faq_Details> helplist = new ArrayList<>();
 //    ProgressDialog pDialog;
 //
-//    public Faq() {
+//    public FAQActivity() {
 //    }
 //
 //    @Override
@@ -51,7 +99,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_faq, container, false);
+//        View view = inflater.inflate(R.layout.activity_faq, container, false);
 //
 //        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 //        faq_api();
@@ -89,7 +137,7 @@
 //                                    helplist.add(item);
 //
 //                                }
-//                                mAdapter = new Faq_Adapter(helplist);
+//                                mAdapter = new FAQAdapter(helplist);
 //                                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
 //                                recyclerView.setLayoutManager(mLayoutManager);
 //                                recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -127,5 +175,5 @@
 //        AppController.getInstance().addToRequestQueue(req);
 //
 //    }
-//
-//}
+
+}

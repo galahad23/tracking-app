@@ -750,8 +750,8 @@
 //            fragment = new Member_group();
 //            title.setText("Groups");
 //        } else if (position_class.equals("7")) {
-//            fragment = new Faq();
-//            title.setText("Faq");
+//            fragment = new FAQActivity();
+//            title.setText("FAQActivity");
 //        } else {
 //            fragment = new Member_group();
 //            title.setText("Groups");
@@ -1561,7 +1561,7 @@
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Faq();
+//                        fragment = new FAQActivity();
 //                        title.setText("FAQ");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

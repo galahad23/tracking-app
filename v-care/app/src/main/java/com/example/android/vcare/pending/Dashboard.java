@@ -744,7 +744,7 @@
 //
 //                groupname = (TextView) view.findViewById(R.id.groupname);
 //                accept = (LinearLayout) view.findViewById(R.id.accept);
-//                delete = (LinearLayout) view.findViewById(R.id.delete);
+//                ic_cross = (LinearLayout) view.findViewById(R.id.ic_cross);
 //                list = (LinearLayout) view.findViewById(R.id.list);
 //            }
 //        }
@@ -816,7 +816,7 @@
 //
 //                groupname = (TextView) view.findViewById(R.id.groupname);
 //                accept = (LinearLayout) view.findViewById(R.id.accept);
-//                delete = (LinearLayout) view.findViewById(R.id.delete);
+//                ic_cross = (LinearLayout) view.findViewById(R.id.ic_cross);
 //                list = (LinearLayout) view.findViewById(R.id.list);
 //            }
 //        }

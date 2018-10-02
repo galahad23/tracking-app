@@ -19,6 +19,7 @@ import com.example.android.vcare.databinding.ActivityMainBinding;
 import com.example.android.vcare.ui.BaseActivity;
 import com.example.android.vcare.ui.login.ChangePasswordActivity;
 import com.example.android.vcare.ui.profile.EditProfileActivity;
+import com.example.android.vcare.ui.settings.FAQActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -718,6 +719,7 @@ public class MainActivity extends BaseActivity {
             case Constants.MenuId.MEMBER_GROUP:
                 break;
             case Constants.MenuId.FAQ:
+                FAQActivity.start(this);
                 break;
             case Constants.MenuId.EMERGENCY_CONTACTS:
                 break;
@@ -1448,7 +1450,7 @@ public class MainActivity extends BaseActivity {
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Faq();
+//                        fragment = new FAQActivity();
 //                        title.setText("FAQ");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

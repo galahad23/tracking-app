@@ -687,7 +687,7 @@ management purpose by your member"
                     android:paddingBottom="20dp" />
 
             </LinearLayout>
-            <!--/////////////add For Slider.................-->
+            <!--/////////////ic_add For Slider.................-->
 
             <LinearLayout
                 android:id="@+id/slider_ly"

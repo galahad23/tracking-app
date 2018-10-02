@@ -34,7 +34,7 @@
                 android:drawableTop="@mipmap/camera"
                 android:padding="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/bg_black5_square"
                 android:textAllCaps="false"
                 android:text="Camera"/>
 
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/gallery"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/edit_text_background"
+                android:background="@drawable/bg_black5_square"
                 android:textAllCaps="false"
                 android:text="Gallery"/>
 

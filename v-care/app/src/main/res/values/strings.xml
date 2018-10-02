@@ -90,4 +90,7 @@
     <string name="resend">Resend</string>
     <string name="one_time_password">One Time Password</string>
     <string name="one_time_password_has_send_to_s">One Time Password has sent to\n%s</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password_does_not_match">Confirm password does not match with new password</string>
 </resources>

@@ -134,4 +134,22 @@ public class AccountEvent {
             return hashCode;
         }
     }
+
+    public static class OnChangePassword {
+        private String message;
+        private int hashCode;
+
+        public OnChangePassword(String message, int hashCode) {
+            this.message = message;
+            this.hashCode = hashCode;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
 }

@@ -17,6 +17,7 @@ import com.example.android.vcare.R;
 import com.example.android.vcare.common.Constants;
 import com.example.android.vcare.databinding.ActivityMainBinding;
 import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.login.ChangePasswordActivity;
 import com.example.android.vcare.ui.profile.EditProfileActivity;
 
 import java.util.ArrayList;
@@ -730,6 +731,7 @@ public class MainActivity extends BaseActivity {
                 EditProfileActivity.start(this);
                 break;
             case Constants.MenuId.CHANGE_PASSWORD:
+                ChangePasswordActivity.start(this);
                 break;
             default:
                 break;

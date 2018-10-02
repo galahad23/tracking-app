@@ -1,45 +1,130 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.AlertDialog;
-//import android.app.ProgressDialog;
-//import android.content.DialogInterface;
-//import android.content.Intent;
-//import android.database.Cursor;
-//import android.os.Bundle;
-//import android.support.design.widget.TextInputLayout;
-//import android.support.v4.app.Fragment;
-//import android.text.Editable;
-//import android.text.TextWatcher;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.view.WindowManager;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
-//import com.example.android.vcare.ui.login.LoginActivity;
-//
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//public class Change_password extends Fragment {
-//    UserHandler2 user_handler = new UserHandler2();
+package com.example.android.vcare.ui.login;
+
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.View;
+
+import com.example.android.vcare.MyApplication;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityChangePasswordBinding;
+import com.example.android.vcare.event.AccountEvent;
+import com.example.android.vcare.event.ExceptionEvent;
+import com.example.android.vcare.job.ChangePasswordJob;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.Util;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+public class ChangePasswordActivity extends BaseActivity {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, ChangePasswordActivity.class);
+        context.startActivity(starter);
+    }
+
+
+    private ActivityChangePasswordBinding binding;
+    private final int hashCode = hashCode();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_change_password);
+        setToolbarTitle(R.string.change_password);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+
+        binding.submit.setOnClickListener(onClickListener);
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (view == binding.submit) {
+                if (isValid()) {
+                    attemptChangePassword();
+                }
+            }
+        }
+    };
+
+    private void attemptChangePassword() {
+        showLoadingDialog();
+        String currentPassword = binding.currentPassword.getText().toString();
+        String newPassword = binding.newPassword.getText().toString();
+        MyApplication.addJobInBackground(new ChangePasswordJob(currentPassword, newPassword, hashCode));
+    }
+
+    private boolean isValid() {
+        boolean isValid = true;
+        String currentPassword = binding.currentPassword.getText().toString();
+        String newPassword = binding.newPassword.getText().toString();
+        String confirmPassword = binding.confirmPassword.getText().toString();
+
+        if (TextUtils.isEmpty(currentPassword)) {
+            isValid = false;
+            binding.currentPassword.setError(getString(R.string.field_cannot_empty));
+        }
+        if (TextUtils.isEmpty(newPassword)) {
+            isValid = false;
+            binding.newPassword.setError(getString(R.string.field_cannot_empty));
+        }
+        if (TextUtils.isEmpty(confirmPassword)) {
+            isValid = false;
+            binding.confirmPassword.setError(getString(R.string.field_cannot_empty));
+        }
+        if (isValid) {
+            if (!newPassword.equalsIgnoreCase(confirmPassword)) {
+                binding.confirmPassword.setError(getString(R.string.confirm_password_does_not_match));
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBusUtil.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBusUtil.unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(AccountEvent.OnChangePassword event) {
+        if (hashCode == event.getHashCode()) {
+            Util.showOkOnlyDisableCancelAlertDialog(this,
+                    getString(R.string.information),
+                    event.getMessage(),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    });
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(ExceptionEvent event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.showOkOnlyDisableCancelAlertDialog(this, null, event.getErrorMessage());
+        }
+    }
+
+    //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
 //    ProgressDialog pDialog;
@@ -48,7 +133,7 @@
 //    private TextInputLayout inputLayoutoldpassword , inputLayoutpassword,inputLayouteconfirmpass;
 //    String strold="",strnew="",strconfirm="",parent_id="",mobile_token="";
 //
-//    public Change_password() {
+//    public ChangePasswordActivity() {
 //        // Required empty public constructor
 //    }
 //
@@ -61,7 +146,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View rootView = inflater.inflate(R.layout.fragment_change_password, container, false);
+//        View rootView = inflater.inflate(R.layout.activity_change_password, container, false);
 //
 //
 //        databaseHandler = new DatabaseHandler(getActivity());
@@ -310,6 +395,6 @@
 //        alertDialog.show();
 //
 //    }
-//
-//
-//}
+
+
+}

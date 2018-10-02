@@ -100,7 +100,17 @@ public interface TaskService {
     @Headers({"Accept: application/json"})
     @POST("parent/checkotp")
     Call<APIResult> submitOTP(@Field("parent_id") String parentId,
-                         @Field("otp") String otp,
-                         @Field("gcm_token") String gcmToken,
-                         @Field("device_id") String deviceId);
+                              @Field("otp") String otp,
+                              @Field("gcm_token") String gcmToken,
+                              @Field("device_id") String deviceId);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/changepassword")
+    Call<APIResult> changePassword(@Field("parent_id") String parentId,
+                                   @Field("old_password") String oldPassword,
+                                   @Field("new_password") String newPassword,
+                                   @Field("confirm_password") String confirmPassword);
+//    @Field("mobile_token") String token
+
 }

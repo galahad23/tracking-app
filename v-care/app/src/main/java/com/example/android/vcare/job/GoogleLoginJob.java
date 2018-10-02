@@ -55,7 +55,7 @@ public class GoogleLoginJob extends BaseJob {
             if (result.getSuccess().equalsIgnoreCase(Constants.APIStatus.SUCCESS)) {
                 UserHandler.setToken(context, result.getMobileToken());
                 UserHandler.setUser(context, result.getUser());
-                EventBusUtil.post(new AccountEvent.OnSocialLogin(hashCode));
+                EventBusUtil.post(new AccountEvent.OnSocialLogin(result.getUser(), hashCode));
             } else if (result.getSuccess().equalsIgnoreCase(Constants.APIStatus.FAIL)) {
                 EventBusUtil.post(new AccountEvent.OnRegisterRequire(user, hashCode));
             } else {

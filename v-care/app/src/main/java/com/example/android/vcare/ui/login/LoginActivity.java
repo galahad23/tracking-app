@@ -51,6 +51,12 @@ import java.util.Arrays;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
+    public static void restart(Context context) {
+        Intent starter = new Intent(context, LoginActivity.class);
+        starter.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(starter);
+    }
+
     public static void start(Context context) {
         Intent starter = new Intent(context, LoginActivity.class);
         context.startActivity(starter);
@@ -233,7 +239,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         binding.signUp.setOnClickListener(this);
 
         if (BuildConfig.DEBUG) {
-            binding.email.setText("mrinkika@gmail.com");
+//            binding.email.setText("mrinkika@gmail.com");
+            binding.email.setText("alwin.weisiang@gmail.com");
             binding.password.setText("123456");
         }
 //        setToolbarTitle(R.string.login);
@@ -1188,25 +1195,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(AccountEvent.OnLogin event) {
         if (hashCode == event.getHashCode()) {
-            dismissLoadingDialog();
-            MainActivity.start(this);
-            finish();
+            handleLoginResult(event.getUser());
         }
     }
 
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onHandle(AccountEvent.OnFacebookLogin event) {
-//        if (hashCode == event.getHashCode()) {
-//            ToastUtil.show(this, "Facebook Login");
-//        }
-//    }
+    private void handleLoginResult(User user) {
+        dismissLoadingDialog();
+        if (user.getOtpStatus().equalsIgnoreCase("0")) {
+            OneTimePasswordActivity.start(this, true);
+        } else {
+            MainActivity.restart(this);
+        }
+        finish();
+    }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(AccountEvent.OnSocialLogin event) {
         if (hashCode == event.getHashCode()) {
-            MainActivity.start(this);
-            dismissLoadingDialog();
-            finish();
+            handleLoginResult(event.getUser());
         }
     }
 

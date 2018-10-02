@@ -76,6 +76,12 @@ public interface TaskService {
 
     @FormUrlEncoded
     @Headers({"Accept: application/json"})
+    @POST("parent/resendotp")
+    Call<APIResult> resendOTP(@Field("parent_id") String parentId);
+
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
     @POST("parent/forgotpassword")
     Call<APIResult> forgotPassword(@Field("email_id") String email_id);
 
@@ -89,4 +95,12 @@ public interface TaskService {
     @Headers({"Accept: application/json"})
     @POST("parent/logout")
     Call<Void> logout(@Field("parent_id") String parentId);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/checkotp")
+    Call<APIResult> submitOTP(@Field("parent_id") String parentId,
+                         @Field("otp") String otp,
+                         @Field("gcm_token") String gcmToken,
+                         @Field("device_id") String deviceId);
 }

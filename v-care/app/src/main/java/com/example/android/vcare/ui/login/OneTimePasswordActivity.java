@@ -1,50 +1,36 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.ProgressDialog;
-//import android.content.BroadcastReceiver;
-//import android.content.Context;
-//import android.content.Intent;
-//import android.database.Cursor;
-//import android.os.AsyncTask;
-//import android.os.Bundle;
-//import android.support.design.widget.TextInputLayout;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v7.app.AppCompatActivity;
-//import android.telephony.TelephonyManager;
-//import android.text.Editable;
-//import android.text.TextWatcher;
-//import android.util.Log;
-//import android.view.View;
-//import android.view.WindowManager;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.DBAdapter;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
-//import com.google.firebase.iid.FirebaseInstanceId;
-//import com.nobrain.android.permissions.AndroidPermissions;
-//import com.nobrain.android.permissions.Checker;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//public class Otp extends AppCompatActivity {
+package com.example.android.vcare.ui.login;
+
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+
+import com.example.android.vcare.MyApplication;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityOtpBinding;
+import com.example.android.vcare.event.AccountEvent;
+import com.example.android.vcare.event.ExceptionEvent;
+import com.example.android.vcare.job.ResendOTPJob;
+import com.example.android.vcare.job.SubmitOTPJob;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.main.MainActivity;
+import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.UserHandler;
+import com.example.android.vcare.util.Util;
+import com.example.android.vcare.widget.Countdown;
+import com.example.android.vcare.widget.TextInputErrorWatcher;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+public class OneTimePasswordActivity extends BaseActivity {
+    public static void start(Context context, boolean requireResend) {
+        Intent starter = new Intent(context, OneTimePasswordActivity.class);
+        starter.putExtra(REQUIRE_RESEND, requireResend);
+        context.startActivity(starter);
+    }
 //    ProgressDialog pDialog;
 //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
@@ -61,16 +47,123 @@
 //    public static final int REQUEST_CODE = 102;
 //    String device_id = "";
 //    public static String status;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_otp);
+
+    private static final String REQUIRE_RESEND = "require_resend";
+    private ActivityOtpBinding binding;
+    private final int hashCode = hashCode();
+    private static final long TAC_COOLDOWN_PERIOD = 180000L;
+    private static Countdown timer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+        setToolbarTitle(R.string.verification);
+
+        if (getIntent().getBooleanExtra(REQUIRE_RESEND, false)) {
+            if (timer == null) {
+                attemptSendOTP();
+            }
+        } else {
+            setupTimer(TAC_COOLDOWN_PERIOD);
+        }
+
+        binding.resend.setOnClickListener(onClickListener);
+        binding.submit.setOnClickListener(onClickListener);
+        binding.otp.addTextChangedListener(new TextInputErrorWatcher(binding.otpInputLayout));
+    }
+
+    private void attemptSendOTP() {
+        showLoadingDialog();
+        MyApplication.addJobInBackground(new ResendOTPJob(hashCode));
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (view == binding.submit) {
+                if (isValid()) {
+                    attemptSubmitOTP();
+                }
+            } else if (view == binding.resend) {
+                attemptSendOTP();
+            }
+        }
+    };
+
+    private void attemptSubmitOTP() {
+        String otp = binding.otp.getText().toString();
+        showLoadingDialog();
+        MyApplication.addJobInBackground(new SubmitOTPJob(otp, hashCode));
+    }
+
+
+    private boolean isValid() {
+        boolean isValid = true;
+        String otp = binding.otp.getText().toString();
+
+        if (TextUtils.isEmpty(otp)) {
+            isValid = false;
+            binding.otpInputLayout.setError(getString(R.string.field_cannot_empty));
+        }
+
+        return isValid;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (binding.resend != null && timer != null) timer.onResume(binding.resend);
+    }
+
+    private void setupTimer(long endTimeInMillis) {
+        timer = new Countdown(endTimeInMillis, binding.resend);
+        timer.start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBusUtil.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBusUtil.unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(AccountEvent.OnSubmitOTP event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            MainActivity.restart(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(AccountEvent.OnResendOTP event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            setupTimer(TAC_COOLDOWN_PERIOD);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(ExceptionEvent event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.showOkOnlyDisableCancelAlertDialog(this, null, event.getErrorMessage());
+        }
+    }
+
+    //        setContentView(R.layout.activity_otp);
 //
 //        databaseHandler = new DatabaseHandler(this);
 //
-//        databaseHandler = new DatabaseHandler(Otp.this);
+//        databaseHandler = new DatabaseHandler(OneTimePasswordActivity.this);
 //        feeditem = new ArrayList<User_Detail>();
 //        Cursor cursor = databaseHandler.get_rider_detail();
 //        if (cursor != null) {
@@ -115,7 +208,7 @@
 //                        String msg = "Permission has no " + permissions[0];
 //
 //
-//                        ActivityCompat.requestPermissions(Otp.this
+//                        ActivityCompat.requestPermissions(OneTimePasswordActivity.this
 //                                , new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.READ_PHONE_STATE}
 //                                , REQUEST_CODE);
 //                    }
@@ -189,7 +282,7 @@
 //
 //    @Override
 //    public void onRequestPermissionsResult(int requestCode, final String[] permissions, int[] grantResults) {
-//        AndroidPermissions.result(Otp.this)
+//        AndroidPermissions.result(OneTimePasswordActivity.this)
 //                .addPermissions(REQUEST_CODE, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.READ_PHONE_STATE)
 //                .putActions(REQUEST_CODE, new com.nobrain.android.permissions.Result.Action0() {
 //                    @Override
@@ -262,7 +355,7 @@
 //
 //    private void otp_api() {
 //        // TODO Auto-generated method stub
-//        pDialog = new ProgressDialog(Otp.this);
+//        pDialog = new ProgressDialog(OneTimePasswordActivity.this);
 //        pDialog.setMessage("Please Wait...");
 //        pDialog.setCancelable(false);
 //        pDialog.show();
@@ -370,7 +463,7 @@
 //
 //    private void Resend_otp() {
 //        // TODO Auto-generated method stub
-//        pDialog = new ProgressDialog(Otp.this);
+//        pDialog = new ProgressDialog(OneTimePasswordActivity.this);
 //        pDialog.setMessage("Please Wait...");
 //        pDialog.setCancelable(false);
 //        pDialog.show();
@@ -502,6 +595,11 @@
 //        AppController.getInstance().addToRequestQueue(req);
 //
 //    }
-//
-//
-//}
+
+    @Override
+    public void finish() {
+        super.finish();
+        timer.onFinish();
+        UserHandler.setToken(this, "");
+    }
+}

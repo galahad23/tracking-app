@@ -23,7 +23,7 @@
 //import com.example.android.vcare.model.UserHandler;
 //import com.example.android.vcare.pending.Constant;
 //import com.example.android.vcare.pending.MainActivity;
-//import com.example.android.vcare.pending.Otp;
+//import com.example.android.vcare.ui.login.OneTimePasswordActivity;
 //import com.example.android.vcare.ui.welcome.WelcomeActivity;
 //import com.nobrain.android.permissions.AndroidPermissions;
 //import com.nobrain.android.permissions.Checker;
@@ -175,7 +175,7 @@
 //
 //                                        if (otp_status.equals("0")) {
 //                                            Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
-//                                            //Intent intent = new Intent(getApplicationContext(),Otp.class);
+//                                            //Intent intent = new Intent(getApplicationContext(),OneTimePasswordActivity.class);
 //                                            startActivity(intent);
 //                                            finishAffinity();
 //                                        }
@@ -244,7 +244,7 @@
 //                                        }
 //
 //                                        if (otp_status.equals("0")) {
-//                                            Intent intent = new Intent(getApplicationContext(), Otp.class);
+//                                            Intent intent = new Intent(getApplicationContext(), OneTimePasswordActivity.class);
 //                                            startActivity(intent);
 //                                            finishAffinity();
 //                                        }

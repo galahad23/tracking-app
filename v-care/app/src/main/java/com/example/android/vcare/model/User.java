@@ -1,5 +1,7 @@
 package com.example.android.vcare.model;
 
+import android.text.TextUtils;
+
 import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +23,7 @@ public class User {
 
     @SerializedName("id")
     @Expose
-    private int id;
+    private String id;
     @SerializedName("is_parent")
     @Expose
     private String isParent;
@@ -162,6 +164,9 @@ public class User {
     }
 
     public String getParentId() {
+        if (TextUtils.isEmpty(parentId)) {
+            return id;
+        }
         return parentId;
     }
 
@@ -233,11 +238,11 @@ public class User {
         return this;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

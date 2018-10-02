@@ -5,47 +5,22 @@ import com.example.android.vcare.model.User;
 public class AccountEvent {
 
     public static class OnLogin {
+        private User user;
         private int hashCode;
 
-        public OnLogin(int hashCode) {
+        public OnLogin(User user, int hashCode) {
+            this.user = user;
             this.hashCode = hashCode;
+        }
+
+        public User getUser() {
+            return user;
         }
 
         public int getHashCode() {
             return hashCode;
         }
     }
-
-//    public static class OnFacebookLogin {
-//        private int hashCode;
-//
-//        public OnFacebookLogin(int hashCode) {
-//            this.hashCode = hashCode;
-//        }
-//
-//        public int getHashCode() {
-//            return hashCode;
-//        }
-//    }
-
-//    public static class OnFacebookLoginFailed {
-//        private User user;
-//        private int hashCode;
-//
-//        public OnFacebookLoginFailed(User user, int hashCode) {
-//            this.user = user;
-//            this.hashCode = hashCode;
-//        }
-//
-//        public User getUser() {
-//            return user;
-//        }
-//
-//        public int getHashCode() {
-//            return hashCode;
-//        }
-//    }
-//
     public static class OnRegisterRequire{
         private User user;
         private int hashCode;
@@ -64,47 +39,23 @@ public class AccountEvent {
         }
     }
 
-//    public static class OnGoogleLogin {
-//        private int hashCode;
-//
-//        public OnGoogleLogin(int hashCode) {
-//            this.hashCode = hashCode;
-//        }
-//
-//        public int getHashCode() {
-//            return hashCode;
-//        }
-//    }
-
     public static class OnSocialLogin {
+        private User user;
         private int hashCode;
 
-        public OnSocialLogin(int hashCode) {
+        public OnSocialLogin(User user, int hashCode) {
+            this.user = user;
             this.hashCode = hashCode;
+        }
+
+        public User getUser() {
+            return user;
         }
 
         public int getHashCode() {
             return hashCode;
         }
     }
-
-//    public static class OnGoogleLoginFailed {
-//        private User user;
-//        private int hashCode;
-//
-//        public OnGoogleLoginFailed(User user, int hashCode) {
-//            this.user = user;
-//            this.hashCode = hashCode;
-//        }
-//
-//        public User getUser() {
-//            return user;
-//        }
-//
-//        public int getHashCode() {
-//            return hashCode;
-//        }
-//    }
 
     public static class OnForgotPassword {
         private String message;
@@ -125,10 +76,16 @@ public class AccountEvent {
     }
 
     public static class OnSignUp {
+        private User user;
         private int hashCode;
 
-        public OnSignUp(int hashCode) {
+        public OnSignUp(User user, int hashCode) {
+            this.user = user;
             this.hashCode = hashCode;
+        }
+
+        public User getUser() {
+            return user;
         }
 
         public int getHashCode() {
@@ -147,6 +104,30 @@ public class AccountEvent {
 
         public User getUser() {
             return user;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
+
+    public static class OnResendOTP {
+        private int hashCode;
+
+        public OnResendOTP(int hashCode) {
+            this.hashCode = hashCode;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
+
+    public static class OnSubmitOTP {
+        private int hashCode;
+
+        public OnSubmitOTP(int hashCode) {
+            this.hashCode = hashCode;
         }
 
         public int getHashCode() {

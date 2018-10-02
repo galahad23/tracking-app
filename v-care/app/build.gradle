@@ -143,6 +143,7 @@ dependencies {
 
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.hbb20:ccp:2.2.2'
+    implementation 'com.github.esafirm.android-image-picker:rximagepicker:1.12.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'

@@ -17,6 +17,7 @@ import com.example.android.vcare.R;
 import com.example.android.vcare.common.Constants;
 import com.example.android.vcare.databinding.ActivityMainBinding;
 import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.profile.EditProfileActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +25,18 @@ import java.util.List;
 
 
 public class MainActivity extends BaseActivity {
+
+    public static void restart(Context context) {
+        Intent starter = new Intent(context, MainActivity.class);
+        starter.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(starter);
+    }
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, MainActivity.class);
+        context.startActivity(starter);
+    }
+
     //    protected static final int REQUEST_CHECK_SETTINGS = 0x1;
 //    static final Double EARTH_RADIUS = 6371.00;
 //    private static final String TAG = MainActivity2.class.getSimpleName();
@@ -82,11 +95,6 @@ public class MainActivity extends BaseActivity {
 //            level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 //        }
 //    };
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, MainActivity.class);
-        context.startActivity(starter);
-    }
 
     private ActivityMainBinding binding;
 
@@ -719,6 +727,7 @@ public class MainActivity extends BaseActivity {
                 break;
             //Sub Menu
             case Constants.MenuId.EDIT_PROFILE:
+                EditProfileActivity.start(this);
                 break;
             case Constants.MenuId.CHANGE_PASSWORD:
                 break;

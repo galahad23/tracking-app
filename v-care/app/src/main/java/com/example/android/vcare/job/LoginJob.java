@@ -62,7 +62,7 @@ public class LoginJob extends BaseJob {
                 UserHandler.setUser(context, result.getUser());
                 MyApplication.addJobInBackground(new GetProfileJob(hashCode));
 
-                EventBusUtil.post(new AccountEvent.OnLogin(hashCode));
+                EventBusUtil.post(new AccountEvent.OnLogin(result.getUser(), hashCode));
             } else {
                 EventBusUtil.post(new ExceptionEvent(result.getMessage(), hashCode));
             }

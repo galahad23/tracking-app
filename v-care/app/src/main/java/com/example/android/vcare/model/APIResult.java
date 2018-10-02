@@ -19,9 +19,9 @@ public class APIResult {
     @SerializedName("text")
     @Expose
     private String message = null;
-//    @SerializedName("profile")
-//    @Expose
-//    private  User profile = null;
+    @SerializedName("profile")
+    @Expose
+    private  User profile = null;
 
 
     public String getSuccess() {
@@ -59,7 +59,7 @@ public class APIResult {
         return message;
     }
 
-//    public User getProfile() {
-//        return profile;
-//    }
+    public User getProfile() {
+        return profile;
+    }
 }

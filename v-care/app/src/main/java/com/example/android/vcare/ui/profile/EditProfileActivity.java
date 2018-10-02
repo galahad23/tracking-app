@@ -1,74 +1,41 @@
-//package com.example.android.vcare.ui.profile;
-//
-//import android.app.Activity;
-//import android.app.AlertDialog;
-//import android.app.ProgressDialog;
-//import android.content.ContentValues;
-//import android.content.Context;
-//import android.content.DialogInterface;
-//import android.content.Intent;
-//import android.database.Cursor;
-//import android.databinding.DataBindingUtil;
-//import android.graphics.Bitmap;
-//import android.graphics.BitmapFactory;
-//import android.graphics.drawable.BitmapDrawable;
-//import android.net.Uri;
-//import android.os.Bundle;
-//import android.provider.MediaStore;
-//import android.support.design.widget.TextInputLayout;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v4.app.Fragment;
-//import android.text.Editable;
-//import android.text.TextUtils;
-//import android.text.TextWatcher;
-//import android.util.Log;
-//import android.view.Gravity;
-//import android.view.LayoutInflater;
-//import android.view.MotionEvent;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.view.WindowManager;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.ImageView;
-//import android.widget.LinearLayout;
-//import android.widget.PopupWindow;
-//import android.widget.Toast;
-//
-//import com.android.camera.CropImageIntentBuilder;
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.databinding.ActivityEditProfileBinding;
+package com.example.android.vcare.ui.profile;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.view.View;
+
+import com.esafirm.imagepicker.features.ImagePicker;
+import com.esafirm.imagepicker.features.ReturnMode;
+import com.esafirm.imagepicker.model.Image;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityEditProfileBinding;
+import com.example.android.vcare.model.User;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.util.ImageLoader;
+import com.example.android.vcare.util.PermissionUtil;
+import com.example.android.vcare.util.UserHandler;
+
+import java.util.List;
+
 //import com.example.android.vcare.model.C_Base64;
 //import com.example.android.vcare.model.DatabaseHandler;
 //import com.example.android.vcare.model.ExifUtils;
 //import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.phonefield.PhoneField;
-//import com.example.android.vcare.ui.BaseActivity;
-//import com.example.android.vcare.ui.login.LoginActivity;
-//import com.nobrain.android.permissions.AndroidPermissions;
-//import com.nobrain.android.permissions.Checker;
-//import com.nobrain.android.permissions.Result;
-//import com.squareup.picasso.Picasso;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.io.ByteArrayOutputStream;
-//import java.io.File;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//
-//public class EditProfileActivity extends BaseActivity {
+
+
+public class EditProfileActivity extends BaseActivity implements View.OnClickListener {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, EditProfileActivity.class);
+        context.startActivity(starter);
+    }
+
 //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
@@ -91,19 +58,76 @@
 //    private static final int PICK_IMAGE = 1;
 //    CustomPhoneInputLayout customphone;
 //    int cunterycode;
-//
-//    private ActivityEditProfileBinding binding;
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
-//        setTintBackButtonIcon(R.color.white, R.drawable.ic_back_black_24dp);
-//        setDisplayHomeAsUpEnabled();
-//        setBackNavigation();
-//    }
-//
-//    @Override
+
+    private ActivityEditProfileBinding binding;
+    private static final int REQUEST_IMAGE_PERMISSION = 101;
+    private static final int PROFILE_REQUEST_CODE = 201;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile);
+        setTintBackButtonIcon(R.color.white, R.drawable.ic_back_black_24dp);
+        setToolbarTitle(R.string.edit_profile);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+
+        binding.email.setEnabled(false);
+        initUserDetails();
+    }
+
+    private void initUserDetails() {
+        User user = UserHandler.getUser(this);
+        binding.name.setText(user.getName());
+        binding.email.setText(user.getEmail());
+        binding.phoneCode.setCountryForNameCode(user.getCountryName());
+        binding.phone.setText(user.getPhoneNumber());
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == binding.edit) {
+            attemptSelectPhoto();
+        }
+    }
+
+    private void attemptSelectPhoto() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            ImagePicker.create(this)
+                    .returnMode(ReturnMode.ALL)
+                    .folderMode(true)
+                    .toolbarFolderTitle(getString(R.string.gallery))
+                    .toolbarImageTitle(getString(R.string.tap_to_select))
+                    .single()
+                    .start(PROFILE_REQUEST_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_IMAGE_PERMISSION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_IMAGE_PERMISSION && PermissionUtil.isPermissionHasGranted(grantResults)) {
+            attemptSelectPhoto();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_PERMISSION) {
+            List<Image> images = ImagePicker.getImages(data);
+            if (images != null && !images.isEmpty()) {
+                String imagePath = images.get(0).getPath();
+                ImageLoader.glideImageLoadCenterCrop(binding.profile, imagePath);
+                binding.profile.setTag(imagePath);
+            }
+        }
+    }
+
+    //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
@@ -812,6 +836,4 @@
 //        alertDialog.show();
 //
 //    }
-//
-//
-//}
+}

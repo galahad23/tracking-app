@@ -116,7 +116,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
             backPressed = System.currentTimeMillis();
         } else {
-            finishAffinity();
+            super.onBackPressed();
         }
     }
 }

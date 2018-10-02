@@ -185,10 +185,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
                 String name = binding.name.getText().toString();
                 String email = binding.email.getText().toString();
-                String phone = binding.phoneCode.getSelectedCountryCodeWithPlus() + binding.phone.getText().toString();
                 String password = binding.password.getText().toString();
-                String countryCode = binding.phoneCode.getSelectedCountryCode();
-                String countryName = binding.phoneCode.getSelectedCountryName();
+                String phone = binding.phone.getText().toString();
+                String countryCode = binding.phoneCode.getSelectedCountryCodeWithPlus();
+                String countryName = binding.phoneCode.getSelectedCountryNameCode();
 
                 user.setName(name)
                         .setEmail(email)
@@ -998,7 +998,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 //                                    }
 //
 //                                    if (otpstatus.equals("0")) {
-//                                        Intent intent = new Intent(getApplicationContext(), Otp.class);
+//                                        Intent intent = new Intent(getApplicationContext(), OneTimePasswordActivity.class);
 //                                        startActivity(intent);
 //                                        finish();
 //                                    } else {
@@ -1805,11 +1805,21 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 //        }
 //    }
 
+    private void handleLoginResult(User user) {
+        dismissLoadingDialog();
+        if (user.getOtpStatus().equalsIgnoreCase("0")) {
+            OneTimePasswordActivity.start(this, true);
+        } else {
+            MainActivity.restart(this);
+        }
+        finish();
+    }
+
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(AccountEvent.OnSocialLogin event) {
         if (hashCode == event.getHashCode()) {
-            MainActivity.start(this);
-            finish();
+            handleLoginResult(event.getUser());
         }
     }
 
@@ -1824,16 +1834,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(AccountEvent.OnSignUp event) {
         if (hashCode == event.getHashCode()) {
-            Util.showOkOnlyDisableCancelAlertDialog(this,
-                    getString(R.string.information),
-                    getString(R.string.sign_up_successful),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            LoginActivity.start(SignUpActivity.this);
-                            finish();
-                        }
-                    });
+            handleLoginResult(event.getUser());
         }
     }
 

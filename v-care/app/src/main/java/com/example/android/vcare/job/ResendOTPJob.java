@@ -16,8 +16,9 @@ import com.example.android.vcare.util.UserHandler;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class GetProfileJob extends BaseJob {
-    protected GetProfileJob(int hashCode) {
+public class ResendOTPJob extends BaseJob {
+
+    public ResendOTPJob(int hashCode) {
         super(new Params(Priority.HIGH), hashCode);
     }
 
@@ -30,17 +31,15 @@ public class GetProfileJob extends BaseJob {
     public void onRun() throws Throwable {
         Context context = getApplicationContext();
         User user = UserHandler.getUser(context);
-        String token = UserHandler.getToken(context);
 
         TaskService taskService = ServiceGenerator.createService(TaskService.class);
-        Call<APIResult> call = taskService.getProfile(user.getParentId(), token);
+        Call<APIResult> call = taskService.resendOTP(user.getParentId());
         Response<APIResult> execute = call.execute();
 
         if (execute.isSuccessful()) {
             APIResult result = execute.body();
             if (result.getSuccess().equalsIgnoreCase(Constants.APIStatus.SUCCESS)) {
-                UserHandler.setUser(context, result.getProfile());
-                EventBusUtil.post(new AccountEvent.OnGetProfile(user, hashCode));
+                EventBusUtil.post(new AccountEvent.OnResendOTP(hashCode));
             } else {
                 EventBusUtil.post(new ExceptionEvent(result.getMessage(), hashCode));
             }

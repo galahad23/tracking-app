@@ -14,6 +14,7 @@ import com.example.android.vcare.model.User;
 import com.example.android.vcare.retrofit.ServiceGenerator;
 import com.example.android.vcare.retrofit.TaskService;
 import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.UserHandler;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -85,7 +86,8 @@ public class SignUpJob extends BaseJob {
         if (execute.isSuccessful()) {
             APIResult result = execute.body();
             if (result.getSuccess().equalsIgnoreCase(Constants.APIStatus.SUCCESS)) {
-                EventBusUtil.post(new AccountEvent.OnSignUp(hashCode));
+                UserHandler.setUser(context, result.getUser());
+                EventBusUtil.post(new AccountEvent.OnSignUp(result.getUser(), hashCode));
             } else {
                 EventBusUtil.post(new ExceptionEvent(result.getMessage(), hashCode));
             }

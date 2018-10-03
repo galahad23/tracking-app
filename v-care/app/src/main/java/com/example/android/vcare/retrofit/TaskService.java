@@ -116,4 +116,16 @@ public interface TaskService {
     @Headers({"Accept: application/json"})
     @POST("parent/Faq")
     Call<APIResult> getFaq();
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/Get_Emergency_Number")
+    Call<APIResult> getEmergencyNumber(@Field("parent_id") String parentId);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/Update_Emergency_Number")
+    Call<APIResult> updateEmergencyNumber(@Field("parent_id") String parentId,
+                                          @Field("person_name") String personName,
+                                          @Field("emergency_number") String emergencyNumber);
 }

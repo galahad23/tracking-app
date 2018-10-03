@@ -46,7 +46,7 @@
             android:id="@+id/attchment"
             android:gravity="center"
             android:layout_gravity="center"
-            android:background="@drawable/circle_green"
+            android:background="@drawable/btn_blue_oval"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -316,7 +316,7 @@
             android:layout_marginLeft="5dp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:background="@drawable/circle_green"
+            android:background="@drawable/btn_blue_oval"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

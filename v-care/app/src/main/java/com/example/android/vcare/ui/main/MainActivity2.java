@@ -1578,7 +1578,7 @@
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Emergency_Contact();
+//                        fragment = new EmergencyContactActivity();
 //                        title.setText("Emergency Contact");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

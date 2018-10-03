@@ -1,40 +1,151 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.ProgressDialog;
-//import android.database.Cursor;
-//import android.os.Bundle;
-//import android.support.v4.app.Fragment;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.User_Detail;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//
-//public class Emergency_Contact extends Fragment implements View.OnClickListener {
-//
-//    EditText emergencyNumberFirst, emergencyNumberSecond, emergencyNumberThird,
+package com.example.android.vcare.ui.profile;
+
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.View;
+
+import com.example.android.vcare.MyApplication;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityEmergencyContactBinding;
+import com.example.android.vcare.event.AccountEvent;
+import com.example.android.vcare.event.ExceptionEvent;
+import com.example.android.vcare.job.GetEmergencyNumberJob;
+import com.example.android.vcare.job.UpdateEmergencyNumberJob;
+import com.example.android.vcare.model.User;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.Util;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.List;
+
+
+public class EmergencyContactActivity extends BaseActivity {
+    public static void start(Context context) {
+        Intent starter = new Intent(context, EmergencyContactActivity.class);
+        context.startActivity(starter);
+    }
+
+    private ActivityEmergencyContactBinding binding;
+    private final int hashCode = hashCode();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_emergency_contact);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+        setToolbarTitle(R.string.emergency_contacts);
+
+        getEmergencyContacts();
+        binding.submit.setOnClickListener(onClickListener);
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (view == binding.submit) {
+                if (isValid()) {
+                    showLoadingDialog();
+                    MyApplication.addJobInBackground(new UpdateEmergencyNumberJob(allPersonName, allEmergencyContact, hashCode));
+                }
+            }
+        }
+    };
+
+    private String allPersonName;
+    private String allEmergencyContact;
+
+    private boolean isValid() {
+        String firstName = binding.firstPersonName.getText().toString();
+        String firstNumber = binding.firstNumber.getText().toString();
+        String secondName = binding.secondPersonName.getText().toString();
+        String secondNumber = binding.secondNumber.getText().toString();
+        String thirdName = binding.thirdPersonName.getText().toString();
+        String thirdNumber = binding.thirdNumber.getText().toString();
+
+        if ((TextUtils.isEmpty(firstName) && TextUtils.isEmpty(firstNumber))
+                && (TextUtils.isEmpty(secondName) && TextUtils.isEmpty(secondNumber))
+                && (TextUtils.isEmpty(thirdName) && TextUtils.isEmpty(thirdNumber))) {
+            Util.showOkOnlyDisableCancelAlertDialog(this, getString(R.string.error), getString(R.string.at_least_one_emergency_contact));
+            return false;
+        } else {
+            allPersonName = firstName + "," + secondName + "," + thirdName;
+            allEmergencyContact = firstNumber + "," + secondNumber + "," + thirdNumber;
+            return true;
+        }
+    }
+
+    private void getEmergencyContacts() {
+        showLoadingDialog();
+        MyApplication.addJobInBackground(new GetEmergencyNumberJob(hashCode));
+    }
+
+    private void populateEmergencyContacts(List<User> emergencyContacts) {
+        for (int i = 0; i < emergencyContacts.size(); i++) {
+            User user = emergencyContacts.get(i);
+            switch (i) {
+                case 0:
+                    binding.firstPersonName.setText(user.getPersonName());
+                    binding.firstNumber.setText(user.getEmergencyNumber());
+                    break;
+                case 1:
+                    binding.secondPersonName.setText(user.getPersonName());
+                    binding.secondNumber.setText(user.getEmergencyNumber());
+                    break;
+                case 2:
+                    binding.thirdPersonName.setText(user.getPersonName());
+                    binding.thirdNumber.setText(user.getEmergencyNumber());
+                    break;
+            }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(AccountEvent.OnUpdateEmergencyContact event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.showOkOnlyDisableCancelAlertDialog(this,
+                    getString(R.string.information),
+                    event.getMessage());
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(AccountEvent.OnGetEmergencyContact event) {
+        if (hashCode == hashCode()) {
+            populateEmergencyContacts(event.getEmergencyContactList());
+            dismissLoadingDialog();
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(ExceptionEvent event) {
+        if (hashCode == event.getHashCode()) {
+            dismissLoadingDialog();
+            Util.showOkOnlyDisableCancelAlertDialog(this, null, event.getErrorMessage());
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBusUtil.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBusUtil.unregister(this);
+    }
+
+    //    EditText emergencyNumberFirst, emergencyNumberSecond, emergencyNumberThird,
 //            emergencyPersonFirst, emergencyPersonSecond, emergencyPersonThird;
 //    Button submitEmergencyNumber;
 //    String firstNumber = "", secondNumber = "", thirdNumber = "", parent_id = "",
@@ -43,7 +154,7 @@
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
 //
-//    public Emergency_Contact() {
+//    public EmergencyContactActivity() {
 //        // Required empty public constructor
 //    }
 //
@@ -57,7 +168,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View rootview = inflater.inflate(R.layout.fragment_emergency__contact, container, false);
+//        View rootview = inflater.inflate(R.layout.activity_emergency_contact, container, false);
 //
 //        emergencyNumberFirst = (EditText) rootview.findViewById(R.id.emergencyNumberFirst);
 //        emergencyNumberSecond = (EditText) rootview.findViewById(R.id.emergencyNumberSecond);
@@ -286,5 +397,4 @@
 //        req.setShouldCache(false);
 //        AppController.getInstance().addToRequestQueue(req);
 //    }
-//
-//}
+}

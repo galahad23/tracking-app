@@ -40,7 +40,7 @@
     <string name="otp_message">OTP code is valid for 3 minutes only</string>
     <string name="groupText">Please take photo or upload image for your group before entering group name and click on Next button</string>
     <string name="share_contant"><![CDATA[I would like to invite you to download this v2care Apps, a traceability system and risk management for your love one. It also provides a closer communication link among your friends, family in the case of emergency. Download : http://go4drupal.com/gps_tracker/v2care.apk]]></string>
-    <string name="emergency">Emergency Contact number</string>
+    <string name="emergency_number">Emergency Contact Number</string>
     <string name="emergency_person">Emergency Contact Person Name</string>
     <string name="continue_with_facebook">Continue with Facebook</string>
     <string name="continue_with_google">Continue with Google</string>
@@ -94,4 +94,6 @@
     <string name="new_password">New Password</string>
     <string name="confirm_password_does_not_match">Confirm password does not match with new password</string>
     <string name="no_data_found">No Data</string>
+    <string name="error">Error</string>
+    <string name="at_least_one_emergency_contact">At least one emergency contact is required.</string>
 </resources>

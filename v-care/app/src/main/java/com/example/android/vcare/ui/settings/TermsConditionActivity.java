@@ -1,4 +1,4 @@
-package com.example.android.vcare.pending;
+package com.example.android.vcare.ui.settings;
 
 import android.content.Context;
 import android.content.Intent;

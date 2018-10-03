@@ -16,6 +16,9 @@ public class APIResult {
     @SerializedName("parentinfo")
     @Expose
     private  List<User> parentInfo = null;
+    @SerializedName("ParentInfo")
+    @Expose
+    private List<User> emergencyContact = null;
     @SerializedName("text")
     @Expose
     private String message = null;
@@ -68,5 +71,9 @@ public class APIResult {
 
     public List<Faq> getFaqList() {
         return faqList;
+    }
+
+    public List<User> getEmergencyContact() {
+        return emergencyContact;
     }
 }

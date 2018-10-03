@@ -2,6 +2,8 @@ package com.example.android.vcare.event;
 
 import com.example.android.vcare.model.User;
 
+import java.util.List;
+
 public class AccountEvent {
 
     public static class OnLogin {
@@ -140,6 +142,42 @@ public class AccountEvent {
         private int hashCode;
 
         public OnChangePassword(String message, int hashCode) {
+            this.message = message;
+            this.hashCode = hashCode;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
+
+    public static class OnGetEmergencyContact{
+        private List<User> emergencyContactList;
+        private int hashCode;
+
+        public OnGetEmergencyContact(List<User> emergencyContactList, int hashCode) {
+            this.emergencyContactList = emergencyContactList;
+            this.hashCode = hashCode;
+        }
+
+        public List<User> getEmergencyContactList() {
+            return emergencyContactList;
+        }
+
+        public int getHashCode() {
+            return hashCode;
+        }
+    }
+
+    public static class OnUpdateEmergencyContact{
+        private String message;
+        private int hashCode;
+
+        public OnUpdateEmergencyContact(String message, int hashCode) {
             this.message = message;
             this.hashCode = hashCode;
         }

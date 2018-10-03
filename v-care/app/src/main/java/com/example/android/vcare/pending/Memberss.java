@@ -376,7 +376,7 @@
 //         /*   holder.view_layout.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    holder.view_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_green));
+//                    holder.view_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_blue_oval));
 //            child_id = list.getId();
 //            Child_info();
 //
@@ -389,7 +389,7 @@
 //            holder.edit_ly.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    holder.edit_ly.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_green));
+//                    holder.edit_ly.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_blue_oval));
 //                    child_id = list.getId();
 //
 //                    Intent intent = new Intent(context,Edit_chlid_info.class);

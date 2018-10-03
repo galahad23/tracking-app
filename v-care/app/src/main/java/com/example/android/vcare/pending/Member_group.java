@@ -355,7 +355,7 @@
 //            holder.view_layout.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    holder.view_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_green));
+//                    holder.view_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_blue_oval));
 //
 //                    if (Constant.plan_price.equals("null")) {
 //                        Intent intent = new Intent(context, Select_plan.class);
@@ -375,7 +375,7 @@
 //            holder.chat_layout.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    holder.chat_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.circle_green));
+//                    holder.chat_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_blue_oval));
 //                    if (Constant.plan_price.equals("null")) {
 //                        Intent intent = new Intent(context, Select_plan.class);
 //                        startActivity(intent);

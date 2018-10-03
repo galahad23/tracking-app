@@ -136,6 +136,13 @@ public class User {
     @Expose
     private String updatedAt;
 
+    @SerializedName("person_name")
+    @Expose
+    private String personName;
+    @SerializedName("emergency_number")
+    @Expose
+    private String emergencyNumber;
+
 
     public String toJson() {
         return new Gson().toJson(this);
@@ -492,5 +499,21 @@ public class User {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getEmergencyNumber() {
+        return emergencyNumber;
+    }
+
+    public void setEmergencyNumber(String emergencyNumber) {
+        this.emergencyNumber = emergencyNumber;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 }

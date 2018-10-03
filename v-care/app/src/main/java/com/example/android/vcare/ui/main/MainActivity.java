@@ -19,7 +19,9 @@ import com.example.android.vcare.databinding.ActivityMainBinding;
 import com.example.android.vcare.ui.BaseActivity;
 import com.example.android.vcare.ui.login.ChangePasswordActivity;
 import com.example.android.vcare.ui.profile.EditProfileActivity;
+import com.example.android.vcare.ui.profile.EmergencyContactActivity;
 import com.example.android.vcare.ui.settings.FAQActivity;
+import com.example.android.vcare.ui.settings.TermsConditionActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -707,6 +709,7 @@ public class MainActivity extends BaseActivity {
             case Constants.MenuId.DASHBOARD:
                 break;
             case Constants.MenuId.MY_PROFILE:
+                //No Activity
                 break;
             case Constants.MenuId.SUBSCRIPTION_PLAN:
                 break;
@@ -722,8 +725,10 @@ public class MainActivity extends BaseActivity {
                 FAQActivity.start(this);
                 break;
             case Constants.MenuId.EMERGENCY_CONTACTS:
+                EmergencyContactActivity.start(this);
                 break;
             case Constants.MenuId.TERMS_CONDITION:
+                TermsConditionActivity.start(this);
                 break;
             case Constants.MenuId.LOGOUT:
                 MenuActionUtil.logout(this);
@@ -1467,7 +1472,7 @@ public class MainActivity extends BaseActivity {
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Emergency_Contact();
+//                        fragment = new EmergencyContactActivity();
 //                        title.setText("Emergency Contact");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

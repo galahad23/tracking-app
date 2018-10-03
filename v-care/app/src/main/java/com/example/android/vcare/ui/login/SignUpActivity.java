@@ -1,7 +1,6 @@
 package com.example.android.vcare.ui.login;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ import com.example.android.vcare.job.FacebookLoginJob;
 import com.example.android.vcare.job.GoogleLoginJob;
 import com.example.android.vcare.job.SignUpJob;
 import com.example.android.vcare.model.User;
-import com.example.android.vcare.pending.TermsConditionActivity;
+import com.example.android.vcare.ui.settings.TermsConditionActivity;
 import com.example.android.vcare.ui.BaseActivity;
 import com.example.android.vcare.ui.main.MainActivity;
 import com.example.android.vcare.util.EventBusUtil;

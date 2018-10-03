@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.example.android.vcare.MyApplication;
 import com.example.android.vcare.R;
@@ -39,6 +41,9 @@ public class FAQActivity extends BaseActivity {
         setBackNavigation();
         setToolbarTitle(R.string.faq);
 
+        binding.swipeRefresh.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorPrimary));
+        binding.swipeRefresh.setOnRefreshListener(onRefreshListener);
+
         adapter = new FAQAdapter(this);
         binding.listView.setEmptyView(binding.empty);
         binding.listView.hasMorePages(false);
@@ -46,8 +51,19 @@ public class FAQActivity extends BaseActivity {
         binding.listView.setDividerHeight(Util.dpToPx(this, 12));
 
         Util.setListShown(binding.container, binding.progressContainer, false, false);
+        getData();
+    }
+
+    private void getData() {
         MyApplication.addJobInBackground(new GetFaqJob(hashCode));
     }
+
+    private SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            getData();
+        }
+    };
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onHandle(SettingEvent.OnGetFaq event) {
@@ -58,6 +74,7 @@ public class FAQActivity extends BaseActivity {
                 adapter.clear();
             }
             adapter.addAll(event.getFaqList());
+            binding.swipeRefresh.setRefreshing(false);
         }
     }
 

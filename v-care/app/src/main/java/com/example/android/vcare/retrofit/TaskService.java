@@ -1,6 +1,7 @@
 package com.example.android.vcare.retrofit;
 
 import com.example.android.vcare.model.APIResult;
+import com.example.android.vcare.model.DashboardResult;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -128,4 +129,10 @@ public interface TaskService {
     Call<APIResult> updateEmergencyNumber(@Field("parent_id") String parentId,
                                           @Field("person_name") String personName,
                                           @Field("emergency_number") String emergencyNumber);
+
+    @FormUrlEncoded
+    @Headers({"Accept: application/json"})
+    @POST("parent/parentdashboard")
+    Call<DashboardResult> getDashboard(@Field("parent_id") String parentId,
+                                       @Field("mobile_token") String mobileToken);
 }

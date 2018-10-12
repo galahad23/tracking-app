@@ -1,57 +1,158 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.AlertDialog;
-//import android.app.ProgressDialog;
-//import android.content.Context;
-//import android.content.DialogInterface;
-//import android.content.Intent;
-//import android.database.Cursor;
-//import android.os.Bundle;
-//import android.support.v4.app.Fragment;
-//import android.support.v4.app.FragmentTransaction;
-//import android.support.v4.view.PagerAdapter;
-//import android.support.v4.view.ViewPager;
-//import android.support.v7.widget.DefaultItemAnimator;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
-//import android.util.Log;
-//import android.view.Display;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.LinearLayout;
-//import android.widget.TextView;
-//import android.widget.Toast;
-//
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.AutoScrollViewPager;
-//import com.example.android.vcare.model.CirclePageIndicator;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.Group_detail_list;
-//import com.example.android.vcare.model.UserData;
-//import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
-//import com.example.android.vcare.ui.login.LoginActivity;
-//import com.squareup.picasso.Picasso;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//
-//public class Dashboard extends Fragment {
-//    GPSTracker gps;
+package com.example.android.vcare.ui.dashboard;
+
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
+import android.view.View;
+
+import com.example.android.vcare.MyApplication;
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityDashboardBinding;
+import com.example.android.vcare.event.DashboardEvent;
+import com.example.android.vcare.job.GetDashboardJob;
+import com.example.android.vcare.model.DashboardResult;
+import com.example.android.vcare.model.Device;
+import com.example.android.vcare.model.Group;
+import com.example.android.vcare.model.Plan;
+import com.example.android.vcare.model2.Banner;
+import com.example.android.vcare.ui.BaseActivity;
+import com.example.android.vcare.ui.welcome.WelcomeBannerAdapter;
+import com.example.android.vcare.util.EventBusUtil;
+import com.example.android.vcare.util.Util;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.joda.time.DateTime;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class DashboardActivity extends BaseActivity {
+    public static void start(Context context) {
+        Intent starter = new Intent(context, DashboardActivity.class);
+        context.startActivity(starter);
+    }
+
+    private ActivityDashboardBinding binding;
+    private final int hashCode = hashCode();
+    private WelcomeBannerAdapter bannerAdapter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+        setToolbarTitle(R.string.dashboard);
+        enableBackAlert();
+        initWelcomeBanner();
+        initView();
+
+        getDashboard();
+
+        Util.setListShown(binding.bannerLayout, binding.progressContainer, true, true);
+    }
+
+    private void initView() {
+        binding.swipeRefresh.setOnRefreshListener(onRefreshListener);
+    }
+
+    private SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            getDashboard();
+        }
+    };
+
+    private void getDashboard() {
+        MyApplication.addJobInBackground(new GetDashboardJob(hashCode));
+    }
+
+    private void initWelcomeBanner() {
+        bannerAdapter = new WelcomeBannerAdapter(this, getBannerList())
+                .setEnableCenterCrop(false);
+        binding.viewPager.setAdapter(bannerAdapter);
+
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                int current = binding.viewPager.getCurrentItem() + 1;
+                if (current == bannerAdapter.getCount()) {
+                    current = 0;
+                }
+                binding.viewPager.setCurrentItem(current, true);
+            }
+        };
+
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 500, 3500);
+        binding.indicator.setViewPager(binding.viewPager);
+    }
+
+    private List<Banner> getBannerList() {
+        final List<Banner> bannerList = new ArrayList<>();
+        bannerList.add(new Banner().setDrawableId(R.drawable.welcome_banner1).setDesciption(getString(R.string.welcome_banner_desc1)));
+        bannerList.add(new Banner().setDrawableId(R.drawable.welcome_banner2).setDesciption(getString(R.string.welcome_banner_desc2)));
+        bannerList.add(new Banner().setDrawableId(R.drawable.welcome_banner3).setDesciption(getString(R.string.welcome_banner_desc3)));
+        bannerList.add(new Banner().setDrawableId(R.drawable.welcome_banner4).setDesciption(getString(R.string.welcome_banner_desc4)));
+        bannerList.add(new Banner().setDrawableId(R.drawable.welcome_banner5).setDesciption(getString(R.string.welcome_banner_desc5)));
+        return bannerList;
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHandle(DashboardEvent.OnGetDashboard event) {
+        if (hashCode == event.getHashCode()) {
+            DashboardResult result = event.getResult();
+            populateNotification(result.getPlan());
+            populateTrackDevice(result.getDevice().get(0));
+            populateTotalGroup(result.getGroup().get(0));
+        }
+    }
+
+    private void populateTotalGroup(Group group) {
+        binding.totalGroup.setText(String.valueOf(group.getTotalGroup()));
+    }
+
+    private void populateTrackDevice(Device device) {
+        binding.onlineDevice.setText(String.valueOf(device.getActiveChild()));
+        binding.offlineDevice.setText(String.valueOf(device.getInactiveChild()));
+    }
+
+    private void populateNotification(Plan plan) {
+        if (TextUtils.isEmpty(plan.getPlanExpired())) {
+            String message = String.format(getString(R.string.expire_on_s), new DateTime(plan.getPlanExpired().replace(" ", "T")).toString("dd-MM-yyyy"));
+            binding.notification.setText(message);
+            binding.notification.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBusUtil.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBusUtil.unregister(this);
+    }
+    //    GPSTracker gps;
 //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
@@ -77,7 +178,7 @@
 //    private MyViewPagerAdapter myViewPagerAdapter;
 //    private int[] layouts;
 //
-//    public Dashboard() {
+//    public Dashboard2() {
 //        // Required empty public constructor
 //    }
 //
@@ -85,7 +186,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+//        View rootView = inflater.inflate(R.layout.                                                                                                                                         ,                nn container, false);
 //
 //        databaseHandler = new DatabaseHandler(getActivity());
 //        feeditem = new ArrayList<User_Detail>();
@@ -265,7 +366,7 @@
 //        add_group.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Fragment frag = new Member_group();
+//                Fragment frag = new MemberGroupActivity();
 //                MainActivity.title.setText("Group");
 //                FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.container_body, frag);
@@ -277,7 +378,7 @@
 //        childgroup.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Fragment frag = new Member_group();
+//                Fragment frag = new MemberGroupActivity();
 //                MainActivity.title.setText("Group");
 //                FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.container_body, frag);
@@ -307,7 +408,7 @@
 //        grouplayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Fragment frag = new Member_group();
+//                Fragment frag = new MemberGroupActivity();
 //                MainActivity.title.setText("Group");
 //                FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.container_body, frag);
@@ -319,7 +420,7 @@
 //        parent_grouplayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Fragment frag = new Member_group();
+//                Fragment frag = new MemberGroupActivity();
 //                MainActivity.title.setText("Group");
 //                FragmentTransaction ft = getFragmentManager().beginTransaction();
 //                ft.replace(R.id.container_body, frag);
@@ -409,7 +510,7 @@
 //
 //    @Override
 //    public void onResume() {
-//        MainActivity.title.setText("Dashboard");
+//        MainActivity.title.setText("Dashboard2");
 //
 //        Cursor cursor1 = databaseHandler.get_token_detail();
 //        if (cursor1 != null) {
@@ -510,7 +611,6 @@
 //
 //
 //                                if (active_child.equals("0") && inactive_child.equals("0") && group.equals("0")) {
-//
 //                                    add_layout.setVisibility(View.VISIBLE);
 //                                    main_child_layout.setVisibility(View.GONE);
 //                                    parent_device_layout.setVisibility(View.GONE);
@@ -1227,6 +1327,4 @@
 //        // Showing Alert Message
 //        alertDialog.show();
 //    }
-//
-//
-//}
+}

@@ -36,26 +36,28 @@
             android:id="@+id/accept"
             android:layout_marginRight="5dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:background="@drawable/btn_blue_oval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
-                android:background="@drawable/ic_done_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <!--<ImageView-->
+            <!--android:background="@drawable/ic_done_24"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/delete"
             android:layout_marginLeft="5dp"
             android:gravity="center"
-            android:background="@drawable/circle_pink"
+            android:background="@drawable/btn_pink_oval"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
-                android:background="@drawable/ic_clear_24_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <!--<ImageView-->
+            <!--android:background="@drawable/ic_clear_24_1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
         </LinearLayout>
 
 

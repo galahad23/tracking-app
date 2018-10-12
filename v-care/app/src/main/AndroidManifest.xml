@@ -264,6 +264,21 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.White"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.member.MemberGroupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.White"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.plan.SubscriptionPlanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.White"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.dashboard.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.White"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

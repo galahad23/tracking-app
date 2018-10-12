@@ -98,7 +98,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void setHasBackAlert() {
+    public void enableBackAlert() {
         this.hasBackAlert = true;
     }
 

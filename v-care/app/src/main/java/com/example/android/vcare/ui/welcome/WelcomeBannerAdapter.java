@@ -17,10 +17,16 @@ import java.util.List;
 public class WelcomeBannerAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     private List<Banner> bannerList;
+    private boolean enableCenterCrop = true;
 
     public WelcomeBannerAdapter(Context context, List<Banner> bannerList) {
         this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.bannerList = bannerList;
+    }
+
+    public WelcomeBannerAdapter setEnableCenterCrop(boolean enableCenterCrop) {
+        this.enableCenterCrop = enableCenterCrop;
+        return this;
     }
 
     @Override
@@ -30,6 +36,10 @@ public class WelcomeBannerAdapter extends PagerAdapter {
 
         ImageView image = (ImageView) view.findViewById(R.id.image);
         TextView description = (TextView) view.findViewById(R.id.description);
+
+        if (enableCenterCrop) {
+            image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
 
         Banner banner = bannerList.get(position);
         image.setImageResource(banner.getDrawableId());

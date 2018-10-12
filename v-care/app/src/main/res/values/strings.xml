@@ -96,4 +96,17 @@
     <string name="no_data_found">No Data</string>
     <string name="error">Error</string>
     <string name="at_least_one_emergency_contact">At least one emergency contact is required.</string>
+    <string name="add_new_group">Add New Group</string>
+    <string name="you_have_not_added_any_group">You have not added any group/</string>
+    <string name="add_now">Add Now</string>
+    <string name="upgrade_plan">Upgrade Plan</string>
+    <string name="current_plan">Current Plan:</string>
+    <string name="price">Price:</string>
+    <string name="total_device">Total Device</string>
+    <string name="track_device_request_tnc"><![CDATA[You accepted the term & condition and agreed to be tracked location for your safety and risk management purpose by your member]]></string>
+    <string name="view_all">View All</string>
+    <string name="recent_track_device_request">Recent Track Device Request</string>
+    <string name="recent_group_request">Recent Group Request</string>
+    <string name="expire_on_s">Expire on %s</string>
+    <string name="total_groups">Total Groups</string>
 </resources>

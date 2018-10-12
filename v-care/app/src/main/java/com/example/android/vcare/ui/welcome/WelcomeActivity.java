@@ -42,7 +42,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
-        setHasBackAlert();
+        enableBackAlert();
 
 //        prefManager = new PrefManager(this);
 //        if (!prefManager.isFirstTimeLaunch()) {

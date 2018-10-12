@@ -740,20 +740,20 @@
 //        expListView.setAdapter(listAdapter);
 //
 //        if (position_class == null) {
-//            fragment = new Dashboard();
+//            fragment = new Dashboard2();
 //            title.setText("Dashboard");
 //        } else if (position_class.equals("3")) {
 //
 //            fragment = new Track_member_device();
 //            title.setText("Track Members Device");
 //        } else if (position_class.equals("6")) {
-//            fragment = new Member_group();
+//            fragment = new MemberGroupActivity();
 //            title.setText("Groups");
 //        } else if (position_class.equals("7")) {
 //            fragment = new FAQActivity();
 //            title.setText("FAQActivity");
 //        } else {
-//            fragment = new Member_group();
+//            fragment = new MemberGroupActivity();
 //            title.setText("Groups");
 //        }
 //
@@ -1421,7 +1421,7 @@
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Dashboard();
+//                        fragment = new Dashboard2();
 //                        title.setText("Dashboard");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();
@@ -1446,7 +1446,7 @@
 //                            startActivity(intent);
 //                        } else {
 //
-//                            fragment = new subscription_plan();
+//                            fragment = new SubscriptionPlanActivity();
 //                            title.setText("Subscription Plan");
 //                            if (fragment != null) {
 //                                FragmentManager fragmentManager = getSupportFragmentManager();
@@ -1545,7 +1545,7 @@
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Member_group();
+//                        fragment = new MemberGroupActivity();
 //                        title.setText("Groups");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

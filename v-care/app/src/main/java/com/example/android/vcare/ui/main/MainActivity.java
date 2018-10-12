@@ -17,11 +17,7 @@ import com.example.android.vcare.R;
 import com.example.android.vcare.common.Constants;
 import com.example.android.vcare.databinding.ActivityMainBinding;
 import com.example.android.vcare.ui.BaseActivity;
-import com.example.android.vcare.ui.login.ChangePasswordActivity;
-import com.example.android.vcare.ui.profile.EditProfileActivity;
-import com.example.android.vcare.ui.profile.EmergencyContactActivity;
 import com.example.android.vcare.ui.settings.FAQActivity;
-import com.example.android.vcare.ui.settings.TermsConditionActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,7 +105,7 @@ public class MainActivity extends BaseActivity {
         setToolbarTitle(R.string.dashboard);
         setDisplayHomeAsUpEnabled();
         setHomeButtonEnabled();
-        setHasBackAlert();
+        enableBackAlert();
         initDrawer();
 //        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //        StrictMode.setThreadPolicy(policy);
@@ -725,20 +721,20 @@ public class MainActivity extends BaseActivity {
                 FAQActivity.start(this);
                 break;
             case Constants.MenuId.EMERGENCY_CONTACTS:
-                EmergencyContactActivity.start(this);
+//                EmergencyContactActivity.start(this);
                 break;
             case Constants.MenuId.TERMS_CONDITION:
-                TermsConditionActivity.start(this);
+//                TermsConditionActivity.start(this);
                 break;
             case Constants.MenuId.LOGOUT:
                 MenuActionUtil.logout(this);
                 break;
             //Sub Menu
             case Constants.MenuId.EDIT_PROFILE:
-                EditProfileActivity.start(this);
+//                EditProfileActivity.start(this);
                 break;
             case Constants.MenuId.CHANGE_PASSWORD:
-                ChangePasswordActivity.start(this);
+//                ChangePasswordActivity.start(this);
                 break;
             default:
                 break;
@@ -974,74 +970,7 @@ public class MainActivity extends BaseActivity {
 //
 //        return false;
 //    }
-//
-//    private void Logout_user() {
-//        // TODO Auto-generated method stub
-//        pDialog = new ProgressDialog(MainActivity2.this);
-//        pDialog.setMessage("Please Wait...");
-//        pDialog.setCancelable(false);
-//        pDialog.show();
-//        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL + "logout",
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        pDialog.dismiss();
-//                        // response
-//                        Log.e("Responsesearch", response);
-//                        try {
-//                            JSONObject objJson = new JSONObject(response);
-//                            int success = objJson.getInt("success");
-//                            if (success == 1) {
-//                                String msg = objJson.getString("text");
-//                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//                                boolean b = user_handler.logoutUser(getApplicationContext());
-//                                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-//                                startActivity(i);
-//                                finishAffinity();
-//
-//                            } else if (success == 0) {
-//                                String msg = objJson.getString("text");
-//                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//                            } else if (success == 2) {
-//                                String msg = objJson.getString("text");
-//                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//                            } else if (success == 3) {
-//                                String msg = objJson.getString("text");
-//                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-//                            }
-//
-//                        } catch (JSONException e) {
-//                            // TODO Auto-generated catch block
-//                            Log.e("Error.Response", e.toString());
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        pDialog.dismiss();
-//
-//                        // error
-//                        Log.e("Error.Response", error.toString());
-//                    }
-//                }
-//        ) {
-//            @Override
-//            protected Map<String, String> getParams() {
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("parent_id", parent_id);
-//
-//                Log.e("Insertttt", params.toString());
-//                return params;
-//            }
-//        };
-//
-//        req.setShouldCache(false);
-//        AppController.getInstance().addToRequestQueue(req);
-//
-//    }
-//
+
 //    private void updateversion() {
 //        // TODO Auto-generated method stub
 //        StringRequest req = new StringRequest(Request.Method.POST, Config.YOUR_API_URL + "Update_Android_Version",
@@ -1315,7 +1244,7 @@ public class MainActivity extends BaseActivity {
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Dashboard();
+//                        fragment = new Dashboard2();
 //                        title.setText("Dashboard");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();
@@ -1340,7 +1269,7 @@ public class MainActivity extends BaseActivity {
 //                            startActivity(intent);
 //                        } else {
 //
-//                            fragment = new subscription_plan();
+//                            fragment = new SubscriptionPlanActivity();
 //                            title.setText("Subscription Plan");
 //                            if (fragment != null) {
 //                                FragmentManager fragmentManager = getSupportFragmentManager();
@@ -1439,7 +1368,7 @@ public class MainActivity extends BaseActivity {
 //                convertView.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View v) {
-//                        fragment = new Member_group();
+//                        fragment = new MemberGroupActivity();
 //                        title.setText("Groups");
 //                        if (fragment != null) {
 //                            FragmentManager fragmentManager = getSupportFragmentManager();

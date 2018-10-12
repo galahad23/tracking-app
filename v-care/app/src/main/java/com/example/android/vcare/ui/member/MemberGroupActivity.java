@@ -1,52 +1,33 @@
-//package com.example.android.vcare.pending;
-//
-//import android.app.AlertDialog;
-//import android.app.ProgressDialog;
-//import android.content.Context;
-//import android.content.DialogInterface;
-//import android.content.Intent;
-//import android.database.Cursor;
-//import android.os.Bundle;
-//import android.os.StrictMode;
-//import android.support.v4.app.Fragment;
-//import android.support.v7.widget.DefaultItemAnimator;
-//import android.support.v7.widget.LinearLayoutManager;
-//import android.support.v7.widget.RecyclerView;
-//import android.util.Log;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.Button;
-//import android.widget.ImageView;
-//import android.widget.LinearLayout;
-//import android.widget.TextView;
-//import android.widget.Toast;
-//
-//import com.android.volley.DefaultRetryPolicy;
-//import com.android.volley.Request;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.StringRequest;
-//import com.example.android.vcare.AppController;
-//import com.example.android.vcare.R;
-//import com.example.android.vcare.model.DatabaseHandler;
-//import com.example.android.vcare.model.Group_detail_list;
-//import com.example.android.vcare.model.User_Detail;
-//import com.example.android.vcare.model.UserHandler;
-//import com.example.android.vcare.ui.login.LoginActivity;
-//import com.squareup.picasso.Picasso;
-//
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
-//
-//public class Member_group extends Fragment {
-//    UserHandler2 user_handler = new UserHandler2();
+package com.example.android.vcare.ui.member;
+
+import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
+import com.example.android.vcare.R;
+import com.example.android.vcare.databinding.ActivityMemberGroupBinding;
+import com.example.android.vcare.ui.BaseActivity;
+
+public class MemberGroupActivity extends BaseActivity {
+    public static void start(Context context) {
+        Intent starter = new Intent(context, MemberGroupActivity.class);
+        context.startActivity(starter);
+    }
+
+    private ActivityMemberGroupBinding binding;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_member_group);
+        setDisplayHomeAsUpEnabled();
+        setBackNavigation();
+        setToolbarTitle(R.string.member_group);
+    }
+
+    //    UserHandler2 user_handler = new UserHandler2();
 //    DatabaseHandler databaseHandler;
 //    private List<User_Detail> feeditem;
 //    ProgressDialog pDialog;
@@ -58,7 +39,7 @@
 //
 //    Button add_group;
 //
-//    public Member_group() {
+//    public MemberGroupActivity() {
 //        // Required empty public constructor
 //    }
 //
@@ -71,7 +52,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View rootView = inflater.inflate(R.layout.fragment_member_group, container, false);
+//        View rootView = inflater.inflate(R.layout.activity_member_group, container, false);
 //        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //        StrictMode.setThreadPolicy(policy);
 //        databaseHandler = new DatabaseHandler(getActivity());
@@ -415,8 +396,4 @@
 //            return help_details.size();
 //        }
 //    }
-//
-//
-//
-//
-//}
+}
